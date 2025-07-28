@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3af892f64c589049be61ec11582990a, type: 3}
+  m_Name: Stage1
+  m_EditorClassIdentifier: 
+  stageID: 1
+  timeLimit: 300
+  buildingInfo:
+    point1type: 1
+    point1level: 0
+    point2type: 0
+    point2level: 0
+    point3type: 0
+    point3level: 0
+    point4type: 0
+    point4level: 0
+    point5type: 0
+    point5level: 0
+    point6type: 0
+    point6level: 0
+  animalSpawnInfo:
+    ChickenNum: 3
+    SheepNum: 0
+    CowNum: 0
+  stageReward:
+    gold: 0
+    experience: 0

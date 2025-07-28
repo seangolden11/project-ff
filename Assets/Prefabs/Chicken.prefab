@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2042254605193682120}
   - component: {fileID: 3075312844662685611}
   - component: {fileID: 6717694869291441031}
+  - component: {fileID: 5586083131236671577}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -126,6 +127,24 @@ MonoBehaviour:
   maxBounds: {x: 10, y: 10}
   minMoveTime: 2
   maxMoveTime: 5
+  minIdleTime: 4
+  maxIdleTime: 10
+  grassTag: Grass
+  feedInterval: 10
+  grassSearchRadius: 15
+--- !u!114 &5586083131236671577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856370086919550665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 825da19022c779b468781a81a825257f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedAnimalType: 0
 --- !u!1 &8729630219831913500
 GameObject:
   m_ObjectHideFlags: 0
