@@ -124,10 +124,10 @@ public class PrefabManager : MonoBehaviour
     /// <param name="prefabName">가져올 프리팹의 이름</param>
     /// <param name="parent">새로 생성될 오브젝트의 부모 Transform (선택 사항)</param>
     /// <returns>생성된 GameObject 또는 null (프리팹을 찾지 못했을 경우)</returns>
-    public GameObject InstantiatePrefab(string prefabName, Transform parent = null)
+    public GameObject InstantiatePrefab(string prefabName,Transform trans ,Transform parent = null)
     {
         // 기본 위치와 회전으로 오버로드된 함수를 호출합니다.
-        return InstantiatePrefab(prefabName, Vector3.zero, Quaternion.identity, parent);
+        return InstantiatePrefab(prefabName, trans.position, trans.rotation,parent);
     }
 
     /// <summary>
