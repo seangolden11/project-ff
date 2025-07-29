@@ -6,6 +6,7 @@ public class PlayerSpawner : MonoBehaviour
 {
 
     public Transform wellspot;
+    public Transform sellspot;
     public Transform animalSpot;
     public int stageNum;
     public Transform spot1;
@@ -19,6 +20,7 @@ public class PlayerSpawner : MonoBehaviour
     void Start()
     {
         GameObject well = PrefabManager.Instance.InstantiatePrefab("well", wellspot);
+        GameObject sell = PrefabManager.Instance.InstantiatePrefab("sell", sellspot);
 
 
 

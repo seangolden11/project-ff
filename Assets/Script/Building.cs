@@ -57,23 +57,16 @@ public class Building : MonoBehaviour
                 Debug.Log($"{transformationTime}초 후에 아이템이 변환됩니다...");
                 yield return new WaitForSeconds(transformationTime);
 
-                // 플레이어가 여전히 트리거 안에 있는지 다시 확인
-                if (playerInsideTrigger)
+                
+                // 3. 다른 아이템으로 변환하여 인벤토리에 추가
+                Debug.Log($"{itemToTake}이(가) {itemToGive}으로 변환되었습니다. 인벤토리에 추가합니다.");
+                for (int i = 0; i < count; i++)
                 {
-                    // 3. 다른 아이템으로 변환하여 인벤토리에 추가
-                    Debug.Log($"{itemToTake}이(가) {itemToGive}으로 변환되었습니다. 인벤토리에 추가합니다.");
-                    for (int i = 0; i < count; i++)
-                    {
-                        playerInventory.AddItem(itemToGive);
-                    }
-                    playerInsideTrigger = false;
+                    PrefabManager.Instance.InstantiatePrefab(itemToGive.Name, transform.position, transform.rotation);
                 }
-                else
-                {
-                    Debug.Log("플레이어가 트리거를 벗어나 아이템 변환이 완료되지 않았습니다.");
-                    // 아이템을 다시 돌려주거나 다른 처리를 할 수 있습니다.
-                    // playerInventory.AddItem(itemToTakeName); // 예시: 아이템을 다시 돌려줌
-                }
+                playerInsideTrigger = false;
+                
+                
             }
             else
             {

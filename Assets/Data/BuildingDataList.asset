@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BuildingDataList
   m_EditorClassIdentifier: Assembly-CSharp::BuildingInfos
   itemsBuilding:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 0f5d346d66681f14e9ba76e758c06b4b, type: 2}

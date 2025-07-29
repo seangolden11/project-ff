@@ -20,22 +20,23 @@ public class Inventory : MonoBehaviour
 
         public void UpdateVisuals()
         {
+            if (visualItem)
+                {
+                    PrefabManager.Instance.Deactive(visualItem);
+                    visualItem = null;
+                }
 
             if (item != null)
             {
-
-                visualItem = PrefabManager.Instance.InstantiatePrefab(item.itemName, Vector3.zero, Quaternion.identity, visualItemContainer);
+                
+                visualItem = PrefabManager.Instance.InstantiatePrefab(item.itemName, Vector3.zero, Quaternion.identity);
+                visualItem.transform.parent = visualItemContainer;
                 // 아이템이 쌓이는 위치 조정 (예: y축으로 쌓기)
                 visualItem.transform.localPosition = new Vector3((slotNum / 4) % 4 - 2, (slotNum / 16) * 1f, slotNum % 4 + 1); // 예시: 0.1f씩 Y축으로 쌓음
 
 
 
 
-            }
-            else
-            {
-                if (visualItem)
-                    visualItem.SetActive(false);
             }
         }
         public InventorySlot(int num, Transform transform)
@@ -95,7 +96,7 @@ public class Inventory : MonoBehaviour
                 currentCount--;
                 removedCount++;
 
-                if (removedCount*item.Size >= amount)
+                if (amount*item.Size <= removedCount)
                 {
                     break;
                 }

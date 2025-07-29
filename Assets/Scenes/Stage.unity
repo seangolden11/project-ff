@@ -175,7 +175,7 @@ Transform:
   m_GameObject: {fileID: 277019407}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3535, y: 0, z: -0.382}
+  m_LocalPosition: {x: 0.3535, y: 1, z: -0.382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -212,6 +212,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1736268849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &583880085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 583880086}
+  - component: {fileID: 583880087}
+  - component: {fileID: 583880088}
+  m_Layer: 3
+  m_Name: Inventory
+  m_TagString: Inventory
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &583880086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583880085}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 888744816}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &583880087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583880085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece90257641886645b966113dd5a0714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySlotLimit: 40
+  inventorySlots: []
+  currentCount: 0
+--- !u!65 &583880088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583880085}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &593051762
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +574,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 583880086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &888744818
@@ -852,6 +922,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wellspot: {fileID: 1657073390}
+  sellspot: {fileID: 9055735}
+  animalSpot: {fileID: 1843106513}
+  stageNum: 0
+  spot1: {fileID: 277019408}
+  stageList: {fileID: 11400000, guid: 4bac2be861d5893459db4a3d41817663, type: 2}
 --- !u!4 &1458230248
 Transform:
   m_ObjectHideFlags: 0
@@ -888,7 +963,25 @@ MonoBehaviour:
     initialPoolSize: 20
   - prefabName: Egg
     prefabObject: {fileID: 8978846153405838608, guid: 7eba9e2f8226a4042bdeb240ff23641b, type: 3}
-    initialPoolSize: 20
+    initialPoolSize: 1
+  - prefabName: Chicken
+    prefabObject: {fileID: 8729630219831913500, guid: 0991ffcb702d7a14d800241ef90330d5, type: 3}
+    initialPoolSize: 1
+  - prefabName: EggItem
+    prefabObject: {fileID: 4912696847548348841, guid: adef0a059988acd47ba7caab7ce576f1, type: 3}
+    initialPoolSize: 1
+  - prefabName: Powder
+    prefabObject: {fileID: 1371889348260875808, guid: b0e3dab4080e161449108c6c16f78990, type: 3}
+    initialPoolSize: 1
+  - prefabName: EggPowder
+    prefabObject: {fileID: 7644772062377520864, guid: 16628309c326f9a45be4a8ae87dff66b, type: 3}
+    initialPoolSize: 1
+  - prefabName: EggPowderItem
+    prefabObject: {fileID: 7644772062377520864, guid: a5058fa8c6bf1fb4c8f9e14456c28591, type: 3}
+    initialPoolSize: 1
+  - prefabName: Sell
+    prefabObject: {fileID: 821474321794191316, guid: 8580f8be662c3854d8115c8066b58c3e, type: 3}
+    initialPoolSize: 1
 --- !u!1 &1585477006
 GameObject:
   m_ObjectHideFlags: 0

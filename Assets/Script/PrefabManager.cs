@@ -81,7 +81,7 @@ public class PrefabManager : MonoBehaviour
     /// <param name="rotation">새로 생성될 오브젝트의 회전</param>
     /// <param name="parent">새로 생성될 오브젝트의 부모 Transform (선택 사항)</param>
     /// <returns>생성된 GameObject 또는 null (프리팹을 찾지 못했을 경우)</returns>
-    public GameObject InstantiatePrefab(string prefabName, Vector3 position, Quaternion rotation, Transform parent = null)
+    public GameObject InstantiatePrefab(string prefabName, Vector3 position, Quaternion rotation)
     {
         if (!prefabDictionary.ContainsKey(prefabName))
         {
@@ -97,7 +97,6 @@ public class PrefabManager : MonoBehaviour
                 if (!obj.activeInHierarchy) // 비활성화된 오브젝트가 있다면
                 {
                     obj.transform.SetPositionAndRotation(position, rotation);
-                    obj.transform.SetParent(parent);
                     obj.SetActive(true);
                     return obj;
                 }
@@ -110,11 +109,17 @@ public class PrefabManager : MonoBehaviour
         }
 
         // 비활성화된 오브젝트가 없으면 새로 생성합니다.
-        GameObject newObject = Instantiate(prefabDictionary[prefabName], position, rotation, parent);
+        GameObject newObject = Instantiate(prefabDictionary[prefabName], position, rotation, this.transform);
         newObject.name = prefabName; // 이름 설정
         objectPool[prefabName].Add(newObject); // 새로 생성된 오브젝트를 풀에 추가
         Debug.Log($"PrefabManager: Instantiated new object for '{prefabName}' (pool expanded).");
         return newObject;
+    }
+
+    public void Deactive(GameObject gameobj)
+    {
+        gameobj.SetActive(false);
+        gameobj.transform.parent = this.transform;
     }
 
     /// <summary>
@@ -124,10 +129,10 @@ public class PrefabManager : MonoBehaviour
     /// <param name="prefabName">가져올 프리팹의 이름</param>
     /// <param name="parent">새로 생성될 오브젝트의 부모 Transform (선택 사항)</param>
     /// <returns>생성된 GameObject 또는 null (프리팹을 찾지 못했을 경우)</returns>
-    public GameObject InstantiatePrefab(string prefabName,Transform trans ,Transform parent = null)
+    public GameObject InstantiatePrefab(string prefabName, Transform trans, Transform parent = null)
     {
         // 기본 위치와 회전으로 오버로드된 함수를 호출합니다.
-        return InstantiatePrefab(prefabName, trans.position, trans.rotation,parent);
+        return InstantiatePrefab(prefabName, trans.position, trans.rotation);
     }
 
     /// <summary>

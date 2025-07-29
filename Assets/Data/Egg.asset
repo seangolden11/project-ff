@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Egg
   m_EditorClassIdentifier: 
   itemName: EggItem
+  Name: Egg
   icon: {fileID: 0}
   prefab: {fileID: 8978846153405838608, guid: 7eba9e2f8226a4042bdeb240ff23641b, type: 3}
   Size: 3
