@@ -3,42 +3,52 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "NewStageData", menuName = "Game Data/Stage Data")]
-
 public class StageData : ScriptableObject
 {
     public int stageID;
-    // public string stageName;
     public float timeLimit;
 
     public BuildingSpawnInfo buildingInfo;
     public AnimalSpawnInfo animalSpawnInfo;
-    public RewardInfo stageReward; // 스테이지 클리어 보상 정보
+    public RewardInfo stageReward;
+    public Goal goal;
 
     public enum Buildingtype { None, Powder }
+    public enum Itemtype { Money, EggPowder,Egg,Chicken }
 
     // 필요한 다른 스테이지 관련 데이터 추가
 
     [System.Serializable]
     public class BuildingSpawnInfo
     {
-        public Buildingtype point1type;
-        public int point1level;
-
-        public Buildingtype point2type;
-        public int point2level;
-
-        public Buildingtype point3type;
-        public int point3level;
-
-        public Buildingtype point4type;
-        public int point4level;
-
-        public Buildingtype point5type;
-        public int point5level;
-
-        public Buildingtype point6type;
-        public int point6level;
+        // 기존의 고정된 point1type, point1level 등을 제거하고 리스트로 대체합니다.
+        public List<BuildingSpawnPoint> spawnBuilding; // 여기에 + 버튼이 생깁니다.
     }
+
+    // 새로운 Serializable 클래스를 정의하여 enum과 int 쌍을 묶습니다.
+    [System.Serializable]
+    public class BuildingSpawnPoint
+    {
+        public Buildingtype type;
+        public int level;
+        
+    }
+
+    [System.Serializable]
+    public class Goal
+    {
+        // 기존의 고정된 point1type, point1level 등을 제거하고 리스트로 대체합니다.
+        public List<GoalItems> goalItems; // 여기에 + 버튼이 생깁니다.
+    }
+
+    [System.Serializable]
+    public class GoalItems
+    {
+        public Itemtype type;
+        public int count;
+        
+    }
+
 
     [System.Serializable]
     public class AnimalSpawnInfo

@@ -15,18 +15,9 @@ MonoBehaviour:
   stageID: 1
   timeLimit: 300
   buildingInfo:
-    point1type: 1
-    point1level: 0
-    point2type: 0
-    point2level: 0
-    point3type: 0
-    point3level: 0
-    point4type: 0
-    point4level: 0
-    point5type: 0
-    point5level: 0
-    point6type: 0
-    point6level: 0
+    spawnBuilding:
+    - type: 1
+      level: 1
   animalSpawnInfo:
     ChickenNum: 3
     SheepNum: 0
@@ -34,3 +25,7 @@ MonoBehaviour:
   stageReward:
     gold: 0
     experience: 0
+  goal:
+    goalItems:
+    - type: 2
+      count: 5

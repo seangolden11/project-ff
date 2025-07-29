@@ -58,7 +58,7 @@ public class Inventory : MonoBehaviour
         currentCount = 0;
     }
 
-    public bool AddItem(Item itemToAdd)
+    public bool AddItem(Item itemToAdd)// 빈 슬롯 찬슬롯 나눠서 관리하기
     {
         if (inventorySlotLimit < itemToAdd.Size + currentCount)
             return false;

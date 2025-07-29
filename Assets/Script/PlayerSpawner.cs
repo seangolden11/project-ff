@@ -31,7 +31,7 @@ public class PlayerSpawner : MonoBehaviour
 
 
         
-        PrefabManager.Instance.InstantiatePrefab(stageList.allStages[stageNum].buildingInfo.point1type.ToString(), spot1);
+        PrefabManager.Instance.InstantiatePrefab(stageList.allStages[stageNum].buildingInfo.spawnBuilding[0].type.ToString(), spot1);
         
         
     }
