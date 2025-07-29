@@ -20,7 +20,7 @@ public class PlayerSpawner : MonoBehaviour
     void Start()
     {
         GameObject well = PrefabManager.Instance.InstantiatePrefab("well", wellspot);
-        GameObject sell = PrefabManager.Instance.InstantiatePrefab("sell", sellspot);
+        GameObject sell = PrefabManager.Instance.InstantiatePrefab("Sell", sellspot);
 
 
 

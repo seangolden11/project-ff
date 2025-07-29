@@ -17,3 +17,4 @@ MonoBehaviour:
   icon: {fileID: 0}
   prefab: {fileID: 7644772062377520864, guid: 16628309c326f9a45be4a8ae87dff66b, type: 3}
   Size: 2
+  sellPrice: 20
