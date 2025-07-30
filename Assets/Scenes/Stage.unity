@@ -259,7 +259,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventorySlotLimit: 40
   inventorySlots: []
-  currentCount: 0
+  items:
+  - {fileID: 11400000, guid: 8af4652321c028048a944b1a3fed81ab, type: 2}
+  - {fileID: 11400000, guid: 4800fa174e710274d980da16d7a7db84, type: 2}
+  inventoryCount: 0
+  visualItem: []
 --- !u!65 &583880088
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -387,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -398,7 +402,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1135,6 +1139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyChicken
       objectReference: {fileID: 0}
+    - target: {fileID: 4011762015527776630, guid: ee8a1ddb97c04ee4e9de1dd96017ed36, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1208,34 +1216,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e59893058986c64f84800f4bf21feb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabList:
-  - prefabName: well
-    prefabObject: {fileID: 362796493786901534, guid: ed8612c8f9d8fc047947cd2aa3709874, type: 3}
-    initialPoolSize: 1
-  - prefabName: Grass
-    prefabObject: {fileID: 2381536330808911894, guid: 50a82e8dda66bd54b9c674b1c5f8d9a3, type: 3}
-    initialPoolSize: 20
-  - prefabName: Egg
-    prefabObject: {fileID: 8978846153405838608, guid: 7eba9e2f8226a4042bdeb240ff23641b, type: 3}
-    initialPoolSize: 1
-  - prefabName: Chicken
-    prefabObject: {fileID: 8729630219831913500, guid: 0991ffcb702d7a14d800241ef90330d5, type: 3}
-    initialPoolSize: 1
-  - prefabName: EggItem
-    prefabObject: {fileID: 4912696847548348841, guid: adef0a059988acd47ba7caab7ce576f1, type: 3}
-    initialPoolSize: 1
-  - prefabName: Powder
-    prefabObject: {fileID: 1371889348260875808, guid: b0e3dab4080e161449108c6c16f78990, type: 3}
-    initialPoolSize: 1
-  - prefabName: EggPowder
-    prefabObject: {fileID: 7644772062377520864, guid: 16628309c326f9a45be4a8ae87dff66b, type: 3}
-    initialPoolSize: 1
-  - prefabName: EggPowderItem
-    prefabObject: {fileID: 7644772062377520864, guid: a5058fa8c6bf1fb4c8f9e14456c28591, type: 3}
-    initialPoolSize: 1
-  - prefabName: Sell
-    prefabObject: {fileID: 821474321794191316, guid: 8580f8be662c3854d8115c8066b58c3e, type: 3}
-    initialPoolSize: 1
+  poolSetups:
+  - prefab: {fileID: 8729630219831913500, guid: 0991ffcb702d7a14d800241ef90330d5, type: 3}
+    prefabName: Chicken
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 8978846153405838608, guid: 7eba9e2f8226a4042bdeb240ff23641b, type: 3}
+    prefabName: Egg
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 4912696847548348841, guid: adef0a059988acd47ba7caab7ce576f1, type: 3}
+    prefabName: EggItem
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 7644772062377520864, guid: 16628309c326f9a45be4a8ae87dff66b, type: 3}
+    prefabName: EggPowder
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 7644772062377520864, guid: a5058fa8c6bf1fb4c8f9e14456c28591, type: 3}
+    prefabName: EggPowderItem
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 2381536330808911894, guid: 50a82e8dda66bd54b9c674b1c5f8d9a3, type: 3}
+    prefabName: Grass
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 7276393720145696980, guid: 97804089e65d61d4a86e33acdba5baeb, type: 3}
+    prefabName: None
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 1371889348260875808, guid: b0e3dab4080e161449108c6c16f78990, type: 3}
+    prefabName: Powder
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 821474321794191316, guid: 8580f8be662c3854d8115c8066b58c3e, type: 3}
+    prefabName: Sell
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 362796493786901534, guid: ed8612c8f9d8fc047947cd2aa3709874, type: 3}
+    prefabName: well
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 8729630219831913500, guid: 3c62dd6b97060a44dbac23640e6676e3, type: 3}
+    prefabName: Sheep
+    defaultCapacity: 0
+    maxSize: 20
 --- !u!114 &1458230250
 MonoBehaviour:
   m_ObjectHideFlags: 0

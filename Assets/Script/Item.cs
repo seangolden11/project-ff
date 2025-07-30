@@ -7,7 +7,7 @@ public class Item : ScriptableObject
 {
     public string itemName;
     public string Name;
-    public Sprite icon; // UI에 표시될 2D 아이콘
+    public int inventoryNum;
     public GameObject prefab; // 3D 인벤토리에 표시될 아이템 프리팹
     public int Size = 3; // 스택 가능 여부 및 최대 스택 수
     public int sellPrice;

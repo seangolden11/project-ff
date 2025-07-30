@@ -12,7 +12,7 @@ public class AnimalGive : MonoBehaviour
         switch (selectedAnimalType)
         {
             case AnimalType.Chicken:
-                PrefabManager.Instance.InstantiatePrefab("Egg", this.transform.position, this.transform.rotation);
+                PrefabManager.Instance.Get("Egg", this.transform.position, this.transform.rotation);
                 break;
             default:
                 break;

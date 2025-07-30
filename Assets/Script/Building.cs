@@ -62,7 +62,7 @@ public class Building : MonoBehaviour
                 Debug.Log($"{itemToTake}이(가) {itemToGive}으로 변환되었습니다. 인벤토리에 추가합니다.");
                 for (int i = 0; i < count; i++)
                 {
-                    PrefabManager.Instance.InstantiatePrefab(itemToGive.Name, transform.position, transform.rotation);
+                    PrefabManager.Instance.Get(itemToGive.Name, transform.position, transform.rotation);
                 }
                 playerInsideTrigger = false;
                 

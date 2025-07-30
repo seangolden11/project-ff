@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 
 public class Inventory : MonoBehaviour
@@ -7,7 +8,11 @@ public class Inventory : MonoBehaviour
     public int inventorySlotLimit = 20; // 인벤토리 슬롯 제한
     public List<InventorySlot> inventorySlots = new List<InventorySlot>();
 
-    public int currentCount;
+    public List<Item> items = new List<Item>();
+
+    public int inventoryCount =0;
+
+    public List<GameObject> visualItem = new List<GameObject>();
 
     [System.Serializable]
     public class InventorySlot
@@ -15,131 +20,129 @@ public class Inventory : MonoBehaviour
         public Item item;
         public Transform visualItemContainer; // 3D 시각화를 위한 부모 오브젝트
         public int slotNum;
-        public bool IsEmpty => item == null;
-        GameObject visualItem;
 
-        public void UpdateVisuals()
+        public int quantity;
+        public bool IsEmpty => quantity == 0;
+        
+
+        
+        public InventorySlot(int num, Transform transform, Item item)
         {
-            if (visualItem)
-                {
-                    PrefabManager.Instance.Deactive(visualItem);
-                    visualItem = null;
-                }
+            this.slotNum = num;
+            this.visualItemContainer = transform;
+            this.item = item;
+            this.quantity = 0;
+            
+        }
 
-            if (item != null)
+
+    }
+
+    public void UpdateAddVisuals(Item item)
+    {
+        int i = inventoryCount - item.Size;
+
+        for (; i < inventoryCount; i++)
+        {
+            GameObject newobject = PrefabManager.Instance.Get(item.itemName, Vector3.zero, Quaternion.identity);
+            newobject.transform.parent = this.transform;
+            // 아이템이 쌓이는 위치 조정 (예: y축으로 쌓기)
+            newobject.transform.localPosition = new Vector3((i / 4) % 4 - 1.5f, (i / 16) * 1f, i % 4 + 1); // 예시: 0.1f씩 Y축으로 쌓음
+            visualItem.Add(newobject);
+        }
+    }
+    //시간이 남으면 최적화
+    public void UpdateDeleteVisuals(Item item = null, int amount = 0)
+    {
+        for (int i = 0; i < inventoryCount; i++)
+        {
+            GameObject newobject = visualItem[i];
+            PrefabManager.Instance.Release(newobject);
+            visualItem.Remove(newobject);
+        }
+
+            for (int i=0;i<inventorySlots.Count;i++)
             {
+
+                for (int j = 0; j < inventorySlots[i].quantity; j++)
+                {
+
+                    UpdateAddVisuals(inventorySlots[i].item);
+                }
                 
-                visualItem = PrefabManager.Instance.InstantiatePrefab(item.itemName, Vector3.zero, Quaternion.identity);
-                visualItem.transform.parent = visualItemContainer;
-                // 아이템이 쌓이는 위치 조정 (예: y축으로 쌓기)
-                visualItem.transform.localPosition = new Vector3((slotNum / 4) % 4 - 2, (slotNum / 16) * 1f, slotNum % 4 + 1); // 예시: 0.1f씩 Y축으로 쌓음
 
 
 
 
             }
-        }
-        public InventorySlot(int num, Transform transform)
-        {
-            this.slotNum = num;
-            this.visualItemContainer = transform;
-            this.item = null;
-        }
-
-
     }
 
     void Awake()
     {
-        for (int i = 0; i < inventorySlotLimit; i++)
+
+        for (int i = 0; i < items.Count; i++)
         {
-            inventorySlots.Add(new InventorySlot(i, this.transform));
+            inventorySlots.Add(new InventorySlot(i,this.transform,items[i]));
         }
-        currentCount = 0;
+        
     }
 
     public bool AddItem(Item itemToAdd)// 빈 슬롯 찬슬롯 나눠서 관리하기
     {
-        if (inventorySlotLimit < itemToAdd.Size + currentCount)
+        if (inventorySlotLimit < itemToAdd.Size + inventoryCount)
             return false;
 
-        int count = itemToAdd.Size;
-        // 기존 스택 가능한 슬롯 탐색
-        foreach (var slot in inventorySlots)
-        {
-            if (slot.IsEmpty)
-            {
-                slot.item = itemToAdd;
-                slot.UpdateVisuals();
-                count--;
-                currentCount++;
-            }
-            if (count == 0)
-            {
-                return true;
-            }
-        }
+
+        InventorySlot slot = inventorySlots[itemToAdd.inventoryNum];
+        inventoryCount += itemToAdd.Size;
+        slot.quantity++;
+        
+        UpdateAddVisuals(itemToAdd);
+        
+               
+        
         return true;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PickableItem"))
+        {
+            AddItem(other.GetComponent<ItemPickup>().item);
+            PrefabManager.Instance.Release(other.gameObject);
+        }
     }
 
     public int DeleteItem(Item item, int amount)
     {
 
         int removedCount = 0;
-        
+
         // 제거할 아이템을 찾아서 비움
-        for (int i = 0; i < inventorySlots.Count; i++)
+        InventorySlot slot = inventorySlots[item.inventoryNum];
+        if (slot.quantity > amount)
         {
-            if (!inventorySlots[i].IsEmpty && inventorySlots[i].item.itemName == item.itemName)
-            {
-                inventorySlots[i].item = null; // 아이템 데이터만 제거 (아직 시각화는 업데이트 안함)
-                currentCount--;
-                removedCount++;
-
-                if (amount*item.Size <= removedCount)
-                {
-                    break;
-                }
-            }
+            slot.quantity -= amount;
+            removedCount = amount;
+        }
+        else
+        {
+            removedCount = slot.quantity;
+            slot.quantity = 0;
         }
 
-        // 빈 슬롯을 채우기 위해 뒤의 아이템들을 앞으로 당김
-        int writeIndex = 0; // 아이템을 쓸 위치
-        for (int readIndex = 0; readIndex < inventorySlots.Count; readIndex++)
-        {
-            if (!inventorySlots[readIndex].IsEmpty) // 비어있지 않은 슬롯을 찾으면
-            {
-                if (writeIndex != readIndex) // 현재 위치가 쓸 위치와 다르면
-                {
-                    // 아이템 데이터를 앞으로 이동
-                    inventorySlots[writeIndex].item = inventorySlots[readIndex].item;
-                    inventorySlots[readIndex].item = null; // 원래 자리는 비움
-                }
-                writeIndex++; // 다음 쓸 위치로 이동
-            }
-        }
+        
+        UpdateDeleteVisuals(item, amount);
+        
 
-        // 이동된 아이템들과 비워진 뒷부분 슬롯들의 시각화 업데이트
-        // 이 루프에서만 Destroy와 Instantiate를 수행합니다.
-        for (int i = 0; i < inventorySlotLimit; i++)
-        {
-            inventorySlots[i].UpdateVisuals();
-        }
-
-        Debug.Log($"'{item.itemName}' {removedCount}개가 인벤토리에서 제거되었습니다. 현재 사용 중인 슬롯: {currentCount}/{inventorySlotLimit}");
-        return removedCount/item.Size;
+        Debug.Log($"'{item.itemName}' {removedCount}개가 인벤토리에서 제거되었습니다. 현재 사용 중인 슬롯: {inventoryCount}/{inventorySlotLimit}");
+        return removedCount;
     }
     
     public bool HasItem(Item item)
     {
-        foreach (var slot in inventorySlots)
-        {
-            if (!slot.IsEmpty && slot.item.itemName == item.itemName)
-            {
-                return true;
-            }
-        }
-        return false;
+        
+        return inventorySlots[item.inventoryNum].IsEmpty;;
     }
 
     // 아이템 제거, 특정 슬롯 아이템 가져오기 등 추가 함수 구현

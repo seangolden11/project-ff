@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 679185172848035097}
   m_Layer: 0
   m_Name: EggPowder
-  m_TagString: Untagged
+  m_TagString: PickableItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

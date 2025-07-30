@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,19 +20,19 @@ public class PlayerSpawner : MonoBehaviour
 
     void Start()
     {
-        GameObject well = PrefabManager.Instance.InstantiatePrefab("well", wellspot);
-        GameObject sell = PrefabManager.Instance.InstantiatePrefab("Sell", sellspot);
+        GameObject well = PrefabManager.Instance.Get("well", wellspot.position,quaternion.identity);
+        GameObject sell = PrefabManager.Instance.Get("Sell", sellspot.position, quaternion.identity);
 
 
 
         for (int i = 0; i < stageList.allStages[stageNum].animalSpawnInfo.ChickenNum; i++)
         {
-            PrefabManager.Instance.InstantiatePrefab("Chicken", animalSpot.position, animalSpot.rotation);
+            PrefabManager.Instance.Get("Chicken", animalSpot.position, animalSpot.rotation);
         }
 
 
         
-        PrefabManager.Instance.InstantiatePrefab(stageList.allStages[stageNum].buildingInfo.spawnBuilding[0].type.ToString(), spot1);
+        PrefabManager.Instance.Get(stageList.allStages[stageNum].buildingInfo.spawnBuilding[0].type.ToString(), spot1.position,quaternion.identity);
         
         
     }

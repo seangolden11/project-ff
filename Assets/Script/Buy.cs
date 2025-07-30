@@ -25,7 +25,7 @@ public class Buy : MonoBehaviour
         {
             if (MoneyManager.Instance.TryRemoveMoney(price))
             {
-                PrefabManager.Instance.InstantiatePrefab(type.ToString(), Vector3.up, quaternion.identity);
+                PrefabManager.Instance.Get(type.ToString(), Vector3.up, quaternion.identity);
             }
         }
     }
