@@ -37,44 +37,59 @@ public class Inventory : MonoBehaviour
 
 
     }
+    private Vector3 GetLocalPositionForVisual(int index)
+    {
+        // 예시: X축으로 4개 아이템, Z축으로 4개 줄, Y축으로 16개 아이템마다 한 층
+        float xPos = (index % 4) * 1f - 1.5f; // 필요에 따라 -1.5f를 조정하여 중앙에 배치
+        float yPos = (index / 16) * 1f;
+        float zPos = ((index / 4) % 4) * 1f + 1f; // 필요에 따라 +1f를 조정하여 깊이 조절
+        return new Vector3(xPos, yPos, zPos);
+    }
 
     public void UpdateAddVisuals(Item item)
     {
-        int i = inventoryCount - item.Size;
 
-        for (; i < inventoryCount; i++)
+        int index = 0;
+        foreach (var slot in inventorySlots)
+        {
+            if (slot.item == item)
+                break;
+            index += slot.quantity * slot.item.Size;
+        }
+
+        for (int i=0; i < item.Size; i++)
         {
             GameObject newobject = PrefabManager.Instance.Get(item.itemName, Vector3.zero, Quaternion.identity);
             newobject.transform.parent = this.transform;
-            // 아이템이 쌓이는 위치 조정 (예: y축으로 쌓기)
-            newobject.transform.localPosition = new Vector3((i / 4) % 4 - 1.5f, (i / 16) * 1f, i % 4 + 1); // 예시: 0.1f씩 Y축으로 쌓음
-            visualItem.Add(newobject);
+            visualItem.Insert(index,newobject);
+        }
+        for (int j = 0; j < visualItem.Count; j++)
+        {
+            visualItem[j].transform.localPosition = GetLocalPositionForVisual(j);
         }
     }
     //시간이 남으면 최적화
-    public void UpdateDeleteVisuals(Item item = null, int amount = 0)
+    public void UpdateDeleteVisuals(Item item, int amount)
     {
-        for (int i = 0; i < inventoryCount; i++)
+        int index = 0;
+        foreach (var slot in inventorySlots)
         {
-            GameObject newobject = visualItem[i];
+            if (slot.item == item)
+                break;
+            index += slot.quantity * slot.item.Size;
+        }
+        for (int i = 0; i < amount * item.Size; i++)
+        {
+            Debug.Log(index);
+            GameObject newobject = visualItem[index];
             PrefabManager.Instance.Release(newobject);
             visualItem.Remove(newobject);
-        }
-
-            for (int i=0;i<inventorySlots.Count;i++)
-            {
-
-                for (int j = 0; j < inventorySlots[i].quantity; j++)
-                {
-
-                    UpdateAddVisuals(inventorySlots[i].item);
-                }
-                
-
-
-
-
             }
+
+        for (int i = 0; i < visualItem.Count; i++)
+        {
+            visualItem[i].transform.localPosition = GetLocalPositionForVisual(i);
+        }
     }
 
     void Awake()
@@ -131,8 +146,8 @@ public class Inventory : MonoBehaviour
             slot.quantity = 0;
         }
 
-        
-        UpdateDeleteVisuals(item, amount);
+        inventoryCount -= item.Size * removedCount;
+        UpdateDeleteVisuals(item, removedCount);
         
 
         Debug.Log($"'{item.itemName}' {removedCount}개가 인벤토리에서 제거되었습니다. 현재 사용 중인 슬롯: {inventoryCount}/{inventorySlotLimit}");
@@ -142,7 +157,7 @@ public class Inventory : MonoBehaviour
     public bool HasItem(Item item)
     {
         
-        return inventorySlots[item.inventoryNum].IsEmpty;;
+        return !inventorySlots[item.inventoryNum].IsEmpty;
     }
 
     // 아이템 제거, 특정 슬롯 아이템 가져오기 등 추가 함수 구현

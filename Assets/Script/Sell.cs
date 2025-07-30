@@ -48,7 +48,7 @@ public class Sell : MonoBehaviour
                 // Inventory.cs의 DeleteItem 로직이 amount * item.Size <= removedCount 를 체크하므로,
                 // amount를 1로 넘기면 해당 아이템 하나의 Size만큼 슬롯이 비워지게 됩니다.
                 removedCount = inventory.DeleteItem(itemInSlot, sellLimit - itemsSuccessfullyTaken);
-                MoneyManager.Instance.AddMoney(itemInSlot.sellPrice);
+                MoneyManager.Instance.AddMoney(itemInSlot.sellPrice * removedCount);
 
                 StageData.Itemtype typeOfSoldItem = GetItemTypeFromItem(itemInSlot); // 아래에 구현할 도우미 함수
 
@@ -84,7 +84,7 @@ public class Sell : MonoBehaviour
         // 여기에 스테이지 클리어 UI 표시, 보상 지급, 다음 스테이지 로드 등 구현
         Debug.Log("스테이지 클리어!");
         // 예시: 3초 후 다음 씬 로드
-        Invoke("LoadNextScene", 3f);
+        
     }
 
     private StageData.Itemtype GetItemTypeFromItem(Item item)
