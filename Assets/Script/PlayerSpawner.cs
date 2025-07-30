@@ -9,10 +9,9 @@ public class PlayerSpawner : MonoBehaviour
     public Transform wellspot;
     public Transform sellspot;
     public Transform animalSpot;
-    public int stageNum;
-    public Transform spot1;
+    public Transform[] spot;
 
-    public StageList stageList;
+    public StageData stageData;
 
 
 
@@ -25,14 +24,19 @@ public class PlayerSpawner : MonoBehaviour
 
 
 
-        for (int i = 0; i < stageList.allStages[stageNum].animalSpawnInfo.ChickenNum; i++)
+        for (int i = 0; i < stageData.animalSpawnInfo.ChickenNum; i++)
         {
             PrefabManager.Instance.Get("Chicken", animalSpot.position, animalSpot.rotation);
         }
+        for (int i = 0; i < stageData.animalSpawnInfo.SheepNum; i++)
+        {
+            PrefabManager.Instance.Get("Sheep", animalSpot.position, animalSpot.rotation);
+        }
 
-
-        
-        PrefabManager.Instance.Get(stageList.allStages[stageNum].buildingInfo.spawnBuilding[0].type.ToString(), spot1.position,quaternion.identity);
+        for (int i = 0; i < stageData.buildingInfo.spawnBuilding.Count; i++) {
+            if (stageData.buildingInfo.spawnBuilding[i] != null)
+                PrefabManager.Instance.Get(stageData.buildingInfo.spawnBuilding[i].type.ToString(), spot[i].position, quaternion.identity);
+        }
         
         
     }

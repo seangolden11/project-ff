@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2449346733049767013}
   - component: {fileID: 3561681600130666065}
-  - component: {fileID: 5915682268746776119}
   - component: {fileID: 910876365226269748}
+  - component: {fileID: 466441693805029218}
   m_Layer: 0
   m_Name: BuyChicken
   m_TagString: Untagged
@@ -148,8 +148,21 @@ LineRenderer:
   m_UseWorldSpace: 0
   m_Loop: 1
   m_ApplyActiveColorSpace: 1
---- !u!65 &5915682268746776119
-BoxCollider:
+--- !u!114 &910876365226269748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011762015527776630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34dc78b8a26c8b245a0edfd176a4b36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+--- !u!135 &466441693805029218
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -167,20 +180,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6, y: 6.0000014, z: 3}
+  m_Radius: 3.0000007
   m_Center: {x: 2.5, y: 2.5000005, z: 0}
---- !u!114 &910876365226269748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4011762015527776630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34dc78b8a26c8b245a0edfd176a4b36c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7143377317093806992
 GameObject:
   m_ObjectHideFlags: 0

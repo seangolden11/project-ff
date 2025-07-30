@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00a65ad90d07ec84eb7eb029c30b4587, type: 3}
-  m_Name: Powder
+  m_Name: Bakery
   m_EditorClassIdentifier: 
   level: 1
-  itemTakes: {fileID: 11400000, guid: 8af4652321c028048a944b1a3fed81ab, type: 2}
-  itemGives: {fileID: 11400000, guid: 4800fa174e710274d980da16d7a7db84, type: 2}
+  itemTakes: {fileID: 11400000, guid: 4800fa174e710274d980da16d7a7db84, type: 2}
+  itemGives: {fileID: 11400000, guid: dbeaeec2f99d76c43bdcbfe5d6ac5308, type: 2}
   nextLevelPrefab: {fileID: 0}
-  nextLevelCost: 1000
+  nextLevelCost: 10000

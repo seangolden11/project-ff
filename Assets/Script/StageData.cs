@@ -13,7 +13,7 @@ public class StageData : ScriptableObject
     public RewardInfo stageReward;
     public Goal goal;
 
-    public enum Buildingtype { None, Powder }
+    public enum Buildingtype { None, Powder,Bakery }
     public enum Itemtype { Money, EggPowder,Egg,Chicken }
 
     // 필요한 다른 스테이지 관련 데이터 추가

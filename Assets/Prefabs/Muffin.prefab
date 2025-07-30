@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 679185172848035097}
   - component: {fileID: 4496305356327131733}
   m_Layer: 0
-  m_Name: EggPowder
+  m_Name: Muffin
   m_TagString: PickableItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.97528, y: 6.25679, z: -16.62166}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.23, z: 0.29}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a54eb05c8a73f44b4b246ba20f9574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 4800fa174e710274d980da16d7a7db84, type: 2}
+  item: {fileID: 11400000, guid: dbeaeec2f99d76c43bdcbfe5d6ac5308, type: 2}
 --- !u!135 &4496305356327131733
 SphereCollider:
   m_ObjectHideFlags: 0

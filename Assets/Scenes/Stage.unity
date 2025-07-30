@@ -262,10 +262,12 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: 8af4652321c028048a944b1a3fed81ab, type: 2}
   - {fileID: 11400000, guid: 4800fa174e710274d980da16d7a7db84, type: 2}
+  - {fileID: 11400000, guid: dbeaeec2f99d76c43bdcbfe5d6ac5308, type: 2}
+  - {fileID: 11400000, guid: 103872bf02c7e5149a7e54025ffb2039, type: 2}
   inventoryCount: 0
   visualItem: []
---- !u!65 &583880088
-BoxCollider:
+--- !u!135 &583880088
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -283,7 +285,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 5, z: 5}
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &593051762
 GameObject:
@@ -725,7 +727,7 @@ Transform:
   m_GameObject: {fileID: 888744812}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1186,9 +1188,10 @@ MonoBehaviour:
   wellspot: {fileID: 1657073390}
   sellspot: {fileID: 9055735}
   animalSpot: {fileID: 1843106513}
-  stageNum: 0
-  spot1: {fileID: 277019408}
-  stageList: {fileID: 11400000, guid: 4bac2be861d5893459db4a3d41817663, type: 2}
+  spot:
+  - {fileID: 277019408}
+  - {fileID: 1585477007}
+  stageData: {fileID: 11400000, guid: 6c12cefb98febfa49831746cc4a2e138, type: 2}
 --- !u!4 &1458230248
 Transform:
   m_ObjectHideFlags: 0
@@ -1259,6 +1262,26 @@ MonoBehaviour:
     maxSize: 20
   - prefab: {fileID: 8729630219831913500, guid: 3c62dd6b97060a44dbac23640e6676e3, type: 3}
     prefabName: Sheep
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 8978846153405838608, guid: ceadd6c3ee6bb7544bfafc30ff6ac444, type: 3}
+    prefabName: Wool
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 7644772062377520864, guid: 9d6ef69130a0b734b9bfad91f5f1ba6c, type: 3}
+    prefabName: WoolItem
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 1371889348260875808, guid: 4cb97c83ca8aca94eab3991c4e020cbe, type: 3}
+    prefabName: Bakery
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 7644772062377520864, guid: 7120fc9858043fc42b63efb05062adaa, type: 3}
+    prefabName: Muffin
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 7644772062377520864, guid: aa1c4919466327348a43ada9646a20d9, type: 3}
+    prefabName: MuffinItem
     defaultCapacity: 0
     maxSize: 20
 --- !u!114 &1458230250

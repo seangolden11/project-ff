@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6951531823089505597}
   - component: {fileID: 4656597536142631561}
   m_Layer: 0
-  m_Name: Powder
+  m_Name: Bakery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0138c58856695d43bc0f6aec36333db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingInfo: {fileID: 11400000, guid: 0f5d346d66681f14e9ba76e758c06b4b, type: 2}
+  buildingInfo: {fileID: 11400000, guid: 98fab1965ecda6a45b94b00d2fcd1272, type: 2}
 --- !u!1001 &4429555457707096126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
   itemToTake: {fileID: 0}
   itemToGive: {fileID: 0}
   transformationTime: 10
-  buildinginfo: {fileID: 11400000, guid: 0f5d346d66681f14e9ba76e758c06b4b, type: 2}
+  buildinginfo: {fileID: 11400000, guid: 98fab1965ecda6a45b94b00d2fcd1272, type: 2}
 --- !u!135 &7186971055069194551
 SphereCollider:
   m_ObjectHideFlags: 0

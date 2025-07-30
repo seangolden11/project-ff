@@ -13,5 +13,6 @@ public class BuildingInfo : ScriptableObject
     public Item itemTakes;
     public Item itemGives;
 
-    public BuildingInfo nextLevel;
+    public GameObject nextLevelPrefab;
+    public int nextLevelCost;
 }
