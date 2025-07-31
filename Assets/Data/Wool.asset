@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: WoolItem
   Name: Wool
-  inventoryNum: 4
+  inventoryNum: 3
   prefab: {fileID: 8978846153405838608, guid: ceadd6c3ee6bb7544bfafc30ff6ac444, type: 3}
   Size: 10
   sellPrice: 100

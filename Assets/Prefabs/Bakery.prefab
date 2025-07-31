@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingInfo: {fileID: 11400000, guid: 98fab1965ecda6a45b94b00d2fcd1272, type: 2}
+  building: {fileID: 5159197593055647251}
 --- !u!1001 &4429555457707096126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -392,6 +393,7 @@ MonoBehaviour:
   itemToGive: {fileID: 0}
   transformationTime: 10
   buildinginfo: {fileID: 11400000, guid: 98fab1965ecda6a45b94b00d2fcd1272, type: 2}
+  level: 1
 --- !u!135 &7186971055069194551
 SphereCollider:
   m_ObjectHideFlags: 0

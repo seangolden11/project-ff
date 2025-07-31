@@ -8,6 +8,7 @@ public class Building : MonoBehaviour
     public float transformationTime = 10f; // 아이템 변환에 걸리는 시간 (초)
     public BuildingInfo buildinginfo;
     private bool playerInsideTrigger = false;
+    public int level;
     private Coroutine transformationCoroutine; // 코루틴 참조를 저장하여 중지할 수 있도록
 
     // 플레이어가 트리거 영역에 들어왔을 때 호출
@@ -50,7 +51,7 @@ public class Building : MonoBehaviour
             {
                 int count;
                 Debug.Log($"{itemToTake} 아이템을 인벤토리에서 가져옵니다.");
-                count = playerInventory.DeleteItem(itemToTake, buildinginfo.level);
+                count = playerInventory.DeleteItem(itemToTake, level);
                 playerInsideTrigger = true;
 
                 // 2. 10초 대기

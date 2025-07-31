@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: MuffinItem
   Name: Muffin
-  inventoryNum: 3
+  inventoryNum: 2
   prefab: {fileID: 7644772062377520864, guid: 7120fc9858043fc42b63efb05062adaa, type: 3}
   Size: 1
   sellPrice: 80

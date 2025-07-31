@@ -16,4 +16,4 @@ MonoBehaviour:
   itemTakes: {fileID: 11400000, guid: 8af4652321c028048a944b1a3fed81ab, type: 2}
   itemGives: {fileID: 11400000, guid: 4800fa174e710274d980da16d7a7db84, type: 2}
   nextLevelPrefab: {fileID: 0}
-  nextLevelCost: 1000
+  nextLeveCost: c8000000c8000000c8000000c8000000c8000000

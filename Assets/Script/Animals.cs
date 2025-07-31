@@ -21,6 +21,7 @@ public class Animals : MonoBehaviour
     private Vector3 targetPosition;
     private float nextActionTime; // 다음 움직이거나 정지할 시간
     private float feedTimer; // 풀을 찾기 위한 타이머
+    float hungryTimer =0;
 
     private GameObject currentGrassTarget; // 현재 목표로 하는 풀 오브젝트
 
@@ -78,7 +79,7 @@ public class Animals : MonoBehaviour
                     Debug.Log("풀 오브젝트가 사라지거나 비활성화되었습니다. 다시 배회합니다.");
                     currentState = AnimalState.Wandering;
                     SetNewTargetPosition();
-                    feedTimer = feedInterval; // 다음 풀 찾기 주기를 위해 타이머 초기화
+                    feedTimer = feedInterval - 4; // 다음 풀 찾기 주기를 위해 타이머 초기화
                     return; // 이번 프레임의 나머지 로직 건너뛰기
                 }
 
@@ -89,9 +90,14 @@ public class Animals : MonoBehaviour
                 if (Vector3.Distance(transform.position, currentGrassTarget.transform.position) < 0.2f) // 약간 더 작은 거리로 "먹이"를 먹었다고 판단
                 {
                     Debug.Log("풀에 도달하여 비활성화합니다: " + currentGrassTarget.name);
-                    currentGrassTarget.SetActive(false); // 풀 오브젝트 비활성화
+                    PrefabManager.Instance.Release(currentGrassTarget); // 풀 오브젝트 비활성화
                     this.GetComponent<AnimalGive>().SpawnGoods();
                     currentGrassTarget = null; // 타겟 초기화
+
+                    moveSpeed = 1f;
+                    hungryTimer = 0;
+                    minIdleTime = 4f;
+                    maxIdleTime = 10f;
 
                     // 먹이 활동 후에는 다시 배회 상태로 돌아감
                     currentState = AnimalState.Wandering;
@@ -99,7 +105,14 @@ public class Animals : MonoBehaviour
                     feedTimer = 0f; // 타이머를 초기화하여 다음 풀 찾기까지 다시 10초를 기다립니다.
                 }
                 break;
+
         }
+        
+        hungryTimer += Time.deltaTime;
+            if (hungryTimer >= 30f)
+            {
+                PrefabManager.Instance.Release(this.transform.parent.gameObject);
+            }
     }
 
     // 새로운 랜덤 목표 위치를 설정합니다 (배회 상태에서 사용)
@@ -149,11 +162,19 @@ public class Animals : MonoBehaviour
                 // 주변에 먹을 수 있는 활성화된 풀이 없다면 계속 배회 상태 유지
                 Debug.Log("탐색 반경 내에 활성화된 풀이 없습니다. 배회 상태를 유지합니다.");
                 feedTimer = 0f; // 풀을 찾지 못했으므로 타이머를 초기화하여 다음 주기에 다시 시도
+                moveSpeed = 3f;
+                minIdleTime = 1f;
+                maxIdleTime = 1f;
+                
             }
         }
         else
         {
             // 씬에 "Grass" 태그를 가진 오브젝트가 전혀 없다면
+            moveSpeed = 3f;
+            minIdleTime = 1f;
+            maxIdleTime = 1f;
+            
             Debug.Log("씬에 '" + grassTag + "' 태그를 가진 풀 오브젝트가 없습니다.");
             feedTimer = 0f; // 타이머를 초기화하여 다음 주기에 다시 시도
         }

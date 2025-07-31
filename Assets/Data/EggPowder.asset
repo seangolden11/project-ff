@@ -16,5 +16,5 @@ MonoBehaviour:
   Name: EggPowder
   inventoryNum: 1
   prefab: {fileID: 7644772062377520864, guid: 16628309c326f9a45be4a8ae87dff66b, type: 3}
-  Size: 2
+  Size: 3
   sellPrice: 20

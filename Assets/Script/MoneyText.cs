@@ -42,7 +42,7 @@ public class MoneyText : MonoBehaviour
     {
         if (moneyText != null)
         {
-            moneyText.text = $"{money}$"; // 텍스트 내용을 업데이트합니다.
+            moneyText.text = $"${money}"; // 텍스트 내용을 업데이트합니다.
         }
     }
 }

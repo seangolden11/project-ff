@@ -12,6 +12,8 @@ public class GrassSpawner : MonoBehaviour
     private bool _isPlayerInside = false; // 플레이어가 범위 내에 있는지 여부
     private float _spawnTimer;
 
+    public int level = 1;
+
     void Update()
     {
         if (_isPlayerInside)
@@ -50,11 +52,13 @@ public class GrassSpawner : MonoBehaviour
 
     void TrySpawnGrass()
     {
-
-        Vector3 randomPosition = GetRandomSpawnPosition();
-        if (randomPosition != Vector3.zero)
+        if (MoneyManager.Instance.TryRemoveMoney(6 - level))
         {
-            GameObject newGrass = PrefabManager.Instance.Get("Grass", randomPosition, Quaternion.identity);
+            Vector3 randomPosition = GetRandomSpawnPosition();
+            if (randomPosition != Vector3.zero)
+            {
+                GameObject newGrass = PrefabManager.Instance.Get("Grass", randomPosition, Quaternion.identity);
+            }
         }
     }
 

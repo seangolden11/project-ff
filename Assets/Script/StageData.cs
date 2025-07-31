@@ -12,9 +12,10 @@ public class StageData : ScriptableObject
     public AnimalSpawnInfo animalSpawnInfo;
     public RewardInfo stageReward;
     public Goal goal;
+    public int startMoney;
 
-    public enum Buildingtype { None, Powder,Bakery }
-    public enum Itemtype { Money, EggPowder,Egg,Chicken }
+
+    
 
     // 필요한 다른 스테이지 관련 데이터 추가
 
@@ -29,7 +30,7 @@ public class StageData : ScriptableObject
     [System.Serializable]
     public class BuildingSpawnPoint
     {
-        public Buildingtype type;
+        public PublicDataType.BuildingType type;
         public int level;
         
     }
@@ -44,7 +45,7 @@ public class StageData : ScriptableObject
     [System.Serializable]
     public class GoalItems
     {
-        public Itemtype type;
+        public PublicDataType.ItemType type;
         public int count;
         
     }

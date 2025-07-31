@@ -8,7 +8,7 @@ public class Sell : MonoBehaviour
 
     StageData stageData;
 
-    private Dictionary<StageData.Itemtype, int> soldItemCounts = new Dictionary<StageData.Itemtype, int>();
+    private Dictionary<PublicDataType.ItemType, int> soldItemCounts = new Dictionary<PublicDataType.ItemType, int>();
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -49,8 +49,9 @@ public class Sell : MonoBehaviour
                 // amount를 1로 넘기면 해당 아이템 하나의 Size만큼 슬롯이 비워지게 됩니다.
                 removedCount = inventory.DeleteItem(itemInSlot, sellLimit - itemsSuccessfullyTaken);
                 MoneyManager.Instance.AddMoney(itemInSlot.sellPrice * removedCount);
+                
 
-                StageData.Itemtype typeOfSoldItem = GetItemTypeFromItem(itemInSlot); // 아래에 구현할 도우미 함수
+                PublicDataType.ItemType typeOfSoldItem = GetItemTypeFromItem(itemInSlot); // 아래에 구현할 도우미 함수
 
                 if (soldItemCounts.ContainsKey(typeOfSoldItem))
                 {
@@ -79,26 +80,18 @@ public class Sell : MonoBehaviour
         }
     }
 
-    void GameWon()
-    {
-        // 여기에 스테이지 클리어 UI 표시, 보상 지급, 다음 스테이지 로드 등 구현
-        Debug.Log("스테이지 클리어!");
-        // 예시: 3초 후 다음 씬 로드
-        
-    }
-
-    private StageData.Itemtype GetItemTypeFromItem(Item item)
+    private PublicDataType.ItemType GetItemTypeFromItem(Item item)
     {
         // **중요: Item 클래스에 StageData.Itemtype을 정의해야 합니다.**
         // 예시: Item.cs 에 public StageData.Itemtype type; 추가
         // return item.type;
 
         // 임시로 아이템 이름으로 매핑 (정확한 방법은 Item에 enum 필드를 두는 것)
-        if (item.itemName.Contains("EggPowder")) return StageData.Itemtype.EggPowder;
-        if (item.itemName.Contains("Egg")) return StageData.Itemtype.Egg;
-        if (item.itemName.Contains("Chicken")) return StageData.Itemtype.Chicken;
+        if (item.itemName.Contains("EggPowder")) return PublicDataType.ItemType.EggPowder;
+        if (item.itemName.Contains("Egg")) return PublicDataType.ItemType.Egg;
+        if (item.itemName.Contains("Muffin")) return PublicDataType.ItemType.Muffin;
         // 다른 아이템 타입도 여기에 추가
-        return StageData.Itemtype.Money; // Money는 판매로 얻는 것이므로 기본적으로 포함 안될 수 있음
+        return PublicDataType.ItemType.Money; // Money는 판매로 얻는 것이므로 기본적으로 포함 안될 수 있음
     }
     
     public void CheckWinCondition()
@@ -128,7 +121,7 @@ public class Sell : MonoBehaviour
         {
             Debug.Log("모든 목표 달성! 게임 승리!");
             // 승리 시 처리할 로직 호출
-            GameWon();
+            GameManager.Instance.StageClear();
         }
     }
 }

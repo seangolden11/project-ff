@@ -27,7 +27,7 @@ public class PrefabManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 파괴되지 않도록
+            // DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 파괴되지 않도록
         }
         else
         {
