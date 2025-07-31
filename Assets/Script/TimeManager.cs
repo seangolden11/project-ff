@@ -4,6 +4,7 @@ using System; // Action 이벤트를 사용하기 위해 필요
 public class TimerManager : MonoBehaviour
 {
     public float currentTime { get; private set; } // 현재 남은 시간
+    public float spawnTime { get; private set; } // 스폰 시간
 
     public event Action<float> OnTimerTick; // 시간 업데이트를 알리는 이벤트
     public event Action OnTimerEnd; // 타이머가 0에 도달했을 때 알리는 이벤트
@@ -30,6 +31,12 @@ public class TimerManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime; // 프레임당 시간 감소
             OnTimerTick?.Invoke(currentTime); // 리스너에게 시간 변경 알림
+            spawnTime += Time.deltaTime;
+            if (spawnTime >= 50)
+            {
+                SpawnBear();
+                spawnTime = 0;
+            }
         }
         else if (starCount < 3)
         {
@@ -47,6 +54,11 @@ public class TimerManager : MonoBehaviour
         }
         
         
+    }
+
+    public void SpawnBear()
+    {
+        PrefabManager.Instance.Get("Bear", transform.position, transform.rotation);
     }
 
     /// <summary>

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using Unity.Mathematics;
 
 
 public class Inventory : MonoBehaviour
@@ -61,6 +62,7 @@ public class Inventory : MonoBehaviour
         {
             GameObject newobject = PrefabManager.Instance.Get(item.itemName, Vector3.zero, Quaternion.identity);
             newobject.transform.parent = this.transform;
+            newobject.transform.localRotation = quaternion.identity;
             visualItem.Insert(index,newobject);
         }
         for (int j = 0; j < visualItem.Count; j++)

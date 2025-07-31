@@ -5,7 +5,7 @@ public class Building : MonoBehaviour
 { public string playerTag = "Player"; // 플레이어 GameObject의 태그 (유니티에서 설정)
     public Item itemToTake; // 인벤토리에서 가져올 아이템 이름
     public Item itemToGive; // 변환 후 줄 아이템 이름
-    public float transformationTime = 10f; // 아이템 변환에 걸리는 시간 (초)
+    public float transformationTime = 1f; // 아이템 변환에 걸리는 시간 (초)
     public BuildingInfo buildinginfo;
     private bool playerInsideTrigger = false;
     public int level;

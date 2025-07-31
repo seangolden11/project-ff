@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     [Header("이동 설정")]
     [SerializeField] private float moveSpeed = 5f;       // 플레이어 이동 속도
-    [SerializeField] private float rotationSpeed = 15f;  // 플레이어 회전 속도
+    [SerializeField] private float rotationSpeed = 720f;  // 플레이어 회전 속도
 
     
     private Vector2 inputVec2;        // Input System의 OnMove에서 받을 2D 입력 벡터
@@ -25,12 +25,17 @@ public class Player : MonoBehaviour
 
     void FixedUpdate() // 물리 업데이트는 FixedUpdate에서 처리하는 것이 좋습니다.
     {
-        
 
 
-        // transform.rotation = Quaternion.LookRotation(moveDirection);
 
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+
+
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
+        if (moveDirection.magnitude > 0.1f) // 작은 값으로 임계점을 두어 떨림 방지
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(-moveDirection);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
         
         
     }

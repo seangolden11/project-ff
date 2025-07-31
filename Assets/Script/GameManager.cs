@@ -28,16 +28,23 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            timer = GameObject.Find("Timer").GetComponent<TimerUI>();
+            tm = FindFirstObjectByType<TimerManager>();
+            if (MoneyManager.Instance)
+                MoneyManager.Instance.AddMoney(stageData.startMoney);
             return;
         }
+        
 
     }
+
     void Start()
     {
-        timer = GameObject.Find("Timer").GetComponent<TimerUI>();
-        tm = FindFirstObjectByType<TimerManager>();
-        if (MoneyManager.Instance)
-            MoneyManager.Instance.AddMoney(stageData.startMoney);
+        Destroy(gameObject);
+            timer = GameObject.Find("Timer").GetComponent<TimerUI>();
+            tm = FindFirstObjectByType<TimerManager>();
+            if (MoneyManager.Instance)
+                MoneyManager.Instance.AddMoney(stageData.startMoney);
     }
 
 
