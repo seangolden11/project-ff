@@ -24,6 +24,7 @@ public class MoneyManager : MonoBehaviour
             Instance = this;
             // DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 파괴되지 않도록 설정
         }
+        
     }
 
     // 현재 돈을 가져오는 메서드

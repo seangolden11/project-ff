@@ -9,11 +9,14 @@ public class UpgradeBuilding : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (MoneyManager.Instance.TryRemoveMoney(buildingInfo.nextLeveCost[0]))
+            // if(DataManager.Instance.GetUpgradeData(buildingInfo.id).level building)
             {
-                // PrefabManager.Instance.Release(this.transform.parent.gameObject);
-                building.level++;
-                //업그레이드 로직
+                if (MoneyManager.Instance.TryRemoveMoney(buildingInfo.nextLeveCost[0]))
+                {
+                    // PrefabManager.Instance.Release(this.transform.parent.gameObject);
+                    building.level++;
+                    //업그레이드 로직
+                }
             }
         }
     }

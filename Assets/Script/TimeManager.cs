@@ -21,6 +21,11 @@ public class TimerManager : MonoBehaviour
     {
         _initialTimeLimit = GameManager.Instance.stageData.timeLimit;
         currentTime = _initialTimeLimit;
+        GameManager.Instance.OnStageStart();
+        if (Time.timeScale == 0)
+        {
+            StartTimer();
+        }
         
     }
 

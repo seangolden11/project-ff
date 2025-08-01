@@ -6,9 +6,11 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
 
     [SerializeField] // 인스펙터에서 할당할 수 있도록 SerializeField 사용
-    private GameObject settingsPanel; 
+    private GameObject settingsPanel;
     [SerializeField]
     private GameObject stagePanel;
+    [SerializeField]
+    private GameObject upgradePanel;
 
     void Awake()
     {
@@ -27,6 +29,7 @@ public class UIManager : MonoBehaviour
         // 초기 상태 설정
         if (settingsPanel != null) settingsPanel.SetActive(false);
         if (stagePanel != null) stagePanel.SetActive(false);
+        if (upgradePanel != null) upgradePanel.SetActive(false);
     }
 
     // 설정 패널 토글 함수
@@ -45,7 +48,16 @@ public class UIManager : MonoBehaviour
         if (stagePanel != null)
         {
             stagePanel.SetActive(!stagePanel.activeSelf);
-            Debug.Log("Inventory Panel 활성화 상태: " + stagePanel.activeSelf);
+            Debug.Log("Stage Panel 활성화 상태: " + stagePanel.activeSelf);
+        }
+    }
+    
+    public void ToggleUpgradePanel()
+    {
+        if (upgradePanel != null)
+        {
+            upgradePanel.SetActive(!upgradePanel.activeSelf);
+            Debug.Log("Upgrade Panel 활성화 상태: " + upgradePanel.activeSelf);
         }
     }
 }

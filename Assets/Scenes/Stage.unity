@@ -540,6 +540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 533791353}
   - component: {fileID: 533791352}
+  - component: {fileID: 533791354}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -579,6 +580,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &533791354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533791351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223cc7a0c6f8ce84eb4987cff051770d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &583880085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1379,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7347047161971586976, guid: 0a90c88a8bd978948beb5d2a184f74ea, type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 811593196}
     - target: {fileID: 8744135927216949556, guid: 0a90c88a8bd978948beb5d2a184f74ea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: StageSelect
@@ -1396,6 +1413,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6901882059869750590, guid: 0a90c88a8bd978948beb5d2a184f74ea, type: 3}
   m_PrefabInstance: {fileID: 811593194}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &811593196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1175746528482920952, guid: 0a90c88a8bd978948beb5d2a184f74ea, type: 3}
+  m_PrefabInstance: {fileID: 811593194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &839837588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,6 +2873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsPanel: {fileID: 988772935}
   stagePanel: {fileID: 752319354}
+  upgradePanel: {fileID: 0}
 --- !u!1 &1513851802
 GameObject:
   m_ObjectHideFlags: 0

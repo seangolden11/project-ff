@@ -10,7 +10,7 @@ public class StarText : MonoBehaviour
 
         if (starText != null)
         {
-            starText.text = $"X {PlayerPrefs.GetInt("Star")}"; // 텍스트 내용을 업데이트합니다.
+            starText.text = $"X {DataManager.Instance.GetStarData()}"; // 텍스트 내용을 업데이트합니다.
         }
     }
 

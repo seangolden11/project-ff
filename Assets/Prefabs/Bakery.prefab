@@ -391,7 +391,7 @@ MonoBehaviour:
   playerTag: Player
   itemToTake: {fileID: 0}
   itemToGive: {fileID: 0}
-  transformationTime: 10
+  transformationTime: 1
   buildinginfo: {fileID: 11400000, guid: 98fab1965ecda6a45b94b00d2fcd1272, type: 2}
   level: 1
 --- !u!135 &7186971055069194551

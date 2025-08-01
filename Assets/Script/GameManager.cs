@@ -28,24 +28,23 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            timer = GameObject.Find("Timer").GetComponent<TimerUI>();
-            tm = FindFirstObjectByType<TimerManager>();
-            if (MoneyManager.Instance)
-                MoneyManager.Instance.AddMoney(stageData.startMoney);
             return;
         }
         
 
     }
 
-    void Start()
+    public void OnStageStart()
     {
-        Destroy(gameObject);
+        if (MoneyManager.Instance)
+        {
             timer = GameObject.Find("Timer").GetComponent<TimerUI>();
             tm = FindFirstObjectByType<TimerManager>();
-            if (MoneyManager.Instance)
-                MoneyManager.Instance.AddMoney(stageData.startMoney);
+
+            MoneyManager.Instance.AddMoney(stageData.startMoney);
+        }
     }
+
 
 
 
@@ -58,8 +57,18 @@ public class GameManager : MonoBehaviour
     {
         tm.StopTimer();
         UIManager.Instance.ToggleStagePanel();
-        int tempStar = PlayerPrefs.GetInt("Star");
-        PlayerPrefs.SetInt("Star", tempStar + 3 - tm.starCount);
+        
+        float count = 0;
+        if (tm.starCount == 1)
+            count += stageData.timeLimit;
+        else if (tm.starCount == 2)
+            count += 120;
+        else if (tm.starCount == 3)
+            count += 240;
+
+        count += stageData.timeLimit - tm.currentTime;
+
+        DataManager.Instance.SetStageCleared(stageData.stageID, count, 3 - tm.starCount);
     }
 
 

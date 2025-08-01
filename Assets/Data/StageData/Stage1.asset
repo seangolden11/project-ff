@@ -29,6 +29,6 @@ MonoBehaviour:
     experience: 0
   goal:
     goalItems:
-    - type: 2
-      count: 5
+    - type: 1
+      count: 1
   startMoney: 100

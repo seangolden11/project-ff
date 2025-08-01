@@ -9,6 +9,8 @@ using UnityEngine;
 public class BuildingInfo : ScriptableObject
 {
     public int level;
+
+    public int id;
     public enum Buildingtype { None, Powder };
     public Item itemTakes;
     public Item itemGives;
@@ -16,3 +18,4 @@ public class BuildingInfo : ScriptableObject
     public GameObject nextLevelPrefab;
     public List<int> nextLeveCost;
 }
+
