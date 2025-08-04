@@ -23,11 +23,14 @@ public class Bear : MonoBehaviour
     float nearTimer = 0;
     float nearLimit = 5f;
 
+    public Animator animator;
+
     void Start()
     {
         currentState = AnimalState.Wandering; // 게임 시작 시 닭은 배회 상태로 시작
         nextActionTime = 0f; // 풀 찾기 타이머 초기화
         SetNewTargetPosition(); // 초기 목표 위치 설정
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -35,8 +38,10 @@ public class Bear : MonoBehaviour
         switch (currentState)
         {
             case AnimalState.Wandering:
+            animator.SetFloat("Speed", 1);
                 // 목표 위치로 이동
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+                LookAtTarget(targetPosition);
 
                 // 목표 위치에 거의 도달했거나, 랜덤 이동 시간이 끝나면 정지 상태로 전환
                 if (Vector3.Distance(transform.position, targetPosition) < 0.1f || Time.time >= nextActionTime)
@@ -47,6 +52,7 @@ public class Bear : MonoBehaviour
                 break;
 
             case AnimalState.Idling:
+                animator.SetFloat("Speed", 0);
                 // 정지 시간이 끝나면 다시 배회 상태로 전환
                 if (Time.time >= nextActionTime)
                 {
@@ -62,12 +68,26 @@ public class Bear : MonoBehaviour
             nearTimer += Time.deltaTime;
             if (nearTimer >= nearLimit)
             {
-                PrefabManager.Instance.Release(this.transform.parent.gameObject);
+                PrefabManager.Instance.Release(gameObject);
             }
         }
         else
         {
             moveSpeed = 1f;
+        }
+    }
+
+    void LookAtTarget(Vector3 target)
+    {
+        Vector3 direction = (target - transform.position).normalized;
+        // Y축 회전만 필요하므로 Y값을 0으로 설정하여 수평 방향만 바라보게 합니다.
+        direction.y = 0; 
+
+        if (direction != Vector3.zero) // 방향 벡터가 0이 아닐 때만 회전
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            // 부드러운 회전을 위해 Quaternion.Slerp 사용
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f); // 5f는 회전 속도
         }
     }
 

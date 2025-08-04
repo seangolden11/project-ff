@@ -43,7 +43,7 @@ public class Inventory : MonoBehaviour
         // 예시: X축으로 4개 아이템, Z축으로 4개 줄, Y축으로 16개 아이템마다 한 층
         float xPos = (index % 4) * 1f - 1.5f; // 필요에 따라 -1.5f를 조정하여 중앙에 배치
         float yPos = (index / 16) * 1f;
-        float zPos = ((index / 4) % 4) * 1f + 1f; // 필요에 따라 +1f를 조정하여 깊이 조절
+        float zPos = ((index / 4) % 4) * -1f - 1f; // 필요에 따라 +1f를 조정하여 깊이 조절
         return new Vector3(xPos, yPos, zPos);
     }
 

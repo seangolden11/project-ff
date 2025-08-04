@@ -13,33 +13,43 @@ MonoBehaviour:
   m_Name: NewBuildingUpgradeData
   m_EditorClassIdentifier: 
   upgradeList:
-  - Id: 0
+  - name: mill
+    Id: 0
     sprite: {fileID: 0}
     cost: 0100000002000000030000000400000005000000
-  - Id: 1
+  - name: powder
+    Id: 1
     sprite: {fileID: 0}
     cost: 0100000002000000030000000400000005000000
-  - Id: 2
+  - name: wool
+    Id: 2
     sprite: {fileID: 0}
     cost: 0100000002000000030000000400000005000000
-  - Id: 3
+  - name: cloth
+    Id: 3
     sprite: {fileID: 0}
     cost: 0100000002000000030000000400000005000000
-  - Id: 4
+  - name: butter
+    Id: 4
     sprite: {fileID: 0}
     cost: 0100000002000000030000000400000005000000
-  - Id: 5
+  - name: cheese
+    Id: 5
     sprite: {fileID: 0}
     cost: 0100000002000000030000000400000005000000
-  - Id: 6
+  - name: market
+    Id: 6
     sprite: {fileID: 0}
     cost: 0100000002000000030000000400000005000000
-  - Id: 7
+  - name: well
+    Id: 7
     sprite: {fileID: 0}
     cost: 0100000002000000030000000400000005000000
-  - Id: 8
+  - name: cage
+    Id: 8
     sprite: {fileID: 0}
     cost: 0100000002000000030000000400000005000000
-  - Id: 9
+  - name: inventory
+    Id: 9
     sprite: {fileID: 0}
     cost: 0100000002000000030000000400000005000000

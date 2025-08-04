@@ -21,7 +21,7 @@ MonoBehaviour:
     - type: 2
       level: 1
   animalSpawnInfo:
-    ChickenNum: 0
+    ChickenNum: 1
     SheepNum: 1
     CowNum: 0
   stageReward:

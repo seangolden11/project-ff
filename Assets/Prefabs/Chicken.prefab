@@ -867,7 +867,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1825032396712915631}
-  - component: {fileID: 6054981381313024686}
   - component: {fileID: 6132222866102188658}
   - component: {fileID: 1631849681093082305}
   - component: {fileID: 7395949408421136099}
@@ -896,31 +895,6 @@ Transform:
   - {fileID: 7934463152168766959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &6054981381313024686
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7729379492258877522}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 0.63
-  m_Radius: 0.26
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.31, z: 0}
 --- !u!95 &6132222866102188658
 Animator:
   serializedVersion: 7

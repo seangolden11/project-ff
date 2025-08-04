@@ -11,16 +11,23 @@ public class Player : MonoBehaviour
     private Vector2 inputVec2;        // Input System의 OnMove에서 받을 2D 입력 벡터
     private Vector3 moveDirection;    // 실제 플레이어 이동에 사용될 3D 벡터 (XZ 평면)
 
-    
+    public Animator animator;
 
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     // Input System의 'Move' 액션이 트리거될 때 자동으로 호출되는 콜백 함수
     void OnMove(InputValue value)
     {
         inputVec2 = value.Get<Vector2>();
-        if(inputVec2 != null) 
+        if (inputVec2 != null)
         {
+            
             moveDirection = new Vector3(inputVec2.x, 0, inputVec2.y);
         }
+        
     }
 
     void FixedUpdate() // 물리 업데이트는 FixedUpdate에서 처리하는 것이 좋습니다.
@@ -33,8 +40,13 @@ public class Player : MonoBehaviour
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
         if (moveDirection.magnitude > 0.1f) // 작은 값으로 임계점을 두어 떨림 방지
         {
-            Quaternion targetRotation = Quaternion.LookRotation(-moveDirection);
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            animator.SetFloat("Speed", 1);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
         }
         
         

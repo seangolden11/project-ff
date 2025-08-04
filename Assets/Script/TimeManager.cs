@@ -63,7 +63,7 @@ public class TimerManager : MonoBehaviour
 
     public void SpawnBear()
     {
-        PrefabManager.Instance.Get("Bear", transform.position, transform.rotation);
+        PrefabManager.Instance.Get("Tiger", transform.position, transform.rotation);
     }
 
     /// <summary>

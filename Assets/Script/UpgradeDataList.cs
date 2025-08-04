@@ -10,6 +10,7 @@ public class UpgradeDataList : ScriptableObject
 [Serializable]
 public class BuildingUpgradeData
 {
+    public string name;
     public int Id;
     public Sprite sprite;
 

@@ -26,7 +26,7 @@ public class Animals : MonoBehaviour
     private GameObject currentGrassTarget; // 현재 목표로 하는 풀 오브젝트
 
     // 닭의 상태를 관리하는 Enum
-    private enum AnimalState { Wandering, Idling, SeekingGrass }
+    private enum AnimalState { Wandering, Idling, SeekingGrass, hungry }
     private AnimalState currentState;
     public Animator animator;
 
@@ -53,7 +53,7 @@ public class Animals : MonoBehaviour
         switch (currentState)
         {
             case AnimalState.Wandering:
-            animator.SetFloat("Speed", 1);
+                animator.SetFloat("Speed", 1);
                 // 목표 위치로 이동
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 LookAtTarget(targetPosition);
@@ -77,14 +77,17 @@ public class Animals : MonoBehaviour
                 break;
 
             case AnimalState.SeekingGrass:
-            animator.SetFloat("Speed", 1);
+                animator.SetFloat("Speed", 1);
                 // 만약 목표 풀이 없거나 비활성화되었다면, 다시 배회 상태로 돌아갑니다.
                 if (currentGrassTarget == null || !currentGrassTarget.activeInHierarchy)
                 {
                     Debug.Log("풀 오브젝트가 사라지거나 비활성화되었습니다. 다시 배회합니다.");
-                    currentState = AnimalState.Wandering;
+                    if(hungryTimer == 0)
+                        currentState = AnimalState.Wandering;
+                    else
+                        currentState = AnimalState.hungry;
                     SetNewTargetPosition();
-                    feedTimer = feedInterval - 4; // 다음 풀 찾기 주기를 위해 타이머 초기화
+                    feedTimer = feedInterval * 0.6f; // 다음 풀 찾기 주기를 위해 타이머 초기화
                     return; // 이번 프레임의 나머지 로직 건너뛰기
                 }
 
@@ -111,14 +114,32 @@ public class Animals : MonoBehaviour
                     feedTimer = 0f; // 타이머를 초기화하여 다음 풀 찾기까지 다시 10초를 기다립니다.
                 }
                 break;
+            case AnimalState.hungry:
+                hungryTimer += Time.deltaTime;
+                moveSpeed = 3f;
+                minIdleTime = 1f;
+                maxIdleTime = 1f;
+                
+                if (hungryTimer >= 30f)
+                {
+                    PrefabManager.Instance.Release(gameObject);
+                }
+                animator.SetFloat("Speed", 1);
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+                LookAtTarget(targetPosition);
+
+                if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+                {
+                    SetNewTargetPosition();
+                }
+
+
+                break;
+                
 
         }
         
-        hungryTimer += Time.deltaTime;
-            if (hungryTimer >= 30f)
-            {
-                PrefabManager.Instance.Release(gameObject);
-            }
+        
     }
 
     // 새로운 랜덤 목표 위치를 설정합니다 (배회 상태에서 사용)
@@ -167,22 +188,18 @@ public class Animals : MonoBehaviour
             {
                 // 주변에 먹을 수 있는 활성화된 풀이 없다면 계속 배회 상태 유지
                 Debug.Log("탐색 반경 내에 활성화된 풀이 없습니다. 배회 상태를 유지합니다.");
-                feedTimer = 0f; // 풀을 찾지 못했으므로 타이머를 초기화하여 다음 주기에 다시 시도
-                moveSpeed = 3f;
-                minIdleTime = 1f;
-                maxIdleTime = 1f;
+                currentState = AnimalState.hungry;
+                feedTimer = feedInterval * 0.6f; // 풀을 찾지 못했으므로 타이머를 초기화하여 다음 주기에 다시 시도
                 
             }
         }
         else
         {
             // 씬에 "Grass" 태그를 가진 오브젝트가 전혀 없다면
-            moveSpeed = 3f;
-            minIdleTime = 1f;
-            maxIdleTime = 1f;
             
             Debug.Log("씬에 '" + grassTag + "' 태그를 가진 풀 오브젝트가 없습니다.");
-            feedTimer = 0f; // 타이머를 초기화하여 다음 주기에 다시 시도
+            currentState = AnimalState.hungry;
+            feedTimer = feedInterval * 0.6f; // 타이머를 초기화하여 다음 주기에 다시 시도
         }
     }
 
