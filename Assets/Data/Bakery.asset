@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bakery
   m_EditorClassIdentifier: 
   level: 1
+  id: 1
   itemTakes: {fileID: 11400000, guid: 4800fa174e710274d980da16d7a7db84, type: 2}
   itemGives: {fileID: 11400000, guid: dbeaeec2f99d76c43bdcbfe5d6ac5308, type: 2}
   nextLevelPrefab: {fileID: 0}

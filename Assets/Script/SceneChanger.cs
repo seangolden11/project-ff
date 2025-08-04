@@ -10,6 +10,12 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void LoadSceneByNameForStart(string sceneName)
+    {
+        if (GameManager.Instance.stageData.stageID == 0 || DataManager.Instance.GetStageData(GameManager.Instance.stageData.stageID-1).cleared)
+        SceneManager.LoadScene(sceneName);
+    }
+
     // 이 함수는 씬의 빌드 인덱스를 사용하여 씬을 로드할 때 사용합니다.
     // 씬 빌드 인덱스를 정수형으로 받습니다.
     public void LoadSceneByIndex(int sceneIndex)

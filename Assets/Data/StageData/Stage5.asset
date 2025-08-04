@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3af892f64c589049be61ec11582990a, type: 3}
   m_Name: Stage5
   m_EditorClassIdentifier: 
-  stageID: 1
+  stageID: 4
   timeLimit: 300
   buildingInfo:
     spawnBuilding:
@@ -31,3 +31,4 @@ MonoBehaviour:
     goalItems:
     - type: 2
       count: 5
+  startMoney: 0

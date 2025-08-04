@@ -28,6 +28,7 @@ public class Animals : MonoBehaviour
     // 닭의 상태를 관리하는 Enum
     private enum AnimalState { Wandering, Idling, SeekingGrass }
     private AnimalState currentState;
+    public Animator animator;
 
     void Start()
     {
@@ -52,8 +53,10 @@ public class Animals : MonoBehaviour
         switch (currentState)
         {
             case AnimalState.Wandering:
+            animator.SetFloat("Speed", 1);
                 // 목표 위치로 이동
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+                LookAtTarget(targetPosition);
 
                 // 목표 위치에 거의 도달했거나, 랜덤 이동 시간이 끝나면 정지 상태로 전환
                 if (Vector3.Distance(transform.position, targetPosition) < 0.1f || Time.time >= nextActionTime)
@@ -65,6 +68,7 @@ public class Animals : MonoBehaviour
 
             case AnimalState.Idling:
                 // 정지 시간이 끝나면 다시 배회 상태로 전환
+                animator.SetFloat("Speed", 0);
                 if (Time.time >= nextActionTime)
                 {
                     currentState = AnimalState.Wandering;
@@ -73,6 +77,7 @@ public class Animals : MonoBehaviour
                 break;
 
             case AnimalState.SeekingGrass:
+            animator.SetFloat("Speed", 1);
                 // 만약 목표 풀이 없거나 비활성화되었다면, 다시 배회 상태로 돌아갑니다.
                 if (currentGrassTarget == null || !currentGrassTarget.activeInHierarchy)
                 {
@@ -85,6 +90,7 @@ public class Animals : MonoBehaviour
 
                 // 풀 오브젝트를 향해 이동
                 transform.position = Vector3.MoveTowards(transform.position, currentGrassTarget.transform.position, moveSpeed * Time.deltaTime);
+                LookAtTarget(currentGrassTarget.transform.position);
 
                 // 풀에 충분히 도달했다면 (먹이 활동)
                 if (Vector3.Distance(transform.position, currentGrassTarget.transform.position) < 0.2f) // 약간 더 작은 거리로 "먹이"를 먹었다고 판단
@@ -111,7 +117,7 @@ public class Animals : MonoBehaviour
         hungryTimer += Time.deltaTime;
             if (hungryTimer >= 30f)
             {
-                PrefabManager.Instance.Release(this.transform.parent.gameObject);
+                PrefabManager.Instance.Release(gameObject);
             }
     }
 
@@ -177,6 +183,20 @@ public class Animals : MonoBehaviour
             
             Debug.Log("씬에 '" + grassTag + "' 태그를 가진 풀 오브젝트가 없습니다.");
             feedTimer = 0f; // 타이머를 초기화하여 다음 주기에 다시 시도
+        }
+    }
+
+    void LookAtTarget(Vector3 target)
+    {
+        Vector3 direction = (target - transform.position).normalized;
+        // Y축 회전만 필요하므로 Y값을 0으로 설정하여 수평 방향만 바라보게 합니다.
+        direction.y = 0; 
+
+        if (direction != Vector3.zero) // 방향 벡터가 0이 아닐 때만 회전
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            // 부드러운 회전을 위해 Quaternion.Slerp 사용
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f); // 5f는 회전 속도
         }
     }
 

@@ -6,7 +6,7 @@ using Unity.Mathematics;
 
 public class Inventory : MonoBehaviour
 {
-    public int inventorySlotLimit = 20; // 인벤토리 슬롯 제한
+    public int inventorySlotLimit = 30; // 인벤토리 슬롯 제한
     public List<InventorySlot> inventorySlots = new List<InventorySlot>();
 
     public List<Item> items = new List<Item>();
@@ -99,8 +99,9 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < items.Count; i++)
         {
-            inventorySlots.Add(new InventorySlot(i,this.transform,items[i]));
+            inventorySlots.Add(new InventorySlot(i, this.transform, items[i]));
         }
+        inventorySlotLimit += inventorySlotLimit * DataManager.Instance.GetUpgradeData(9).level;
         
     }
 

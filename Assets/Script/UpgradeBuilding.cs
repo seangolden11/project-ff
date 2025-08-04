@@ -9,7 +9,7 @@ public class UpgradeBuilding : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // if(DataManager.Instance.GetUpgradeData(buildingInfo.id).level building)
+            if(DataManager.Instance.GetUpgradeData(buildingInfo.id).level > building.level)
             {
                 if (MoneyManager.Instance.TryRemoveMoney(buildingInfo.nextLeveCost[0]))
                 {

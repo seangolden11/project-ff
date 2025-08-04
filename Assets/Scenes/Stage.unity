@@ -1163,6 +1163,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -42.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1488876771588175508, guid: 0a90c88a8bd978948beb5d2a184f74ea, type: 3}
+      propertyPath: m_text
+      value: Next
+      objectReference: {fileID: 0}
     - target: {fileID: 2030640957908613337, guid: 0a90c88a8bd978948beb5d2a184f74ea, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2818,7 +2822,7 @@ MonoBehaviour:
     prefabName: well
     defaultCapacity: 0
     maxSize: 20
-  - prefab: {fileID: 8729630219831913500, guid: 3c62dd6b97060a44dbac23640e6676e3, type: 3}
+  - prefab: {fileID: 1121017115642196926, guid: 3c62dd6b97060a44dbac23640e6676e3, type: 3}
     prefabName: Sheep
     defaultCapacity: 0
     maxSize: 20

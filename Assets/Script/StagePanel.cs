@@ -15,6 +15,7 @@ public class StagePanel : MonoBehaviour
     public TextMeshProUGUI stagoal4gui;
     public TextMeshProUGUI rewardgui;
     public TextMeshProUGUI goalgui;
+
     public Slider slider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,7 +30,6 @@ public class StagePanel : MonoBehaviour
             return;
         stageNum += mode;
         GameManager.Instance.SetStage(stageNum);
-
         stagoal1gui.text = $"{stageList.allStages[stageNum].timeLimit}";
         stagoal2gui.text = $"{stageList.allStages[stageNum].timeLimit + 120f}";
         stagoal3gui.text = $"{stageList.allStages[stageNum].timeLimit + 240f}";
