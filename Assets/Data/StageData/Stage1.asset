@@ -20,10 +20,14 @@ MonoBehaviour:
       level: 1
     - type: 2
       level: 1
+    - type: 3
+      level: 1
+    - type: 4
+      level: 1
   animalSpawnInfo:
     ChickenNum: 1
     SheepNum: 1
-    CowNum: 0
+    CowNum: 1
   stageReward:
     gold: 0
     experience: 0

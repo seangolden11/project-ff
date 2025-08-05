@@ -1,44 +1,44 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bear : MonoBehaviour
+public class Bear : Animals
 {
-    private enum AnimalState { Wandering, Idling }
 
-    private AnimalState currentState = AnimalState.Wandering;
+    public Inventory inventory;
+    bool isNearPlayer = false;
 
-    public float moveSpeed = 1f;
-    public Vector2 minBounds = new Vector2(-10f, -10f); // X, Z 최소 범위
-    public Vector2 maxBounds = new Vector2(10f, 10f);    // X, Z 최대 범위
-    public float minMoveTime = 1f; // 최소 이동 시간
-    public float maxMoveTime = 3f; // 최대 이동 시간
-
-    public float minIdleTime = 4f; // 최소 정지 시간
-    public float maxIdleTime = 10f; // 최대 정지 시간
-
-    private Vector3 targetPosition;
-    private float nextActionTime; // 다음 움직이거나 정지할 시간
-
-    bool isNearPlayer;
     float nearTimer = 0;
-    float nearLimit = 5f;
+    public float nearLimit = 10f;
 
-    public Animator animator;
+    public Item bearitem;
 
     void Start()
     {
         currentState = AnimalState.Wandering; // 게임 시작 시 닭은 배회 상태로 시작
-        nextActionTime = 0f; // 풀 찾기 타이머 초기화
+        feedTimer = 0f; // 풀 찾기 타이머 초기화
         SetNewTargetPosition(); // 초기 목표 위치 설정
+        grassTag = "Animal";
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+
+        // 풀 찾기 타이머를 증가시킵니다.
+        feedTimer += Time.deltaTime;
+
+        // 1. 일정 시간이 되면 풀을 찾아 이동할 준비를 합니다.
+        // 현재 풀을 찾아 이동 중이 아닐 때만 풀을 찾습니다.
+        if (feedTimer >= feedInterval && currentState != AnimalState.SeekingGrass)
+        {
+            FindAndTargetGrass();
+        }
+
+        // 2. 현재 닭의 상태에 따라 다른 행동을 수행합니다.
         switch (currentState)
         {
             case AnimalState.Wandering:
-            animator.SetFloat("Speed", 1);
+                animator.SetFloat("Speed", 1);
                 // 목표 위치로 이동
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 LookAtTarget(targetPosition);
@@ -52,23 +52,85 @@ public class Bear : MonoBehaviour
                 break;
 
             case AnimalState.Idling:
-                animator.SetFloat("Speed", 0);
                 // 정지 시간이 끝나면 다시 배회 상태로 전환
+                animator.SetFloat("Speed", 0);
                 if (Time.time >= nextActionTime)
                 {
                     currentState = AnimalState.Wandering;
                     SetNewTargetPosition(); // 새로운 배회 목표 지점 설정
                 }
                 break;
-        }
 
+            case AnimalState.SeekingGrass:
+                animator.SetFloat("Speed", 1);
+                // 만약 목표 풀이 없거나 비활성화되었다면, 다시 배회 상태로 돌아갑니다.
+                if (currentGrassTarget == null || !currentGrassTarget.activeInHierarchy)
+                {
+                    Debug.Log("풀 오브젝트가 사라지거나 비활성화되었습니다. 다시 배회합니다.");
+                    if (hungryTimer == 0)
+                        currentState = AnimalState.Wandering;
+                    else
+                        currentState = AnimalState.hungry;
+                    SetNewTargetPosition();
+                    feedTimer = feedInterval * 0.6f; // 다음 풀 찾기 주기를 위해 타이머 초기화
+                    return; // 이번 프레임의 나머지 로직 건너뛰기
+                }
+
+                // 풀 오브젝트를 향해 이동
+                transform.position = Vector3.MoveTowards(transform.position, currentGrassTarget.transform.position, moveSpeed * Time.deltaTime);
+                LookAtTarget(currentGrassTarget.transform.position);
+
+                // 풀에 충분히 도달했다면 (먹이 활동)
+                if (Vector3.Distance(transform.position, currentGrassTarget.transform.position) < 0.2f) // 약간 더 작은 거리로 "먹이"를 먹었다고 판단
+                {
+                    Debug.Log("풀에 도달하여 비활성화합니다: " + currentGrassTarget.name);
+                    PrefabManager.Instance.Release(currentGrassTarget); // 풀 오브젝트 비활성화
+                    currentGrassTarget = null; // 타겟 초기화
+
+                    moveSpeed = 1f;
+                    hungryTimer = 0;
+                    minIdleTime = 4f;
+                    maxIdleTime = 10f;
+
+                    // 먹이 활동 후에는 다시 배회 상태로 돌아감
+                    currentState = AnimalState.Wandering;
+                    SetNewTargetPosition(); // 새로운 배회 목표 설정
+                    feedTimer = 0f; // 타이머를 초기화하여 다음 풀 찾기까지 다시 10초를 기다립니다.
+                }
+                break;
+            case AnimalState.hungry:
+                hungryTimer += Time.deltaTime;
+                moveSpeed = 3f;
+                minIdleTime = 1f;
+                maxIdleTime = 1f;
+
+                if (hungryTimer >= 30f)
+                {
+                    PrefabManager.Instance.Release(gameObject);
+                }
+                animator.SetFloat("Speed", 1);
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+                LookAtTarget(targetPosition);
+
+                if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+                {
+                    SetNewTargetPosition();
+                }
+
+
+                break;
+
+
+        }
         if (isNearPlayer)
         {
             moveSpeed = 0.5f;
             nearTimer += Time.deltaTime;
             if (nearTimer >= nearLimit)
             {
+
                 PrefabManager.Instance.Release(gameObject);
+                inventory.AddItem(bearitem);
             }
         }
         else
@@ -77,39 +139,13 @@ public class Bear : MonoBehaviour
         }
     }
 
-    void LookAtTarget(Vector3 target)
-    {
-        Vector3 direction = (target - transform.position).normalized;
-        // Y축 회전만 필요하므로 Y값을 0으로 설정하여 수평 방향만 바라보게 합니다.
-        direction.y = 0; 
-
-        if (direction != Vector3.zero) // 방향 벡터가 0이 아닐 때만 회전
-        {
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            // 부드러운 회전을 위해 Quaternion.Slerp 사용
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f); // 5f는 회전 속도
-        }
-    }
-
-    void SetNewTargetPosition()
-    {
-        float randomX = Random.Range(minBounds.x, maxBounds.x);
-        float randomZ = Random.Range(minBounds.y, maxBounds.y);
-
-        targetPosition = new Vector3(randomX, transform.position.y, randomZ); // Y 값은 현재 높이 유지
-
-        nextActionTime = Time.time + Random.Range(minMoveTime, maxMoveTime); // 다음 이동 시간 설정
-    }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Animal"))
-        {
-            PrefabManager.Instance.Release(other.gameObject);
-        }
-        else if (other.CompareTag("Inventory"))
+        if (other.CompareTag("Inventory"))
         {
             isNearPlayer = true;
+            inventory = other.GetComponentInChildren<Inventory>();
         }
     }
 
@@ -121,3 +157,4 @@ public class Bear : MonoBehaviour
         }
     }
 }
+

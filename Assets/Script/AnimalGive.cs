@@ -17,6 +17,9 @@ public class AnimalGive : MonoBehaviour
             case AnimalType.Sheep:
                 PrefabManager.Instance.Get("Wool", this.transform.position, this.transform.rotation);
                 break;
+            case AnimalType.Cow:
+                PrefabManager.Instance.Get("Milk", this.transform.position, this.transform.rotation);
+                break;
             default:
                 break;
 

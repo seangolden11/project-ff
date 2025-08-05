@@ -32,8 +32,13 @@ public class PlayerSpawner : MonoBehaviour
         {
             PrefabManager.Instance.Get("Sheep", animalSpot.position, animalSpot.rotation);
         }
+        for (int i = 0; i < stageData.animalSpawnInfo.CowNum; i++)
+        {
+            PrefabManager.Instance.Get("Cow", animalSpot.position, animalSpot.rotation);
+        }
 
-        for (int i = 0; i < stageData.buildingInfo.spawnBuilding.Count; i++) {
+        for (int i = 0; i < stageData.buildingInfo.spawnBuilding.Count; i++)
+        {
             if (stageData.buildingInfo.spawnBuilding[i] != null)
                 PrefabManager.Instance.Get(stageData.buildingInfo.spawnBuilding[i].type.ToString(), spot[i].position, quaternion.identity);
         }

@@ -7,7 +7,7 @@ public class GrassSpawner : MonoBehaviour
     [Header("풀 생성 설정")]
     public float spawnRadius = 10f;      // 풀이 생성될 반경 (이 스포너의 중심에서)
     public int maxGrassCount = 50;      // 최대로 유지할 풀의 개수
-    public float spawnInterval = 1f;    // 풀을 생성할 주기
+    public float spawnInterval = 2f;    // 풀을 생성할 주기
     
     private bool _isPlayerInside = false; // 플레이어가 범위 내에 있는지 여부
     private float _spawnTimer;
@@ -19,7 +19,7 @@ public class GrassSpawner : MonoBehaviour
         if (_isPlayerInside)
         {
             _spawnTimer += Time.deltaTime;
-            if (_spawnTimer >= spawnInterval)
+            if (_spawnTimer >= spawnInterval - level * 0.3f)
             {
                 _spawnTimer = 0f;
                 TrySpawnGrass();

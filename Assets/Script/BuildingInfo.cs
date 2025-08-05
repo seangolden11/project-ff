@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PublicDataType;
 using UnityEngine;
 
 
@@ -8,10 +9,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewBuildingData", menuName = "Game Data/Building Data")]
 public class BuildingInfo : ScriptableObject
 {
-    public int level;
 
     public int id;
-    public enum Buildingtype { None, Powder };
+    // public BuildingType buildingType;
     public Item itemTakes;
     public Item itemGives;
 

@@ -252,6 +252,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingInfo: {fileID: 11400000, guid: 98fab1965ecda6a45b94b00d2fcd1272, type: 2}
   building: {fileID: 5159197593055647251}
+  well: {fileID: 0}
+  market: {fileID: 0}
+  buildingType: 2
 --- !u!1001 &4429555457707096126
 PrefabInstance:
   m_ObjectHideFlags: 0

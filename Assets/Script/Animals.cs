@@ -18,16 +18,16 @@ public class Animals : MonoBehaviour
     public float feedInterval = 10f; // 닭이 풀을 찾을 간격 (초)
     public float grassSearchRadius = 15f; // 닭이 풀을 찾을 반경
 
-    private Vector3 targetPosition;
-    private float nextActionTime; // 다음 움직이거나 정지할 시간
-    private float feedTimer; // 풀을 찾기 위한 타이머
-    float hungryTimer =0;
+    protected Vector3 targetPosition;
+    protected float nextActionTime; // 다음 움직이거나 정지할 시간
+    protected float feedTimer; // 풀을 찾기 위한 타이머
+    protected float hungryTimer =0;
 
-    private GameObject currentGrassTarget; // 현재 목표로 하는 풀 오브젝트
+    protected GameObject currentGrassTarget; // 현재 목표로 하는 풀 오브젝트
 
     // 닭의 상태를 관리하는 Enum
-    private enum AnimalState { Wandering, Idling, SeekingGrass, hungry }
-    private AnimalState currentState;
+    protected enum AnimalState { Wandering, Idling, SeekingGrass, hungry }
+    protected AnimalState currentState;
     public Animator animator;
 
     void Start()
@@ -143,7 +143,7 @@ public class Animals : MonoBehaviour
     }
 
     // 새로운 랜덤 목표 위치를 설정합니다 (배회 상태에서 사용)
-    void SetNewTargetPosition()
+    protected void SetNewTargetPosition()
     {
         float randomX = Random.Range(minBounds.x, maxBounds.x);
         float randomZ = Random.Range(minBounds.y, maxBounds.y);
@@ -154,7 +154,7 @@ public class Animals : MonoBehaviour
     }
 
     // 주변에서 활성화된 풀 오브젝트를 찾아 목표로 설정합니다.
-    void FindAndTargetGrass()
+    protected void FindAndTargetGrass()
     {
         // 씬 내의 모든 "Grass" 태그를 가진 오브젝트를 찾습니다.
         GameObject[] allGrass = GameObject.FindGameObjectsWithTag(grassTag);
@@ -203,7 +203,7 @@ public class Animals : MonoBehaviour
         }
     }
 
-    void LookAtTarget(Vector3 target)
+    protected void LookAtTarget(Vector3 target)
     {
         Vector3 direction = (target - transform.position).normalized;
         // Y축 회전만 필요하므로 Y값을 0으로 설정하여 수평 방향만 바라보게 합니다.

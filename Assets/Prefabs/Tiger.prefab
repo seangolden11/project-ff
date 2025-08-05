@@ -835,12 +835,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  bearitem: {fileID: 0}
   minBounds: {x: -10, y: -10}
   maxBounds: {x: 10, y: 10}
-  minMoveTime: 1
-  maxMoveTime: 3
-  minIdleTime: 4
-  maxIdleTime: 10
+  minMoveTime: 3
+  maxMoveTime: 6
+  minIdleTime: 2
+  maxIdleTime: 5
+  animator: {fileID: 0}
 --- !u!135 &7599418429591794933
 SphereCollider:
   m_ObjectHideFlags: 0
