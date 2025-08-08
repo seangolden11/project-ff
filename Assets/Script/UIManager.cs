@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject upgradePanel;
 
+    public GameObject joystickObject;
+
     void Awake()
     {
         // 싱글톤 인스턴스 설정
@@ -30,6 +32,27 @@ public class UIManager : MonoBehaviour
         if (settingsPanel != null) settingsPanel.SetActive(false);
         if (stagePanel != null) stagePanel.SetActive(false);
         if (upgradePanel != null) upgradePanel.SetActive(false);
+
+        
+
+    
+        // joystickObject가 할당되었는지 확인
+        if (joystickObject != null)
+        {
+        // 전처리기 지시문 시작: iOS 또는 Android 또는 유니티 에디터일 때만 아래 코드를 포함
+#if UNITY_IOS || UNITY_ANDROID
+        // 모바일 환경이거나 에디터에서 테스트 중일 때는 조이스틱을 활성화
+        joystickObject.SetActive(true);
+        Debug.Log("모바일 플랫폼 또는 에디터이므로 조이스틱을 활성화합니다.");
+#else
+        // 그 외의 모든 플랫폼(PC, Mac 등)에서는 조이스틱을 비활성화
+        joystickObject.SetActive(false);
+        Debug.Log("PC 플랫폼이므로 조이스틱을 비활성화합니다.");
+#endif
+// 전처리기 지시문 끝
+        }
+
+
     }
 
     // 설정 패널 토글 함수

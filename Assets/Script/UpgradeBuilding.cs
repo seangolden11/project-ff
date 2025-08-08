@@ -1,4 +1,5 @@
 using PublicDataType;
+using TMPro;
 using UnityEngine;
 
 public class UpgradeBuilding : MonoBehaviour
@@ -11,7 +12,27 @@ public class UpgradeBuilding : MonoBehaviour
     public Sell market;
 
     public BuildingType buildingType;
-    
+
+    public TextMeshPro textMeshPro;
+    void Start()
+    {
+        if (!textMeshPro)
+            return;
+        switch (buildingType)
+            {
+                case BuildingType.Well:
+                    textMeshPro.text = $"${buildingInfo.nextLeveCost[well.level]}";
+                    break;
+                case BuildingType.Market:
+                    textMeshPro.text = $"${buildingInfo.nextLeveCost[market.level]}";
+                    break;
+                default:
+                    textMeshPro.text = $"${buildingInfo.nextLeveCost[building.level]}";
+                    break;
+            }
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

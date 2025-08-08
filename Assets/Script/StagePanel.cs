@@ -58,14 +58,7 @@ public class StagePanel : MonoBehaviour
         if (slider)
         {
             TimerManager tm = FindFirstObjectByType<TimerManager>();
-            float count = 0;
-            if (tm.starCount == 1)
-                count += GameManager.Instance.stageData.timeLimit;
-            else if (tm.starCount == 2)
-                count += GameManager.Instance.stageData.timeLimit + 120;
-            else if (tm.starCount == 3)
-                count += GameManager.Instance.stageData.timeLimit + 240;
-            slider.value = (GameManager.Instance.stageData.timeLimit - tm.currentTime + count) / (GameManager.Instance.stageData.timeLimit + 4 * 120);
+            slider.value = tm.currentGameTime / (GameManager.Instance.stageData.timeLimit + 4 * 120);
         }
     }
 }

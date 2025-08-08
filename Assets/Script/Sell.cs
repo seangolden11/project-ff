@@ -122,6 +122,10 @@ public class Sell : MonoBehaviour
         if (allGoalsMet)
         {
             Debug.Log("모든 목표 달성! 게임 승리!");
+            for (int i = 0; i < inventory.inventoryCount; i++)
+            {
+                inventory.DeleteItem(inventory.inventorySlots[i].item, 999);
+            }
             // 승리 시 처리할 로직 호출
             GameManager.Instance.StageClear();
         }

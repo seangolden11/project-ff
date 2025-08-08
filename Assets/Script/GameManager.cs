@@ -57,18 +57,8 @@ public class GameManager : MonoBehaviour
     {
         tm.StopTimer();
         UIManager.Instance.ToggleStagePanel();
-        
-        float count = 0;
-        if (tm.starCount == 1)
-            count += stageData.timeLimit;
-        else if (tm.starCount == 2)
-            count += 120;
-        else if (tm.starCount == 3)
-            count += 240;
 
-        count += stageData.timeLimit - tm.currentTime;
-
-        DataManager.Instance.SetStageCleared(stageData.stageID, count, 3 - tm.starCount);
+        DataManager.Instance.SetStageCleared(stageData.stageID, tm.currentGameTime, 3 - tm.starCount);
     }
 
 

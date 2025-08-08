@@ -39,7 +39,7 @@ public class DataManager : MonoBehaviour
             {
                 string jsonString = File.ReadAllText(saveFilePath);
                 gameData = JsonUtility.FromJson<GameData>(jsonString);
-                Debug.Log($"게임 진행 데이터를 성공적으로 로드했습니다.{gameData}");
+                Debug.Log($"게임 진행 데이터를 성공적으로 로드했습니다.{gameData.stages}");
             }
             catch (System.Exception e)
             {

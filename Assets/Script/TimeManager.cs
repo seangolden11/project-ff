@@ -4,6 +4,7 @@ using System; // Action 이벤트를 사용하기 위해 필요
 public class TimerManager : MonoBehaviour
 {
     public float currentTime { get; private set; } // 현재 남은 시간
+    public float currentGameTime { get; private set; }
     public float spawnTime { get; private set; } // 스폰 시간
 
     public event Action<float> OnTimerTick; // 시간 업데이트를 알리는 이벤트
@@ -35,6 +36,7 @@ public class TimerManager : MonoBehaviour
         if (currentTime > 0)
         {
             currentTime -= Time.deltaTime; // 프레임당 시간 감소
+            currentGameTime += Time.deltaTime;
             OnTimerTick?.Invoke(currentTime); // 리스너에게 시간 변경 알림
             spawnTime += Time.deltaTime;
             if (spawnTime >= 50)
