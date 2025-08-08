@@ -57,6 +57,8 @@ public class GameData
     public List<UpgradeData> upgrades;
     public int stars;
 
+    public int hearts;
+
 
     // 기본 생성자
     public GameData()
@@ -64,5 +66,6 @@ public class GameData
         stages = new List<StageClearData>();
         upgrades = new List<UpgradeData>();
         stars = 0;
+        hearts = 5;
     }
 }

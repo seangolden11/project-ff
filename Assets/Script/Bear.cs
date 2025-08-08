@@ -12,6 +12,8 @@ public class Bear : Animals
 
     public Item bearitem;
 
+    public Transform trans;
+
     void Start()
     {
         currentState = AnimalState.Wandering; // 게임 시작 시 닭은 배회 상태로 시작
@@ -126,8 +128,11 @@ public class Bear : Animals
         {
             moveSpeed = 0.5f;
             nearTimer += Time.deltaTime;
+            trans.localScale = new Vector3 (1,1,1) * (nearTimer / nearLimit);
             if (nearTimer >= nearLimit)
             {
+                nearTimer = 0;
+                isNearPlayer = false;
 
                 PrefabManager.Instance.Release(gameObject);
                 inventory.AddItem(bearitem);

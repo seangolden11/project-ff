@@ -95,11 +95,24 @@ public class DataManager : MonoBehaviour
         
         return gameData.stars;
     }
+    
+    public int GetHeartData()
+    {
+        
+        return gameData.hearts;
+    }
 
     public UpgradeData GetUpgradeData(int Id)
     {
-        
+
         return gameData.upgrades[Id];
+    }
+    
+    public void SetHeartData(int num)
+    {
+        if (gameData.hearts + num > 5 || gameData.hearts + num < 0)
+            return;
+        gameData.hearts += num;
     }
 
     // 특정 스테이지의 클리어 상태 업데이트
@@ -124,7 +137,7 @@ public class DataManager : MonoBehaviour
                 stage.star = num;
                 gameData.stars += num;
             }
-            
+
             Debug.Log($"스테이지 {stageId} 클리어 정보 업데이트: 클리어됨={stage.cleared}, 시간={stage.clearTime}");
             SaveGameProgress(); // 변경사항 저장
         }

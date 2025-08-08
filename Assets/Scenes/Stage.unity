@@ -737,6 +737,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5ddc926966cefb64eb45a42bab03ceb6, type: 2}
   - {fileID: 11400000, guid: 773c02c26c3b3044297aca1916ff1930, type: 2}
   - {fileID: 11400000, guid: 63a83e54193b0114aae5230370f70a13, type: 2}
+  - {fileID: 11400000, guid: fb93040d18f786c4db6593df289a4761, type: 2}
+  - {fileID: 11400000, guid: 8a59164adb272294294b50ded77c591d, type: 2}
   - {fileID: 11400000, guid: e370fa1cbba24904a90247350625bda7, type: 2}
   inventoryCount: 0
   visualItem: []
@@ -799,7 +801,7 @@ Camera:
   m_GameObject: {fileID: 593051762}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -1255,7 +1257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5742195573735302785, guid: ee8a1ddb97c04ee4e9de1dd96017ed36, type: 3}
       propertyPath: m_text
-      value: Cow\n$100
+      value: Cow\n$10000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1289,13 +1291,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861927124}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.334, y: 1, z: -0.382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1736268849}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &954733892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,13 +1638,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1125230657}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.3461, y: 1, z: 0.1055}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1736268849}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1194405364 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3447237157946687970, guid: 0a90c88a8bd978948beb5d2a184f74ea, type: 3}
@@ -1758,13 +1760,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308625304}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.3196, y: 1, z: -0.241}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1736268849}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1396859735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,6 +2189,30 @@ MonoBehaviour:
     maxSize: 20
   - prefab: {fileID: 7644772062377520864, guid: 53b591f90ec695a4d825dba8f3f74ecc, type: 3}
     prefabName: MilkItem
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 7444910382591532800, guid: a9090ea4dc290e147a7f9be841f609ab, type: 3}
+    prefabName: Butter
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 7644772062377520864, guid: fa72c59c42c4b7b428df81b124a9f773, type: 3}
+    prefabName: ButterItem
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 8576069226670647179, guid: 0b8923f611ef4d84bb0b754b850582f3, type: 3}
+    prefabName: Cheese
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 7644772062377520864, guid: 46927e8f86974d54eae2e01ec8c96259, type: 3}
+    prefabName: CheeseItem
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 1371889348260875808, guid: c8e650b0fe151fe499fa11a34be074da, type: 3}
+    prefabName: Creamery
+    defaultCapacity: 0
+    maxSize: 20
+  - prefab: {fileID: 1371889348260875808, guid: 7414aaba1c1b81c4984da95cd795856f, type: 3}
+    prefabName: Dairy
     defaultCapacity: 0
     maxSize: 20
 --- !u!114 &1458230250
@@ -3389,7 +3415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5742195573735302785, guid: ee8a1ddb97c04ee4e9de1dd96017ed36, type: 3}
       propertyPath: m_text
-      value: Sheep\n$100
+      value: Sheep\n$1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3399,50 +3425,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: ee8a1ddb97c04ee4e9de1dd96017ed36, type: 3}
---- !u!1 &2034993727
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2034993729}
-  - component: {fileID: 2034993728}
-  m_Layer: 0
-  m_Name: Tester
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &2034993728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034993727}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfde99d2dc4316145b4bf12af135fddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2034993729
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034993727}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.16591, y: 6.60313, z: -13.30851}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125641803
 GameObject:
   m_ObjectHideFlags: 0
@@ -3921,4 +3903,3 @@ SceneRoots:
   - {fileID: 1488888989}
   - {fileID: 1672125453}
   - {fileID: 978866803}
-  - {fileID: 2034993729}

@@ -485,7 +485,8 @@ MonoBehaviour:
   building: {fileID: 0}
   well: {fileID: 6154314747456377017}
   market: {fileID: 0}
-  buildingType: 4
+  buildingType: 8
+  textMeshPro: {fileID: 0}
 --- !u!135 &3610390710493977581
 SphereCollider:
   m_ObjectHideFlags: 0

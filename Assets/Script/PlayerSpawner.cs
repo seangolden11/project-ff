@@ -40,7 +40,7 @@ public class PlayerSpawner : MonoBehaviour
         for (int i = 0; i < stageData.buildingInfo.spawnBuilding.Count; i++)
         {
             if (stageData.buildingInfo.spawnBuilding[i] != null)
-                PrefabManager.Instance.Get(stageData.buildingInfo.spawnBuilding[i].type.ToString(), spot[i].position, quaternion.identity);
+                PrefabManager.Instance.Get(stageData.buildingInfo.spawnBuilding[i].type.ToString(), spot[i].position, spot[i].rotation);
         }
         
         

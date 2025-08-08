@@ -24,6 +24,10 @@ MonoBehaviour:
       level: 1
     - type: 4
       level: 1
+    - type: 5
+      level: 1
+    - type: 6
+      level: 1
   animalSpawnInfo:
     ChickenNum: 1
     SheepNum: 1

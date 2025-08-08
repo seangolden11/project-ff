@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Sell : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class Sell : MonoBehaviour
     public int sellLimit;
 
     public int level;
+
+    public int transformationTime;
 
     StageData stageData;
 
@@ -17,13 +20,23 @@ public class Sell : MonoBehaviour
         {
             inventory = other.GetComponentInChildren<Inventory>();
             TryTakeItemsFromPlayerInventory();
+            StartCoroutine(ProcessItemTransformation());
 
         }
+        
+    }
+
+    private IEnumerator ProcessItemTransformation()
+    {
+       
+                yield return new WaitForSeconds(transformationTime);      
+                
     }
 
     void Start()
     {
         stageData = GameManager.Instance.stageData;
+        
     }
 
     private void TryTakeItemsFromPlayerInventory()

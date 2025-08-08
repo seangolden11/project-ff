@@ -15,6 +15,12 @@ public class Buy : MonoBehaviour
             case AnimalType.Chicken:
                 price = 100;
                 break;
+                case AnimalType.Sheep:
+                price = 1000;
+                break;
+                case AnimalType.Cow:
+                price = 10000;
+                break;
             default:
                 break;
         }
