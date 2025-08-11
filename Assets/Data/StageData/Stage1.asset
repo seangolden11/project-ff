@@ -39,4 +39,4 @@ MonoBehaviour:
     goalItems:
     - type: 1
       count: 1
-  startMoney: 100
+  startMoney: 10000

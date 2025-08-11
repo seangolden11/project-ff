@@ -13,6 +13,8 @@ public class Sell : MonoBehaviour
 
     StageData stageData;
 
+    public Animator anim;
+
     private Dictionary<PublicDataType.ItemType, int> soldItemCounts = new Dictionary<PublicDataType.ItemType, int>();
     void OnTriggerEnter(Collider other)
     {
@@ -23,20 +25,22 @@ public class Sell : MonoBehaviour
             StartCoroutine(ProcessItemTransformation());
 
         }
-        
+
     }
 
     private IEnumerator ProcessItemTransformation()
     {
-       
-                yield return new WaitForSeconds(transformationTime);      
-                
+        anim.SetBool("isWorking", true);
+
+        yield return new WaitForSeconds(transformationTime);
+        anim.SetBool("isWorking", false);
+
     }
 
     void Start()
     {
         stageData = GameManager.Instance.stageData;
-        
+
     }
 
     private void TryTakeItemsFromPlayerInventory()
@@ -64,7 +68,7 @@ public class Sell : MonoBehaviour
                 // amount를 1로 넘기면 해당 아이템 하나의 Size만큼 슬롯이 비워지게 됩니다.
                 removedCount = inventory.DeleteItem(itemInSlot, (sellLimit + level * sellLimit) - itemsSuccessfullyTaken);
                 MoneyManager.Instance.AddMoney(itemInSlot.sellPrice * removedCount);
-                
+
 
                 PublicDataType.ItemType typeOfSoldItem = GetItemTypeFromItem(itemInSlot); // 아래에 구현할 도우미 함수
 
@@ -93,6 +97,7 @@ public class Sell : MonoBehaviour
             // 예: this.enabled = false; 
             CheckWinCondition();
         }
+
     }
 
     private PublicDataType.ItemType GetItemTypeFromItem(Item item)
@@ -108,7 +113,7 @@ public class Sell : MonoBehaviour
         // 다른 아이템 타입도 여기에 추가
         return PublicDataType.ItemType.Money; // Money는 판매로 얻는 것이므로 기본적으로 포함 안될 수 있음
     }
-    
+
     public void CheckWinCondition()
     {
 

@@ -8,18 +8,11 @@ public class PrefabManager : MonoBehaviour
     // 싱글톤 인스턴스
     public static PrefabManager Instance { get; private set; }
 
-    // 프리팹들을 담을 딕셔너리 (Inspector에서 수동 할당용)
-    [System.Serializable]
-    public class PoolSetup
-    {
-        public GameObject prefab;
-        public string prefabName;
-        public int defaultCapacity = 10;
-        public int maxSize = 100;
-    }
+    public GameObject[] readyPrefabs;
 
-    public PoolSetup[] poolSetups;
     private Dictionary<GameObject, ObjectPool<GameObject>> pools;
+
+    public int maxSize;
 
     private void Awake()
     {
@@ -36,41 +29,41 @@ public class PrefabManager : MonoBehaviour
         }
 
         pools = new Dictionary<GameObject, ObjectPool<GameObject>>();
-        foreach (var setup in poolSetups)
+        foreach (var setup in readyPrefabs)
         {
             var pool = new ObjectPool<GameObject>(
                 () =>
                 {
-                    GameObject obj = Instantiate(setup.prefab);
-                    obj.name = setup.prefabName;
+                    GameObject obj = Instantiate(setup);
+                    obj.name = setup.name;
                     return obj;
                 },
                 obj => obj.SetActive(true),
                 obj => { obj.SetActive(false); obj.transform.SetParent(this.transform); },
                 Destroy,
                 true,
-                setup.defaultCapacity,
-                setup.maxSize
+                0,
+                maxSize
             );
-            pools.Add(setup.prefab, pool);
+            pools.Add(setup, pool);
 
         }
     }
 
-    public PoolSetup GetPrefabByName(string nameToFind)
+    public GameObject GetPrefabByName(string nameToFind)
     {
         // poolSetups 배열이 null이거나 비어 있는지 확인합니다.
-        if (poolSetups == null || poolSetups.Length == 0)
+        if (readyPrefabs == null || readyPrefabs.Length == 0)
         {
             Debug.LogWarning("PoolSetups 배열이 초기화되지 않았거나 비어 있습니다.");
             return null;
         }
 
         // 배열의 각 PoolSetup을 반복합니다.
-        foreach (PoolSetup setup in poolSetups)
+        foreach (GameObject setup in readyPrefabs)
         {
             // prefabName을 비교합니다 (대소문자 구분).
-            if (setup.prefabName == nameToFind)
+            if (setup.name == nameToFind)
             {
                 return setup; // 이름이 일치하면 GameObject를 반환합니다.
             }
@@ -83,7 +76,7 @@ public class PrefabManager : MonoBehaviour
 
     public GameObject Get(string name, Vector3 position, Quaternion rotation)
     {
-        if (pools.TryGetValue(GetPrefabByName(name).prefab, out var pool))
+        if (pools.TryGetValue(GetPrefabByName(name), out var pool))
         {
             GameObject obj = pool.Get();
             obj.transform.position = position;
@@ -97,7 +90,7 @@ public class PrefabManager : MonoBehaviour
     
      public void Release(GameObject obj)
     {
-        if (pools.TryGetValue(GetPrefabByName(obj.name).prefab, out var pool))
+        if (pools.TryGetValue(GetPrefabByName(obj.name), out var pool))
         {
             pool.Release(obj);
         }

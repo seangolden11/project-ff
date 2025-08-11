@@ -2082,139 +2082,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e59893058986c64f84800f4bf21feb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolSetups:
-  - prefab: {fileID: 7729379492258877522, guid: 12dff4ce1d6e92b4e8acb113f4d0e385, type: 3}
-    prefabName: Chicken
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 8978846153405838608, guid: 7eba9e2f8226a4042bdeb240ff23641b, type: 3}
-    prefabName: Egg
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 4912696847548348841, guid: adef0a059988acd47ba7caab7ce576f1, type: 3}
-    prefabName: EggItem
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7644772062377520864, guid: 16628309c326f9a45be4a8ae87dff66b, type: 3}
-    prefabName: EggPowder
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7644772062377520864, guid: a5058fa8c6bf1fb4c8f9e14456c28591, type: 3}
-    prefabName: EggPowderItem
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 2381536330808911894, guid: 50a82e8dda66bd54b9c674b1c5f8d9a3, type: 3}
-    prefabName: Grass
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7276393720145696980, guid: 97804089e65d61d4a86e33acdba5baeb, type: 3}
-    prefabName: None
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 1371889348260875808, guid: b0e3dab4080e161449108c6c16f78990, type: 3}
-    prefabName: Powder
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 821474321794191316, guid: 8580f8be662c3854d8115c8066b58c3e, type: 3}
-    prefabName: Sell
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 362796493786901534, guid: ed8612c8f9d8fc047947cd2aa3709874, type: 3}
-    prefabName: well
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 1121017115642196926, guid: 3c62dd6b97060a44dbac23640e6676e3, type: 3}
-    prefabName: Sheep
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 8978846153405838608, guid: ceadd6c3ee6bb7544bfafc30ff6ac444, type: 3}
-    prefabName: Wool
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7644772062377520864, guid: 9d6ef69130a0b734b9bfad91f5f1ba6c, type: 3}
-    prefabName: WoolItem
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 1371889348260875808, guid: 4cb97c83ca8aca94eab3991c4e020cbe, type: 3}
-    prefabName: Bakery
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7644772062377520864, guid: 7120fc9858043fc42b63efb05062adaa, type: 3}
-    prefabName: Muffin
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7644772062377520864, guid: aa1c4919466327348a43ada9646a20d9, type: 3}
-    prefabName: MuffinItem
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 6156485108599715976, guid: 36168827c61ec8241908c9d8f362c244, type: 3}
-    prefabName: Tiger
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 8978846153405838608, guid: 3cdeb4592998f5641be769fb0aeed33d, type: 3}
-    prefabName: Yarn
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7644772062377520864, guid: 5ccb43949607b894cab819d9e111ed76, type: 3}
-    prefabName: YarnItem
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 1987685826741944692, guid: d58271e8c8a1663488d614e925492712, type: 3}
-    prefabName: Blanket
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7644772062377520864, guid: 0af9bf5fda95423429845ea556d1f6fe, type: 3}
-    prefabName: BlanketItem
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 1371889348260875808, guid: fc03c523d6d1b854eb406f2244d33530, type: 3}
-    prefabName: Spinnary
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 1371889348260875808, guid: 7d72e8d5e17df674f9fb2879a43aa1c2, type: 3}
-    prefabName: Weaving
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 4912696847548348841, guid: e324c0fd7698f6c4d9f9c15f0e2376eb, type: 3}
-    prefabName: EnemyItem
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 475247121401761468, guid: c95b69ab4c5c01a4b865bf17271746c4, type: 3}
-    prefabName: Cow
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7234846664032298614, guid: 8be44a6980566a24588b533ac0f79f75, type: 3}
-    prefabName: Milk
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7644772062377520864, guid: 53b591f90ec695a4d825dba8f3f74ecc, type: 3}
-    prefabName: MilkItem
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7444910382591532800, guid: a9090ea4dc290e147a7f9be841f609ab, type: 3}
-    prefabName: Butter
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7644772062377520864, guid: fa72c59c42c4b7b428df81b124a9f773, type: 3}
-    prefabName: ButterItem
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 8576069226670647179, guid: 0b8923f611ef4d84bb0b754b850582f3, type: 3}
-    prefabName: Cheese
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 7644772062377520864, guid: 46927e8f86974d54eae2e01ec8c96259, type: 3}
-    prefabName: CheeseItem
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 1371889348260875808, guid: c8e650b0fe151fe499fa11a34be074da, type: 3}
-    prefabName: Creamery
-    defaultCapacity: 0
-    maxSize: 20
-  - prefab: {fileID: 1371889348260875808, guid: 7414aaba1c1b81c4984da95cd795856f, type: 3}
-    prefabName: Dairy
-    defaultCapacity: 0
-    maxSize: 20
+  readyPrefabs:
+  - {fileID: 7729379492258877522, guid: 12dff4ce1d6e92b4e8acb113f4d0e385, type: 3}
+  - {fileID: 1987685826741944692, guid: d58271e8c8a1663488d614e925492712, type: 3}
+  - {fileID: 1371889348260875808, guid: 4cb97c83ca8aca94eab3991c4e020cbe, type: 3}
+  - {fileID: 7644772062377520864, guid: 0af9bf5fda95423429845ea556d1f6fe, type: 3}
+  - {fileID: 7444910382591532800, guid: a9090ea4dc290e147a7f9be841f609ab, type: 3}
+  - {fileID: 7644772062377520864, guid: fa72c59c42c4b7b428df81b124a9f773, type: 3}
+  - {fileID: 8576069226670647179, guid: 0b8923f611ef4d84bb0b754b850582f3, type: 3}
+  - {fileID: 7644772062377520864, guid: 46927e8f86974d54eae2e01ec8c96259, type: 3}
+  - {fileID: 475247121401761468, guid: c95b69ab4c5c01a4b865bf17271746c4, type: 3}
+  - {fileID: 1371889348260875808, guid: 7414aaba1c1b81c4984da95cd795856f, type: 3}
+  - {fileID: 8978846153405838608, guid: 7eba9e2f8226a4042bdeb240ff23641b, type: 3}
+  - {fileID: 4912696847548348841, guid: adef0a059988acd47ba7caab7ce576f1, type: 3}
+  - {fileID: 7644772062377520864, guid: 16628309c326f9a45be4a8ae87dff66b, type: 3}
+  - {fileID: 7644772062377520864, guid: a5058fa8c6bf1fb4c8f9e14456c28591, type: 3}
+  - {fileID: 1371889348260875808, guid: b0e3dab4080e161449108c6c16f78990, type: 3}
+  - {fileID: 1371889348260875808, guid: ba9e8f50d4172b141a554daff542d00f, type: 3}
+  - {fileID: 1371889348260875808, guid: 5ac208ff0e9f63e4996ceacc23e32cc4, type: 3}
+  - {fileID: 1371889348260875808, guid: ccaa65d5871f4ac44bc7934db5fb1ab0, type: 3}
+  - {fileID: 1371889348260875808, guid: 4cb157a7aed45924fa82d12fa9d5cdbf, type: 3}
+  - {fileID: 6156485108599715976, guid: 36168827c61ec8241908c9d8f362c244, type: 3}
+  - {fileID: 4912696847548348841, guid: e324c0fd7698f6c4d9f9c15f0e2376eb, type: 3}
+  - {fileID: 7234846664032298614, guid: 8be44a6980566a24588b533ac0f79f75, type: 3}
+  - {fileID: 7644772062377520864, guid: 53b591f90ec695a4d825dba8f3f74ecc, type: 3}
+  - {fileID: 7644772062377520864, guid: 7120fc9858043fc42b63efb05062adaa, type: 3}
+  - {fileID: 7644772062377520864, guid: aa1c4919466327348a43ada9646a20d9, type: 3}
+  - {fileID: 8978846153405838608, guid: 3cdeb4592998f5641be769fb0aeed33d, type: 3}
+  - {fileID: 7644772062377520864, guid: 5ccb43949607b894cab819d9e111ed76, type: 3}
+  - {fileID: 8978846153405838608, guid: ceadd6c3ee6bb7544bfafc30ff6ac444, type: 3}
+  - {fileID: 7644772062377520864, guid: 9d6ef69130a0b734b9bfad91f5f1ba6c, type: 3}
+  - {fileID: 1371889348260875808, guid: fc03c523d6d1b854eb406f2244d33530, type: 3}
+  - {fileID: 362796493786901534, guid: ed8612c8f9d8fc047947cd2aa3709874, type: 3}
+  - {fileID: 821474321794191316, guid: 8580f8be662c3854d8115c8066b58c3e, type: 3}
+  - {fileID: 1121017115642196926, guid: 3c62dd6b97060a44dbac23640e6676e3, type: 3}
+  - {fileID: 1371889348260875808, guid: c8e650b0fe151fe499fa11a34be074da, type: 3}
+  - {fileID: 1371889348260875808, guid: 7d72e8d5e17df674f9fb2879a43aa1c2, type: 3}
+  - {fileID: 2381536330808911894, guid: 50a82e8dda66bd54b9c674b1c5f8d9a3, type: 3}
+  - {fileID: 1371889348260875808, guid: d873ba1662670254cb62d63c2f8dcead, type: 3}
+  - {fileID: 1371889348260875808, guid: 4baa69182714abb4ea5df236b42ac2ca, type: 3}
+  - {fileID: 1371889348260875808, guid: 5fc31836d2fa300489813651ea40208c, type: 3}
+  - {fileID: 1371889348260875808, guid: bf66223b7dc84b840bc9dd3c35dc61e0, type: 3}
+  - {fileID: 821474321794191316, guid: 843e3146c52c25a4e81355d941081a47, type: 3}
+  - {fileID: 821474321794191316, guid: 78a8872b203ed0b4cbfc922cf345ac75, type: 3}
+  - {fileID: 821474321794191316, guid: 3f0de3473fc208c49993c416a3e56481, type: 3}
+  - {fileID: 821474321794191316, guid: c4abc0428bce4b44e8035e8480095088, type: 3}
+  maxSize: 20
 --- !u!114 &1458230250
 MonoBehaviour:
   m_ObjectHideFlags: 0

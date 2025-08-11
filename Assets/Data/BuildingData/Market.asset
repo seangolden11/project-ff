@@ -15,5 +15,10 @@ MonoBehaviour:
   id: 6
   itemTakes: {fileID: 0}
   itemGives: {fileID: 0}
-  nextLevelPrefab: {fileID: 0}
+  nextLevelPrefab:
+  - {fileID: 821474321794191316, guid: 8580f8be662c3854d8115c8066b58c3e, type: 3}
+  - {fileID: 821474321794191316, guid: 843e3146c52c25a4e81355d941081a47, type: 3}
+  - {fileID: 821474321794191316, guid: 78a8872b203ed0b4cbfc922cf345ac75, type: 3}
+  - {fileID: 821474321794191316, guid: 3f0de3473fc208c49993c416a3e56481, type: 3}
+  - {fileID: 821474321794191316, guid: c4abc0428bce4b44e8035e8480095088, type: 3}
   nextLeveCost: c8000000c8000000c8000000c8000000c8000000

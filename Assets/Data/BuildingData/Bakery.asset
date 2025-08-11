@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a65ad90d07ec84eb7eb029c30b4587, type: 3}
   m_Name: Bakery
   m_EditorClassIdentifier: 
-  level: 1
   id: 1
   itemTakes: {fileID: 11400000, guid: 4800fa174e710274d980da16d7a7db84, type: 2}
   itemGives: {fileID: 11400000, guid: dbeaeec2f99d76c43bdcbfe5d6ac5308, type: 2}
-  nextLevelPrefab: {fileID: 0}
+  nextLevelPrefab:
+  - {fileID: 1371889348260875808, guid: 4cb97c83ca8aca94eab3991c4e020cbe, type: 3}
+  - {fileID: 1371889348260875808, guid: d873ba1662670254cb62d63c2f8dcead, type: 3}
+  - {fileID: 1371889348260875808, guid: 4baa69182714abb4ea5df236b42ac2ca, type: 3}
+  - {fileID: 1371889348260875808, guid: 5fc31836d2fa300489813651ea40208c, type: 3}
+  - {fileID: 1371889348260875808, guid: bf66223b7dc84b840bc9dd3c35dc61e0, type: 3}
   nextLeveCost: f4010000f4010000f4010000f4010000f4010000

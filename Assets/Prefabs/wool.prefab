@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: -6481138618935704663}
   - component: {fileID: 6741289925195663152}
   m_Layer: 0
-  m_Name: wool
+  m_Name: Wool
   m_TagString: PickableItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

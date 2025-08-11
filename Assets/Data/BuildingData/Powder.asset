@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a65ad90d07ec84eb7eb029c30b4587, type: 3}
   m_Name: Powder
   m_EditorClassIdentifier: 
-  level: 1
+  id: 0
   itemTakes: {fileID: 11400000, guid: 8af4652321c028048a944b1a3fed81ab, type: 2}
   itemGives: {fileID: 11400000, guid: 4800fa174e710274d980da16d7a7db84, type: 2}
-  nextLevelPrefab: {fileID: 0}
+  nextLevelPrefab:
+  - {fileID: 1371889348260875808, guid: b0e3dab4080e161449108c6c16f78990, type: 3}
+  - {fileID: 1371889348260875808, guid: ba9e8f50d4172b141a554daff542d00f, type: 3}
+  - {fileID: 1371889348260875808, guid: 5ac208ff0e9f63e4996ceacc23e32cc4, type: 3}
+  - {fileID: 1371889348260875808, guid: ccaa65d5871f4ac44bc7934db5fb1ab0, type: 3}
+  - {fileID: 1371889348260875808, guid: 4cb157a7aed45924fa82d12fa9d5cdbf, type: 3}
   nextLeveCost: c8000000c8000000c8000000c8000000c8000000
