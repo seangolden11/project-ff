@@ -430,7 +430,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9055735
 Transform:
@@ -572,7 +572,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &277019408
 Transform:
@@ -603,7 +603,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &304465993
 Transform:
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 0
+  m_RenderShadows: 1
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -882,7 +882,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1281,7 +1281,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &861927125
 Transform:
@@ -1462,7 +1462,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1628,7 +1628,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1125230658
 Transform:
@@ -1667,7 +1667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1293245525
 Transform:
   m_ObjectHideFlags: 0
@@ -1691,7 +1691,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293245521}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -1750,7 +1750,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1308625305
 Transform:
@@ -2112,12 +2112,12 @@ MonoBehaviour:
   - {fileID: 7644772062377520864, guid: 5ccb43949607b894cab819d9e111ed76, type: 3}
   - {fileID: 8978846153405838608, guid: ceadd6c3ee6bb7544bfafc30ff6ac444, type: 3}
   - {fileID: 7644772062377520864, guid: 9d6ef69130a0b734b9bfad91f5f1ba6c, type: 3}
-  - {fileID: 1371889348260875808, guid: fc03c523d6d1b854eb406f2244d33530, type: 3}
+  - {fileID: 1371889348260875808, guid: 63d6a3a4e57068d4985c4bdf2a0bd058, type: 3}
   - {fileID: 362796493786901534, guid: ed8612c8f9d8fc047947cd2aa3709874, type: 3}
   - {fileID: 821474321794191316, guid: 8580f8be662c3854d8115c8066b58c3e, type: 3}
   - {fileID: 1121017115642196926, guid: 3c62dd6b97060a44dbac23640e6676e3, type: 3}
   - {fileID: 1371889348260875808, guid: c8e650b0fe151fe499fa11a34be074da, type: 3}
-  - {fileID: 1371889348260875808, guid: 7d72e8d5e17df674f9fb2879a43aa1c2, type: 3}
+  - {fileID: 1371889348260875808, guid: 47f28d6e4960b4144aa5bbce260cf898, type: 3}
   - {fileID: 2381536330808911894, guid: 50a82e8dda66bd54b9c674b1c5f8d9a3, type: 3}
   - {fileID: 1371889348260875808, guid: d873ba1662670254cb62d63c2f8dcead, type: 3}
   - {fileID: 1371889348260875808, guid: 4baa69182714abb4ea5df236b42ac2ca, type: 3}
@@ -2127,6 +2127,14 @@ MonoBehaviour:
   - {fileID: 821474321794191316, guid: 78a8872b203ed0b4cbfc922cf345ac75, type: 3}
   - {fileID: 821474321794191316, guid: 3f0de3473fc208c49993c416a3e56481, type: 3}
   - {fileID: 821474321794191316, guid: c4abc0428bce4b44e8035e8480095088, type: 3}
+  - {fileID: 1371889348260875808, guid: c260f879f6d622d40b1549e86bcf7db7, type: 3}
+  - {fileID: 1371889348260875808, guid: 806e6bc8673304f4fae9e53f26eea2ad, type: 3}
+  - {fileID: 1371889348260875808, guid: 68b9ca9756b56c5448e2374c94dc1ba2, type: 3}
+  - {fileID: 1371889348260875808, guid: 30de9fefa4b68c34fa5c751b80760265, type: 3}
+  - {fileID: 1371889348260875808, guid: a38c04a33cbc40245bdca228136cd61b, type: 3}
+  - {fileID: 1371889348260875808, guid: 8f71a6228396a8a4d90ef560c4161339, type: 3}
+  - {fileID: 1371889348260875808, guid: ec7e407be6ca325489a5e5109717b66c, type: 3}
+  - {fileID: 1371889348260875808, guid: ca02e1010c363b845bd8dc8c52a65d64, type: 3}
   maxSize: 20
 --- !u!114 &1458230250
 MonoBehaviour:
@@ -2259,7 +2267,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1585477007
 Transform:
@@ -2422,7 +2430,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1587481343
 Transform:
@@ -2453,7 +2461,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1657073390
 Transform:
@@ -3094,7 +3102,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1736268846
 BoxCollider:
@@ -3125,7 +3133,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736268845}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -3209,7 +3217,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1843106513
 Transform:
@@ -3220,7 +3228,7 @@ Transform:
   m_GameObject: {fileID: 1843106512}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
