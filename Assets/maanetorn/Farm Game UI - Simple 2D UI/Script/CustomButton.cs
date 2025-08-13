@@ -12,6 +12,8 @@ namespace FGUIStarter
         RectTransform textRect;
         Vector2 originalTextPos;
 
+        public int id;
+
         bool isHeld;
         protected override void Awake()
         {
@@ -67,6 +69,11 @@ namespace FGUIStarter
             {
                 ApplyNormalVisual();
             }
+        }
+
+        public void UpgradeClick()
+        {
+            GetComponentInParent<UpgradePanel>().Upgrade(id);
         }
 
     }

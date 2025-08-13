@@ -39,11 +39,11 @@ public class UpgradeData
     public UpgradeData()
     {
         upgradeId = 0;
-        level = 0;
+        level = 1;
     }
 
     // 초기화 생성자
-    public UpgradeData(int id, int level = 0)
+    public UpgradeData(int id, int level = 1)
     {
         upgradeId = id;
         this.level = level;

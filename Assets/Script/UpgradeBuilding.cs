@@ -41,18 +41,18 @@ public class UpgradeBuilding : MonoBehaviour
             switch (buildingType)
             {
                 case BuildingType.Well:
-                    if (DataManager.Instance.GetUpgradeData(buildingInfo.id).level > well.level)
+                     if (DataManager.Instance.GetUpgradeData(buildingInfo.id).level > well.level)
                     {
-                        if (MoneyManager.Instance.TryRemoveMoney(buildingInfo.nextLeveCost[0]))
+                        if (MoneyManager.Instance.TryRemoveMoney(buildingInfo.nextLeveCost[well.level]))
                         {
-                            // PrefabManager.Instance.Release(this.transform.parent.gameObject);
-                            well.level++;
+                            PrefabManager.Instance.Get(buildingInfo.nextLevelPrefab[well.level].name,this.transform.parent.parent.position,this.transform.parent.parent.rotation);
+                            PrefabManager.Instance.Release(this.transform.parent.parent.gameObject);
                             //업그레이드 로직
                         }
                     }
                     break;
                 case BuildingType.Market:
-                    // if (DataManager.Instance.GetUpgradeData(buildingInfo.id).level > market.level)
+                    if (DataManager.Instance.GetUpgradeData(buildingInfo.id).level > market.level)
                     {
                         if (MoneyManager.Instance.TryRemoveMoney(buildingInfo.nextLeveCost[market.level]))
                         {
@@ -63,7 +63,7 @@ public class UpgradeBuilding : MonoBehaviour
                     }
                     break;
                 default:
-                    // if (DataManager.Instance.GetUpgradeData(buildingInfo.id).level > building.level)
+                    if (DataManager.Instance.GetUpgradeData(buildingInfo.id).level > building.level)
                     {
                         if (MoneyManager.Instance.TryRemoveMoney(buildingInfo.nextLeveCost[building.level]))
                         {

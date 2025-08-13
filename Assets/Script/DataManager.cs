@@ -79,26 +79,26 @@ public class DataManager : MonoBehaviour
         }
         for (int i = 0; i < 10; i++)
         {
-            gameData.upgrades.Add(new UpgradeData(i, 0)); // 초기에는 클리어 안 됨, 시간 없음
+            gameData.upgrades.Add(new UpgradeData(i, 1)); // 초기에는 클리어 안 됨, 시간 없음
         }
         SaveGameProgress(); // 초기화 후 즉시 저장 (선택 사항)
     }
 
     public StageClearData GetStageData(int stageId)
     {
-        
+
         return gameData.stages[stageId];
     }
 
     public int GetStarData()
     {
-        
+
         return gameData.stars;
     }
-    
+
     public int GetHeartData()
     {
-        
+
         return gameData.hearts;
     }
 
@@ -107,7 +107,7 @@ public class DataManager : MonoBehaviour
 
         return gameData.upgrades[Id];
     }
-    
+
     public void SetHeartData(int num)
     {
         if (gameData.hearts + num > 5 || gameData.hearts + num < 0)
@@ -163,6 +163,30 @@ public class DataManager : MonoBehaviour
         {
             Debug.LogWarning($"스테이지 ID {upgrade}를 찾을 수 없습니다.");
         }
+    }
+    
+    public void DeleteAndResetData()
+    {
+        if (File.Exists(saveFilePath))
+        {
+            try
+            {
+                File.Delete(saveFilePath);
+                Debug.Log("Save file successfully deleted.");
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"Error deleting save file: {e.Message}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Save file to delete does not exist.");
+        }
+
+        // Initialize new data in memory and save it
+        Debug.Log("Resetting game data to initial state.");
+        InitializeNewGameProgress();
     }
     
 

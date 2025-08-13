@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a65ad90d07ec84eb7eb029c30b4587, type: 3}
   m_Name: Well
   m_EditorClassIdentifier: 
-  level: 1
   id: 7
   itemTakes: {fileID: 0}
   itemGives: {fileID: 0}
-  nextLevelPrefab: {fileID: 0}
+  nextLevelPrefab:
+  - {fileID: 362796493786901534, guid: ed8612c8f9d8fc047947cd2aa3709874, type: 3}
+  - {fileID: 362796493786901534, guid: a9154553ce62dc64aac9fb730f42fced, type: 3}
+  - {fileID: 362796493786901534, guid: c5567b54385beaa4ebd629373518a910, type: 3}
+  - {fileID: 362796493786901534, guid: d06fce1c6f3606f43937807db96c9a2a, type: 3}
+  - {fileID: 362796493786901534, guid: e7558c301275a61418b0f8b1bc40725f, type: 3}
   nextLeveCost: c8000000c8000000c8000000c8000000c8000000

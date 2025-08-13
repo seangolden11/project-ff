@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.Mathematics; // quaternion을 사용하기 위해 필요
 using UnityEngine.Pool;
+using System;
 
 public class PrefabManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PrefabManager : MonoBehaviour
 
     public GameObject[] readyPrefabs;
 
-    private Dictionary<GameObject, ObjectPool<GameObject>> pools;
+    private Dictionary<String, ObjectPool<GameObject>> pools;
 
     public int maxSize;
 
@@ -28,7 +29,7 @@ public class PrefabManager : MonoBehaviour
             return;
         }
 
-        pools = new Dictionary<GameObject, ObjectPool<GameObject>>();
+        pools = new Dictionary<String, ObjectPool<GameObject>>();
         foreach (var setup in readyPrefabs)
         {
             var pool = new ObjectPool<GameObject>(
@@ -45,38 +46,14 @@ public class PrefabManager : MonoBehaviour
                 0,
                 maxSize
             );
-            pools.Add(setup, pool);
+            pools.Add(setup.name, pool);
 
         }
-    }
-
-    public GameObject GetPrefabByName(string nameToFind)
-    {
-        // poolSetups 배열이 null이거나 비어 있는지 확인합니다.
-        if (readyPrefabs == null || readyPrefabs.Length == 0)
-        {
-            Debug.LogWarning("PoolSetups 배열이 초기화되지 않았거나 비어 있습니다.");
-            return null;
-        }
-
-        // 배열의 각 PoolSetup을 반복합니다.
-        foreach (GameObject setup in readyPrefabs)
-        {
-            // prefabName을 비교합니다 (대소문자 구분).
-            if (setup.name == nameToFind)
-            {
-                return setup; // 이름이 일치하면 GameObject를 반환합니다.
-            }
-        }
-
-        // 모든 항목을 확인한 후에도 일치하는 prefabName을 찾지 못한 경우
-        Debug.LogWarning($"'{nameToFind}' 이름의 프리팹을 poolSetups에서 찾을 수 없습니다.");
-        return null;
     }
 
     public GameObject Get(string name, Vector3 position, Quaternion rotation)
     {
-        if (pools.TryGetValue(GetPrefabByName(name), out var pool))
+        if (pools.TryGetValue(name, out var pool))
         {
             GameObject obj = pool.Get();
             obj.transform.position = position;
@@ -90,7 +67,7 @@ public class PrefabManager : MonoBehaviour
     
      public void Release(GameObject obj)
     {
-        if (pools.TryGetValue(GetPrefabByName(obj.name), out var pool))
+        if (pools.TryGetValue(obj.name, out var pool))
         {
             pool.Release(obj);
         }

@@ -66,7 +66,7 @@ public class GrassSpawner : MonoBehaviour
     {
         // spawnRadius 내에서 랜덤 위치 생성
         Vector2 randomCirclePoint = Random.insideUnitCircle * spawnRadius;
-        Vector3 spawnOrigin = Vector3.up + new Vector3(randomCirclePoint.x, 0, randomCirclePoint.y);
+        Vector3 spawnOrigin = new Vector3(randomCirclePoint.x, 0.5f, randomCirclePoint.y);
         return spawnOrigin;
     }
 

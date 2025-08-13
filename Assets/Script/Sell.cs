@@ -22,7 +22,7 @@ public class Sell : MonoBehaviour
         {
             inventory = other.GetComponentInChildren<Inventory>();
             TryTakeItemsFromPlayerInventory();
-            StartCoroutine(ProcessItemTransformation());
+            
 
         }
 
@@ -96,6 +96,7 @@ public class Sell : MonoBehaviour
             // 더 이상 아이템을 가져가지 않도록 상점을 비활성화하거나, 플래그를 설정할 수 있습니다.
             // 예: this.enabled = false; 
             CheckWinCondition();
+            StartCoroutine(ProcessItemTransformation());
         }
 
     }
