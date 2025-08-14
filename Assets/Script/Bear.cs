@@ -108,6 +108,7 @@ public class Bear : Animals
 
                 if (hungryTimer >= 30f)
                 {
+                    trans.localScale = Vector3.zero;
                     PrefabManager.Instance.Release(gameObject);
                 }
                 animator.SetFloat("Speed", 1);
@@ -133,6 +134,7 @@ public class Bear : Animals
             {
                 nearTimer = 0;
                 isNearPlayer = false;
+                trans.localScale = Vector3.zero;
 
                 PrefabManager.Instance.Release(gameObject);
                 inventory.AddItem(bearitem);
