@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject joystickObject;
 
+    public StarText st;
+
     void Awake()
     {
         // 싱글톤 인스턴스 설정
@@ -80,6 +82,8 @@ public class UIManager : MonoBehaviour
         if (upgradePanel != null)
         {
             upgradePanel.SetActive(!upgradePanel.activeSelf);
+            st.Init();
+
             Debug.Log("Upgrade Panel 활성화 상태: " + upgradePanel.activeSelf);
         }
     }

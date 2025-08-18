@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
+
 
     }
 
@@ -56,9 +56,18 @@ public class GameManager : MonoBehaviour
     public void StageClear()
     {
         tm.StopTimer();
-        UIManager.Instance.ToggleStagePanel();
+
+        DataManager.Instance.SetrecoverData(DataManager.Instance.GetrecoverData(), DataManager.Instance.GetHeartData() + 1);
 
         DataManager.Instance.SetStageCleared(stageData.stageID, tm.currentGameTime, 3 - tm.starCount);
+        UIManager.Instance.ToggleStagePanel();
+    }
+
+    public void StageFail()
+    {
+        tm.StopTimer();
+        UIManager.Instance.ToggleStagePanel();
+        
     }
 
 

@@ -10,6 +10,8 @@ public class StageClearData
 
     public int star;
 
+   
+
     // 기본 생성자 (필수)
     public StageClearData()
     {
@@ -17,6 +19,7 @@ public class StageClearData
         cleared = false;
         clearTime = 0;
         star = 0;
+        
     }
 
     // 초기화 생성자
@@ -26,6 +29,7 @@ public class StageClearData
         cleared = isCleared;
         clearTime = time;
         star = 0;
+        
     }
 }
 
@@ -55,9 +59,13 @@ public class GameData
 {
     public List<StageClearData> stages;
     public List<UpgradeData> upgrades;
+
+    public List<EmpolyeeDatas> empdata;
     public int stars;
 
     public int hearts;
+
+    public string recoverTime;
 
 
     // 기본 생성자
@@ -65,7 +73,29 @@ public class GameData
     {
         stages = new List<StageClearData>();
         upgrades = new List<UpgradeData>();
+        empdata = new List<EmpolyeeDatas>();
         stars = 0;
         hearts = 5;
+    }
+}
+
+[Serializable] // Unity에서 이 클래스를 직렬화할 수 있도록 해줍니다.
+public class EmpolyeeDatas
+{
+    string name;
+
+    int rank;
+    int job;
+
+    int sprite;
+
+
+    // 기본 생성자
+    public EmpolyeeDatas()
+    {
+        name = "";
+        rank = 0;
+        job = 0;
+        sprite = 0;
     }
 }

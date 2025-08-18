@@ -19,7 +19,7 @@ public class PlayerSpawner : MonoBehaviour
 
     void Start()
     {
-        GameObject well = PrefabManager.Instance.Get("well", wellspot.position,quaternion.identity);
+        GameObject well = PrefabManager.Instance.Get("well", wellspot.position,wellspot.rotation);
         GameObject sell = PrefabManager.Instance.Get("Sell", sellspot.position, quaternion.identity);
 
 

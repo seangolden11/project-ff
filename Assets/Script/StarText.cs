@@ -6,27 +6,18 @@ public class StarText : MonoBehaviour
 {
     public TextMeshProUGUI Text; // Unity 에디터에서 연결할 TextMeshProUGUI 컴포넌트
 
-    public int isStar;
-
     void Start()
-    {
-        switch (isStar)
-        {
-            case 0:
-                if (Text != null)
-                {
-                    Text.text = $"X {DataManager.Instance.GetStarData()}"; // 텍스트 내용을 업데이트합니다.
-                }
-                break;
-            case 1:
-                if (Text != null)
-                {
-                    Text.text = $"X {DataManager.Instance.GetHeartData()}"; // 텍스트 내용을 업데이트합니다.
-                }
-                break;
-            default:
-                break;
+    {   
+        Init(); // 텍스트 내용을 업데이트합니다.
+        
     }
+
+    public void Init()
+    {
+        if (Text != null)
+        {
+            Text.text = $"X {DataManager.Instance.GetStarData()}";
+        }
     }
 
 }

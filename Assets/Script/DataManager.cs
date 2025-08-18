@@ -102,17 +102,21 @@ public class DataManager : MonoBehaviour
         return gameData.hearts;
     }
 
+    public string GetrecoverData()
+    {
+        return gameData.recoverTime;
+    }
+
     public UpgradeData GetUpgradeData(int Id)
     {
 
         return gameData.upgrades[Id];
     }
 
-    public void SetHeartData(int num)
+    public void SetrecoverData(string num, int heartsnum)
     {
-        if (gameData.hearts + num > 5 || gameData.hearts + num < 0)
-            return;
-        gameData.hearts += num;
+        gameData.recoverTime = num;
+        gameData.hearts = heartsnum;
     }
 
     // 특정 스테이지의 클리어 상태 업데이트

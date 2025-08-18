@@ -1,5 +1,7 @@
 using PublicDataType;
 using TMPro;
+using Unity.Mathematics;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class UpgradeBuilding : MonoBehaviour
@@ -14,20 +16,24 @@ public class UpgradeBuilding : MonoBehaviour
     public BuildingType buildingType;
 
     public TextMeshPro textMeshPro;
+    Transform texTrans;
     void Start()
     {
         if (!textMeshPro)
             return;
+        texTrans = textMeshPro.transform;
         switch (buildingType)
         {
             case BuildingType.Well:
                 textMeshPro.text = $"${buildingInfo.nextLeveCost[well.level]}";
+
                 break;
             case BuildingType.Market:
                 textMeshPro.text = $"${buildingInfo.nextLeveCost[market.level]}";
                 break;
             default:
                 textMeshPro.text = $"${buildingInfo.nextLeveCost[building.level]}";
+                texTrans.localEulerAngles = new Vector3(0,0,transform.parent.eulerAngles.y);
                 break;
         }
         

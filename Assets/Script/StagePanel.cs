@@ -1,5 +1,7 @@
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StagePanel : MonoBehaviour
@@ -15,6 +17,8 @@ public class StagePanel : MonoBehaviour
     public TextMeshProUGUI stagoal4gui;
     public TextMeshProUGUI rewardgui;
     public TextMeshProUGUI goalgui;
+
+    float clearTime;
 
     public Slider slider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,6 +40,10 @@ public class StagePanel : MonoBehaviour
         stagoal4gui.text = $"{stageList.allStages[stageNum].timeLimit + 360f}";
         stagenumgui.text = $"Stage : {stageNum + 1}";
 
+
+        Timeinit();
+        
+
         if (stageList.allStages[stageNum].stageReward != null)
             rewardgui.text = $"{stageList.allStages[stageNum].stageReward}";
         rewardgui.text = "Star";
@@ -53,12 +61,25 @@ public class StagePanel : MonoBehaviour
 
     }
 
-    void OnEnable()
+    public void Timeinit()
     {
-        if (slider)
+        
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
+
             TimerManager tm = FindFirstObjectByType<TimerManager>();
-            slider.value = tm.currentGameTime / (GameManager.Instance.stageData.timeLimit + 4 * 120);
+            slider.value = ((float)(GameManager.Instance.stageData.timeLimit + 360) - tm.currentGameTime) / (GameManager.Instance.stageData.timeLimit + 360);
+        }
+        else
+        {
+            if (DataManager.Instance.GetStageData(stageNum).clearTime != 0)
+        {
+            slider.value = (stageList.allStages[stageNum].timeLimit + 360f - DataManager.Instance.GetStageData(stageNum).clearTime) / (stageList.allStages[stageNum].timeLimit + 360f);
+        }
+        else
+        {
+            slider.value = 1;
+        }
         }
     }
 }

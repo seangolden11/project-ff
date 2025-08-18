@@ -7,12 +7,14 @@ public class TimerManager : MonoBehaviour
     public float currentGameTime { get; private set; }
     public float spawnTime { get; private set; } // 스폰 시간
 
+    public float spawnRadius = 10;
+
     public event Action<float> OnTimerTick; // 시간 업데이트를 알리는 이벤트
     public event Action OnTimerEnd; // 타이머가 0에 도달했을 때 알리는 이벤트
 
     private float _initialTimeLimit; // 초기 시간 제한
 
-    public int starCount =0;
+    public int starCount = 0;
 
     /// <summary>
     /// 주어진 시간 제한으로 타이머를 초기화합니다.
@@ -22,12 +24,13 @@ public class TimerManager : MonoBehaviour
     {
         _initialTimeLimit = GameManager.Instance.stageData.timeLimit;
         currentTime = _initialTimeLimit;
+        currentGameTime = 0;
         GameManager.Instance.OnStageStart();
         if (Time.timeScale == 0)
         {
             StartTimer();
         }
-        
+
     }
 
     void Update()
@@ -57,15 +60,15 @@ public class TimerManager : MonoBehaviour
             StopTimer(); // 타이머 중지
             OnTimerTick?.Invoke(currentTime); // 최종 UI 업데이트
             OnTimerEnd?.Invoke(); // 리스너에게 타이머가 종료되었음을 알림
-            Debug.Log("시간 종료!");
+            GameManager.Instance.StageFail();
         }
-        
-        
+
+
     }
 
     public void SpawnBear()
     {
-        PrefabManager.Instance.Get("Tiger", transform.position, transform.rotation);
+        PrefabManager.Instance.Get("Tiger", GetRandomSpawnPosition(), transform.rotation);
     }
 
     /// <summary>
@@ -91,5 +94,13 @@ public class TimerManager : MonoBehaviour
     {
         currentTime = _initialTimeLimit;
         OnTimerTick?.Invoke(currentTime); // 재설정 후 UI 업데이트
+    }
+    
+    Vector3 GetRandomSpawnPosition()
+    {
+        // spawnRadius 내에서 랜덤 위치 생성
+        Vector2 randomCirclePoint = UnityEngine.Random.insideUnitCircle * spawnRadius;
+        Vector3 spawnOrigin = new Vector3(randomCirclePoint.x, 0.5f, randomCirclePoint.y);
+        return spawnOrigin;
     }
 }
