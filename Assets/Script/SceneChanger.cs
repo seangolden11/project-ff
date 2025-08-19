@@ -1,4 +1,4 @@
-using UnityEditor.SceneManagement;
+
 using UnityEngine;
 using UnityEngine.SceneManagement; // 씬 관리 기능을 사용하기 위해 필요합니다.
 

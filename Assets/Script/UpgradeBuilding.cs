@@ -1,7 +1,5 @@
 using PublicDataType;
 using TMPro;
-using Unity.Mathematics;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class UpgradeBuilding : MonoBehaviour
