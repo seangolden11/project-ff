@@ -106,6 +106,17 @@ public class DataManager : MonoBehaviour
     {
         return gameData.recoverTime;
     }
+    public List<EmpolyeeDatas> GetHiredData()
+    {
+        return gameData.hiredata;
+    }
+
+    public List<EmpolyeeDatas> GetEmployeeData()
+    {
+        return gameData.empdata;
+    }
+
+    
 
     public UpgradeData GetUpgradeData(int Id)
     {

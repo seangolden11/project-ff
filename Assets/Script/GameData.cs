@@ -61,6 +61,7 @@ public class GameData
     public List<UpgradeData> upgrades;
 
     public List<EmpolyeeDatas> empdata;
+    public List<EmpolyeeDatas> hiredata;
     public int stars;
 
     public int hearts;
@@ -82,20 +83,28 @@ public class GameData
 [Serializable] // Unity에서 이 클래스를 직렬화할 수 있도록 해줍니다.
 public class EmpolyeeDatas
 {
-    string name;
+    public int name;
 
-    int rank;
-    int job;
+    public int rank;
+    public int job;
 
-    int sprite;
+    public int sprite;
 
 
     // 기본 생성자
     public EmpolyeeDatas()
     {
-        name = "";
+        name = 0;
         rank = 0;
         job = 0;
         sprite = 0;
+    }
+
+    public EmpolyeeDatas(int name, int rank,int job, int sprite)
+    {
+        this.name = name;
+        this.rank = rank;
+        this.job = job;
+        this.sprite = sprite;
     }
 }
