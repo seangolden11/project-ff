@@ -1,5 +1,6 @@
 using System;
-using System.Collections.Generic; // List를 사용하기 위해 필요
+using System.Collections.Generic;
+using NUnit.Framework.Constraints; // List를 사용하기 위해 필요
 
 [Serializable] // Unity에서 이 클래스를 직렬화할 수 있도록 해줍니다.
 public class StageClearData
@@ -62,6 +63,7 @@ public class GameData
 
     public List<EmpolyeeDatas> empdata;
     public List<EmpolyeeDatas> hiredata;
+    public List<EmpolyeeDatas> Jobdata;
     public int stars;
 
     public int hearts;
@@ -75,6 +77,8 @@ public class GameData
         stages = new List<StageClearData>();
         upgrades = new List<UpgradeData>();
         empdata = new List<EmpolyeeDatas>();
+        hiredata = new List<EmpolyeeDatas>();
+        Jobdata = new List<EmpolyeeDatas>();
         stars = 0;
         hearts = 5;
     }
@@ -89,6 +93,8 @@ public class EmpolyeeDatas
     public int job;
 
     public int sprite;
+    public int originalHiredIndex;
+    public bool isAssigned;
 
 
     // 기본 생성자
@@ -98,13 +104,17 @@ public class EmpolyeeDatas
         rank = 0;
         job = 0;
         sprite = 0;
+        originalHiredIndex = -1;
+        isAssigned = false;
     }
 
-    public EmpolyeeDatas(int name, int rank,int job, int sprite)
+    public EmpolyeeDatas(int name, int rank, int job, int sprite)
     {
         this.name = name;
         this.rank = rank;
         this.job = job;
         this.sprite = sprite;
+        originalHiredIndex = -1;
+        isAssigned = false;
     }
 }

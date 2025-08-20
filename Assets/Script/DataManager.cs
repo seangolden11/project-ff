@@ -81,6 +81,10 @@ public class DataManager : MonoBehaviour
         {
             gameData.upgrades.Add(new UpgradeData(i, 1)); // 초기에는 클리어 안 됨, 시간 없음
         }
+        for (int i = 0; i < 14; i++)
+        {
+            gameData.Jobdata.Add(new EmpolyeeDatas(0,0,0,0)); // 초기에는 클리어 안 됨, 시간 없음
+        }
         SaveGameProgress(); // 초기화 후 즉시 저장 (선택 사항)
     }
 
@@ -109,6 +113,11 @@ public class DataManager : MonoBehaviour
     public List<EmpolyeeDatas> GetHiredData()
     {
         return gameData.hiredata;
+    }
+
+    public List<EmpolyeeDatas> GetJobData()
+    {
+        return gameData.Jobdata;
     }
 
     public List<EmpolyeeDatas> GetEmployeeData()
@@ -178,6 +187,37 @@ public class DataManager : MonoBehaviour
         {
             Debug.LogWarning($"스테이지 ID {upgrade}를 찾을 수 없습니다.");
         }
+    }
+
+    public bool TryUseStar(int amount)
+    {
+        if (amount <= gameData.stars)
+        {
+            gameData.stars -= amount;
+            SaveGameProgress();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void PlusStar(int amount)
+    {
+        
+            gameData.stars += amount;
+            SaveGameProgress();
+            
+    }
+
+    public void SetEmployee(List<EmpolyeeDatas> ed, List<EmpolyeeDatas> hd)
+    {
+
+        gameData.empdata = ed;
+        gameData.hiredata = hd;
+        SaveGameProgress();
+            
     }
     
     public void DeleteAndResetData()

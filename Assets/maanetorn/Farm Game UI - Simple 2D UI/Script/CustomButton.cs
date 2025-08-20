@@ -14,6 +14,8 @@ namespace FGUIStarter
 
         public int id;
 
+        public int mode;
+
         bool isHeld;
         protected override void Awake()
         {
@@ -71,9 +73,16 @@ namespace FGUIStarter
             }
         }
 
-        public void UpgradeClick()
+
+
+        public void OnClick()
         {
-            GetComponentInParent<UpgradePanel>().Upgrade(id);
+            if (GetComponentInParent<EmployeeManager>())
+                GetComponentInParent<EmployeeManager>().ButtonPress(id, mode);
+            else if (GetComponentInParent<UpgradePanel>())
+                GetComponentInParent<UpgradePanel>().Upgrade(id);
+            else if (GetComponentInParent<JobManager>())
+                GetComponentInParent<JobManager>().ButtonPress(id, mode);
         }
 
     }
