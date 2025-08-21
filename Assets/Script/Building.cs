@@ -1,15 +1,18 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Building : MonoBehaviour
 { public string playerTag = "Player"; // 플레이어 GameObject의 태그 (유니티에서 설정)
     public Item itemToTake; // 인벤토리에서 가져올 아이템 이름
     public Item itemToGive; // 변환 후 줄 아이템 이름
-    public float transformationTime = 1f; // 아이템 변환에 걸리는 시간 (초)
+    float transformationTime = 10f; // 아이템 변환에 걸리는 시간 (초)
     public BuildingInfo buildinginfo;
     private bool playerInsideTrigger = false;
     public int level;
     private Coroutine transformationCoroutine; // 코루틴 참조를 저장하여 중지할 수 있도록
+
+    int multiple;
 
     public Animator anim;
 
@@ -31,6 +34,8 @@ public class Building : MonoBehaviour
     {
         itemToTake = buildinginfo.itemTakes;
         itemToGive = buildinginfo.itemGives;
+        multiple = DataManager.Instance.GetJobData()[buildinginfo.id + 3].rank;
+        transformationTime /= (multiple * 0.25f) + 1;
         
     }
 

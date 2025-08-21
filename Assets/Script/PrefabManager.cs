@@ -51,14 +51,17 @@ public class PrefabManager : MonoBehaviour
         }
     }
 
-    public GameObject Get(string name, Vector3 position, Quaternion rotation)
+    public GameObject Get(string name, Vector3 position, Quaternion rotation, float scale = 1)
     {
         if (pools.TryGetValue(name, out var pool))
         {
             GameObject obj = pool.Get();
             obj.transform.position = position;
             obj.transform.rotation = rotation;
+            
+            obj.transform.localScale.Set(scale,scale,scale);
             obj.transform.SetParent(this.transform);
+            
             return obj;
         }
         Debug.LogError($"Pool for prefab {name} not found!");

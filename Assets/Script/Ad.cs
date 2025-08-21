@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class Well : MonoBehaviour
 {
-    public TextMeshPro gui;
+    public TextMeshProUGUI gui;
     StageData sd;
     void Start()
     {
-        gui = GetComponent<TextMeshPro>();
+        gui = GetComponent<TextMeshProUGUI>();
         sd = GameManager.Instance.stageData;
         System.Text.StringBuilder sb = new System.Text.StringBuilder();
         for (int i = 0; i < sd.goal.goalItems.Count; i++)

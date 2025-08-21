@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using FGUIStarter;
+using Mono.Cecil.Cil;
 using PublicDataType;
 using TMPro;
 using UnityEngine;
@@ -40,11 +41,12 @@ public class EmployeeManager : MonoBehaviour
             {
 
                 int tempspirte = UnityEngine.Random.Range(0, sprites.Count);
-                int tempname = UnityEngine.Random.Range(0, sprites.Count);
-                int tempjob = UnityEngine.Random.Range(0, sprites.Count);
-                int temprank = UnityEngine.Random.Range(0, sprites.Count);
+                int tempname = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(NameType)).Length);
+                int tempjob = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(DescType)).Length);
+                int temprank = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(RankType)).Length);
                 ed.Add(new EmpolyeeDatas(tempname, temprank, tempjob, tempspirte));
                 InitHire(ed[i]);
+                
 
 
             }
@@ -118,6 +120,18 @@ public class EmployeeManager : MonoBehaviour
 
     public void FireEmployee(int id)
     {
+        if (hd[id].originalHiredIndex != -1)
+        {
+            List<EmpolyeeDatas> jd = DataManager.Instance.GetJobData();
+            jd[hd[id].originalHiredIndex].isAssigned = false;
+            jd[hd[id].originalHiredIndex].originalHiredIndex = -1;
+            jd[hd[id].originalHiredIndex].job = 0;
+            jd[hd[id].originalHiredIndex].name = 0;
+            jd[hd[id].originalHiredIndex].rank = 0;
+            jd[hd[id].originalHiredIndex].sprite = 0;
+            hd[id].isAssigned = false;
+            DataManager.Instance.SetJob(jd, hd);
+        }
         DataManager.Instance.PlusStar(hd[id].rank+1);
         HiredContents[id].GetComponent<CustomButton>().mode = 1;
         HiredContents[id].GetComponent<CustomButton>().id = HireContents.Count;
@@ -127,6 +141,7 @@ public class EmployeeManager : MonoBehaviour
         HiredContents.Remove(HiredContents[id]);
         hd.Remove(hd[id]);
         InitID();
+        
         DataManager.Instance.SetEmployee(ed, hd);
 
     }
@@ -144,10 +159,10 @@ public class EmployeeManager : MonoBehaviour
             for (int i = 0; i < rollnum; i++)
             {
 
-                int tempspirte = UnityEngine.Random.Range(0, sprites.Count);
-                int tempname = UnityEngine.Random.Range(0, sprites.Count);
-                int tempjob = UnityEngine.Random.Range(0, sprites.Count);
-                int temprank = UnityEngine.Random.Range(0, sprites.Count);
+                int tempspirte = UnityEngine.Random.Range(1, sprites.Count);
+                int tempname = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(NameType)).Length);
+                int tempjob = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(DescType)).Length);
+                int temprank = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(RankType)).Length);
                 ed.Add(new EmpolyeeDatas(tempname, temprank, tempjob, tempspirte));
                 InitHire(ed[i]);
 

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -37,10 +38,18 @@ public class PlayerSpawner : MonoBehaviour
             PrefabManager.Instance.Get("Cow", animalSpot.position, animalSpot.rotation);
         }
 
+        List<EmpolyeeDatas> jd = DataManager.Instance.GetJobData();
+        
         for (int i = 0; i < stageData.buildingInfo.spawnBuilding.Count; i++)
         {
             if (stageData.buildingInfo.spawnBuilding[i] != null)
-                PrefabManager.Instance.Get(stageData.buildingInfo.spawnBuilding[i].type.ToString(), spot[i].position, spot[i].rotation);
+            {
+                Vector3 tempPos = PrefabManager.Instance.Get(stageData.buildingInfo.spawnBuilding[i].type.ToString(), spot[i].position, spot[i].rotation).GetComponentInChildren<Building>().transform.position;
+                if (jd[(int)stageData.buildingInfo.spawnBuilding[i].type + 3].job != 0)
+                    PrefabManager.Instance.Get("Worker", tempPos, spot[i].rotation).GetComponent<Worker>().jobType = (int)stageData.buildingInfo.spawnBuilding[i].type;
+
+            }
+
         }
         
         

@@ -46,9 +46,8 @@ public class JobManager : MonoBehaviour
             for (int i = 0; i < 14; i++)
             {
                 GameObject tempbtn = Instantiate(buttonPrefab, jobVeiw.transform);
-                Debug.Log(i);
 
-                // tempbtn.GetComponentsInChildren<Image>()[1].sprite = sprites[jd[i].sprite];
+                tempbtn.GetComponentsInChildren<Image>()[1].sprite = sprites[jd[i].sprite];
                 tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[0].text = ((RankType)jd[i].rank).ToString();
                 tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[1].text = ((NameType)jd[i].name).ToString();
                 tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[2].text = $"job {((DescType)jd[i].job).ToString()} has {(jd[i].rank + 1) * 25}% more effcient";
@@ -63,9 +62,8 @@ public class JobManager : MonoBehaviour
             for (int i = 0; i < 14; i++)
             {
                 GameObject tempbtn = JobContents[i];
-                Debug.Log(i);
 
-                // tempbtn.GetComponentsInChildren<Image>()[1].sprite = sprites[jd[i].sprite];
+                tempbtn.GetComponentsInChildren<Image>()[1].sprite = sprites[jd[i].sprite];
                 tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[0].text = ((RankType)jd[i].rank).ToString();
                 tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[1].text = ((NameType)jd[i].name).ToString();
                 tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[2].text = $"job {((DescType)jd[i].job).ToString()} has {(jd[i].rank + 1) * 25}% more effcient";
@@ -135,14 +133,20 @@ public class JobManager : MonoBehaviour
 
     public void EmployeeJobGranted(int id)
     {
-        if (jd[hd[id].job].job == 0)
+        if (jd[hd[id].job - 1].job == hd[id].job)
             return;
         hd[id].isAssigned = true;
-        hd[id].originalHiredIndex = id;
+        jd[hd[id].job].originalHiredIndex = id;
 
-        jd[hd[id].job] = hd[id];
+        jd[hd[id].job].rank = hd[id].rank;
+        jd[hd[id].job].name = hd[id].name;
+        jd[hd[id].job].job = hd[id].job;
+        jd[hd[id].job].sprite = hd[id].sprite;
+        hd[id].originalHiredIndex = hd[id].job;
+
         HiredContents[id].SetActive(false);
         InitJob();
+        DataManager.Instance.SetJob(jd, hd);
 
     }
 
@@ -157,7 +161,9 @@ public class JobManager : MonoBehaviour
             jd[id].rank = 0;
             jd[id].job = 0;
             jd[id].name = 0;
-            jd[id].sprite = 0;        
+            jd[id].sprite = 0;
+            InitJob();
+            DataManager.Instance.SetJob(jd, hd);        
         }
     }
 

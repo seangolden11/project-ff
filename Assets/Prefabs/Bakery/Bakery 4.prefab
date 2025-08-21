@@ -26,8 +26,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2055087116923690075}
   - {fileID: 5671179563347065489}
@@ -310,7 +310,6 @@ MonoBehaviour:
   playerTag: Player
   itemToTake: {fileID: 0}
   itemToGive: {fileID: 0}
-  transformationTime: 1
   buildinginfo: {fileID: 11400000, guid: 98fab1965ecda6a45b94b00d2fcd1272, type: 2}
   level: 5
   anim: {fileID: 5914321554225310398}

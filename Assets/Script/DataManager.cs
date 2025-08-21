@@ -219,6 +219,15 @@ public class DataManager : MonoBehaviour
         SaveGameProgress();
             
     }
+
+    public void SetJob(List<EmpolyeeDatas> jd, List<EmpolyeeDatas> hd)
+    {
+
+        gameData.Jobdata = jd;
+        gameData.hiredata = hd;
+        SaveGameProgress();
+            
+    }
     
     public void DeleteAndResetData()
     {
