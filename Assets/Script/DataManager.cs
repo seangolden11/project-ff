@@ -81,9 +81,9 @@ public class DataManager : MonoBehaviour
         {
             gameData.upgrades.Add(new UpgradeData(i, 1)); // 초기에는 클리어 안 됨, 시간 없음
         }
-        for (int i = 0; i < 14; i++)
+        for (int i = 0; i < 12; i++)
         {
-            gameData.Jobdata.Add(new EmpolyeeDatas(0,0,0,0)); // 초기에는 클리어 안 됨, 시간 없음
+            gameData.Jobdata.Add(new EmpolyeeDatas(0,0,0,0)); 
         }
         SaveGameProgress(); // 초기화 후 즉시 저장 (선택 사항)
     }

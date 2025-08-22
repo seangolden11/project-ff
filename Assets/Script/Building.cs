@@ -12,6 +12,9 @@ public class Building : MonoBehaviour
     public int level;
     private Coroutine transformationCoroutine; // 코루틴 참조를 저장하여 중지할 수 있도록
 
+    public bool isPrimary; // 1차 건물이면 true
+    public bool isWorking = false; // 현재 작업 중인지 여부
+
     int multiple;
 
     public Animator anim;
@@ -44,6 +47,34 @@ public class Building : MonoBehaviour
         Init();
     }
 
+    public void GetItem(Worker worker)
+    {
+        transformationCoroutine = StartCoroutine(GetItemCoroutine(worker));
+    }
+
+    IEnumerator GetItemCoroutine(Worker worker)
+    {
+        playerInsideTrigger = true;
+        anim.SetBool("isWorking", true);
+        int count = 0;
+        for (int i = 0; i < level; i++)
+        {
+            if (worker.itemCount > 0)
+            {
+                worker.itemCount--;
+                count++;
+            }
+        }
+        yield return new WaitForSeconds(transformationTime);
+
+        for (int i = 0; i < count; i++)
+                {
+                    PrefabManager.Instance.Get(itemToGive.Name, transform.position, transform.rotation).transform.SetParent(transform);
+                }
+        playerInsideTrigger = false;
+        anim.SetBool("isWorking", false);
+    }
+
 
 
     // 아이템 변환 프로세스를 처리하는 코루틴
@@ -69,15 +100,15 @@ public class Building : MonoBehaviour
 
 
                 // 3. 다른 아이템으로 변환하여 인벤토리에 추가
-                Debug.Log($"{itemToTake}이(가) {itemToGive}으로 변환되었습니다. 인벤토리에 추가합니다.");
+                Debug.Log($"{itemToTake}이(가) {itemToGive}으로 변환되었습니다.");
                 for (int i = 0; i < count; i++)
                 {
-                    PrefabManager.Instance.Get(itemToGive.Name, transform.position, transform.rotation);
+                    PrefabManager.Instance.Get(itemToGive.Name, transform.position, transform.rotation).transform.SetParent(transform);
                 }
                 playerInsideTrigger = false;
                 anim.SetBool("isWorking", false);
-                
-                
+
+
             }
             else
             {

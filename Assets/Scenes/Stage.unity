@@ -3028,6 +3028,11 @@ MonoBehaviour:
   - {fileID: 1308625305}
   - {fileID: 861927125}
   stageData: {fileID: 11400000, guid: 6c12cefb98febfa49831746cc4a2e138, type: 2}
+  inspectorViewableBuildings: []
+  items:
+  - {fileID: 11400000, guid: 4800fa174e710274d980da16d7a7db84, type: 2}
+  - {fileID: 11400000, guid: 5ddc926966cefb64eb45a42bab03ceb6, type: 2}
+  - {fileID: 11400000, guid: fb93040d18f786c4db6593df289a4761, type: 2}
 --- !u!4 &1458230248
 Transform:
   m_ObjectHideFlags: 0
@@ -3121,6 +3126,8 @@ MonoBehaviour:
   - {fileID: 1371889348260875808, guid: 21e641586e2b4e245ba29dfe8f4b6cac, type: 3}
   - {fileID: 1371889348260875808, guid: 794229c058107fd489c756b113ef6b26, type: 3}
   - {fileID: 7245537466060015762, guid: 5880b3ba1216e954f9a2b9145496ac92, type: 3}
+  - {fileID: 7245537466060015762, guid: e5940907749c0ee4880b678092677d0d, type: 3}
+  - {fileID: 7245537466060015762, guid: e060f0fe0c3275f4da33d5f1eacbbce8, type: 3}
   maxSize: 20
 --- !u!114 &1458230250
 MonoBehaviour:

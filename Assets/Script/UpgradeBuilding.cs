@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using PublicDataType;
 using TMPro;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class UpgradeBuilding : MonoBehaviour
 
     public TextMeshPro textMeshPro;
     Transform texTrans;
+
+    
     void Start()
     {
         if (!textMeshPro)
@@ -71,7 +74,8 @@ public class UpgradeBuilding : MonoBehaviour
                     {
                         if (MoneyManager.Instance.TryRemoveMoney(buildingInfo.nextLeveCost[building.level]))
                         {
-                            PrefabManager.Instance.Get(buildingInfo.nextLevelPrefab[building.level].name,this.transform.parent.position,this.transform.parent.rotation);
+                            PlayerSpawner.allBuildings.Remove(building);
+                            PlayerSpawner.allBuildings.Add(PrefabManager.Instance.Get(buildingInfo.nextLevelPrefab[building.level].name,this.transform.parent.position,this.transform.parent.rotation).GetComponentInChildren<Building>());
                             PrefabManager.Instance.Release(this.transform.parent.gameObject);
 
                         }

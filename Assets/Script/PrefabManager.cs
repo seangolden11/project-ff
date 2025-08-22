@@ -51,7 +51,7 @@ public class PrefabManager : MonoBehaviour
         }
     }
 
-    public GameObject Get(string name, Vector3 position, Quaternion rotation, float scale = 1)
+    public GameObject Get(string name, Vector3 position, Quaternion rotation)
     {
         if (pools.TryGetValue(name, out var pool))
         {
@@ -59,7 +59,7 @@ public class PrefabManager : MonoBehaviour
             obj.transform.position = position;
             obj.transform.rotation = rotation;
             
-            obj.transform.localScale.Set(scale,scale,scale);
+            
             obj.transform.SetParent(this.transform);
             
             return obj;

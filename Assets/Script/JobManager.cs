@@ -43,7 +43,7 @@ public class JobManager : MonoBehaviour
 
         if (jd.Count > 0 && JobContents.Count == 0)
         {
-            for (int i = 0; i < 14; i++)
+            for (int i = 0; i < jd.Count; i++)
             {
                 GameObject tempbtn = Instantiate(buttonPrefab, jobVeiw.transform);
 
@@ -59,7 +59,7 @@ public class JobManager : MonoBehaviour
         }
         else if (JobContents.Count > 0)
         {
-            for (int i = 0; i < 14; i++)
+            for (int i = 0; i < jd.Count; i++)
             {
                 GameObject tempbtn = JobContents[i];
 
@@ -96,7 +96,7 @@ public class JobManager : MonoBehaviour
 
     void InitJob()
     {
-        for (int i = 0; i < 14; i++)
+        for (int i = 0; i < jd.Count; i++)
         {
             JobContents[i].GetComponentsInChildren<Image>()[1].sprite = sprites[jd[i].sprite];
             JobContents[i].GetComponentsInChildren<TextMeshProUGUI>()[0].text = ((RankType)jd[i].rank).ToString();

@@ -841,9 +841,10 @@ MonoBehaviour:
   playerTag: Player
   itemToTake: {fileID: 0}
   itemToGive: {fileID: 0}
-  transformationTime: 1
   buildinginfo: {fileID: 11400000, guid: 0f5d346d66681f14e9ba76e758c06b4b, type: 2}
   level: 1
+  isPrimary: 1
+  isWorking: 0
   anim: {fileID: 349304835880827190}
 --- !u!135 &7186971055069194551
 SphereCollider:

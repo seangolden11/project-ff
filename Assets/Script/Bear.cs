@@ -136,8 +136,9 @@ public class Bear : Animals
                 isNearPlayer = false;
                 trans.localScale = Vector3.zero;
 
+                PrefabManager.Instance.Get("EnemyItem",transform.position,transform.rotation);
                 PrefabManager.Instance.Release(gameObject);
-                inventory.AddItem(bearitem);
+                
             }
         }
         else
@@ -152,7 +153,6 @@ public class Bear : Animals
         if (other.CompareTag("Inventory"))
         {
             isNearPlayer = true;
-            inventory = other.GetComponentInChildren<Inventory>();
         }
     }
 

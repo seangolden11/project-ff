@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a65ad90d07ec84eb7eb029c30b4587, type: 3}
   m_Name: Creamery
   m_EditorClassIdentifier: 
-  id: 8
+  id: 4
   itemTakes: {fileID: 11400000, guid: 63a83e54193b0114aae5230370f70a13, type: 2}
   itemGives: {fileID: 11400000, guid: fb93040d18f786c4db6593df289a4761, type: 2}
   nextLevelPrefab:

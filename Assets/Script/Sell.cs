@@ -50,12 +50,12 @@ public class Sell : MonoBehaviour
         // 예: E 키를 눌렀을 때만 작동하도록 등.
 
         int itemsSuccessfullyTaken = 0;
-        int removedCount = 0;
+        int removedCount;
 
         // 인벤토리 슬롯을 역순으로 순회하여 아이템을 가져옵니다. 
         // 이렇게 하면 앞에서부터 아이템을 삭제했을 때 인덱스 문제가 발생하지 않습니다.
         // 또한 아이템을 종류 상관없이 가져가야 하므로, 단순히 슬롯을 순회하며 비어있지 않은 슬롯에서 아이템을 가져갑니다.
-        for (int i = 0; i < inventory.inventoryCount && itemsSuccessfullyTaken < sellLimit + level * sellLimit; i++)
+        for (int i = 0; (i < inventory.inventoryCount) && itemsSuccessfullyTaken < sellLimit + level * sellLimit; i++)
         {
             Inventory.InventorySlot slot = inventory.inventorySlots[i];
             if (!slot.IsEmpty)
@@ -66,7 +66,7 @@ public class Sell : MonoBehaviour
                 // DeleteItem 메서드 내부에서 Size를 고려하여 제거되도록 합니다.
                 // Inventory.cs의 DeleteItem 로직이 amount * item.Size <= removedCount 를 체크하므로,
                 // amount를 1로 넘기면 해당 아이템 하나의 Size만큼 슬롯이 비워지게 됩니다.
-                removedCount = inventory.DeleteItem(itemInSlot, (sellLimit + level * sellLimit) - itemsSuccessfullyTaken);
+                removedCount = inventory.DeleteItem(itemInSlot, sellLimit + level * sellLimit - itemsSuccessfullyTaken);
                 MoneyManager.Instance.AddMoney(itemInSlot.sellPrice * removedCount);
 
 

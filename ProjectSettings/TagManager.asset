@@ -8,6 +8,7 @@ TagManager:
   - Inventory
   - PickableItem
   - Animal
+  - Enemy
   layers:
   - Default
   - TransparentFX
