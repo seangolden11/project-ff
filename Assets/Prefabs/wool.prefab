@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 103872bf02c7e5149a7e54025ffb2039, type: 2}
+  lifeTime: 10
 --- !u!135 &6741289925195663152
 SphereCollider:
   m_ObjectHideFlags: 0
