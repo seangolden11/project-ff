@@ -764,7 +764,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.11, z: 0}
-  m_LocalScale: {x: 50, y: 1, z: 50}
+  m_LocalScale: {x: 69.94, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -902,8 +902,8 @@ Transform:
   m_GameObject: {fileID: 455740567}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.87, y: 2.69, z: 1.51}
-  m_LocalScale: {x: 1.4631802, y: 4.6807942, z: 66.124374}
+  m_LocalPosition: {x: 35.89, y: 2.69, z: 1.51}
+  m_LocalScale: {x: 1.7452813, y: 4.6807942, z: 66.124374}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 949761091}
@@ -1122,7 +1122,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 1087
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1646,6 +1646,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3561681600130666065, guid: ee8a1ddb97c04ee4e9de1dd96017ed36, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 742d4e9745613054aa2c53fc08779118, type: 2}
     - target: {fileID: 4011762015527776630, guid: ee8a1ddb97c04ee4e9de1dd96017ed36, type: 3}
       propertyPath: m_Name
       value: BuyChicken (2)
@@ -1720,7 +1724,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824966159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1754,7 +1758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'New '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26507f248a46cbf4fa958167f580e2ce, type: 2}
   m_sharedMaterial: {fileID: -5660775149628104760, guid: 26507f248a46cbf4fa958167f580e2ce, type: 2}
@@ -1872,7 +1876,7 @@ Transform:
   m_GameObject: {fileID: 861927124}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.1, y: 1, z: -0.0466}
+  m_LocalPosition: {x: -0.1, y: 1, z: -0.0525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2752,6 +2756,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3561681600130666065, guid: ee8a1ddb97c04ee4e9de1dd96017ed36, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 742d4e9745613054aa2c53fc08779118, type: 2}
     - target: {fileID: 4011762015527776630, guid: ee8a1ddb97c04ee4e9de1dd96017ed36, type: 3}
       propertyPath: m_Name
       value: BuyChicken
@@ -2865,7 +2873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   readyPrefabs:
   - {fileID: 7729379492258877522, guid: 12dff4ce1d6e92b4e8acb113f4d0e385, type: 3}
-  - {fileID: 1987685826741944692, guid: d58271e8c8a1663488d614e925492712, type: 3}
+  - {fileID: 8978846153405838608, guid: 0c980322213f97b44a30895d29b52a40, type: 3}
   - {fileID: 1371889348260875808, guid: 4cb97c83ca8aca94eab3991c4e020cbe, type: 3}
   - {fileID: 7644772062377520864, guid: 0af9bf5fda95423429845ea556d1f6fe, type: 3}
   - {fileID: 7444910382591532800, guid: a9090ea4dc290e147a7f9be841f609ab, type: 3}
@@ -4309,6 +4317,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3561681600130666065, guid: ee8a1ddb97c04ee4e9de1dd96017ed36, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 742d4e9745613054aa2c53fc08779118, type: 2}
     - target: {fileID: 4011762015527776630, guid: ee8a1ddb97c04ee4e9de1dd96017ed36, type: 3}
       propertyPath: m_Name
       value: BuyChicken (1)

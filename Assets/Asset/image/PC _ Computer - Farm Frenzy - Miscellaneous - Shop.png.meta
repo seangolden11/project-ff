@@ -1,0 +1,1238 @@
+fileFormatVersion: 2
+guid: 35b9c1449b442d0408fb0e86312b6343
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 888
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda60c00bfb61b34eae2e3b136b8dff5
+      internalID: 906078225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 888
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81002d4d77aa4f4db5f985a84f23305
+      internalID: -1084971774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_2
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 888
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef9dceca69a9f4d42b3674448d9c0a93
+      internalID: 209970370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_3
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 888
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 265d133732d75a94fa7105b91ebf8208
+      internalID: 627688643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_4
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 888
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abe1c46e941840f42a4cb833646ef58f
+      internalID: 1407100671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_5
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 888
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404f290952c1dc94eb511cac5d37a928
+      internalID: -1339753774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86d6853a7a17df4498f42d1f23dd8770
+      internalID: -1221469680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_7
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 768
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c0e98079cea2c46b82e02344b535fc
+      internalID: 1666617780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_8
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 768
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16781ec298701049bc3709e4e4922a8
+      internalID: 1850263738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_9
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 768
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c518ae20826473c419f34f89b1a46039
+      internalID: -1494032006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_10
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 768
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad26fb7406e73a47bcfd052fdc08521
+      internalID: 2031254503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_11
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 768
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076dbc73f8b58dc44ae62afb7c3f0f02
+      internalID: -703124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 648
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef9d41bfe2d552418f9257c6765205d
+      internalID: 1213277986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_13
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 648
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8862c6b6be6079447b9499ebb2a0d154
+      internalID: 676478459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_14
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 648
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88d8a55eb3fa81846bc3e53fb1e91c95
+      internalID: 1857457430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_15
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 648
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3780c40c9700c64ca39dde864fcf3d5
+      internalID: -591581079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_16
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 648
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e485b0efbebc8ed4c9c052c39c1a9aba
+      internalID: 509294184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_17
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 648
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b103e2c43bc9064e9a8225bab2c830f
+      internalID: -306545003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 528
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 343c41bad5e6dc4479b872deef762b31
+      internalID: 1614370271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_19
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 528
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2882551e3e1e742a5fdf2dd17c7f48
+      internalID: 710440786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_20
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 528
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79531af5128543142a22c0f4cc6b836f
+      internalID: -1340390548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_21
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 528
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8613ce44a96e0a84581d813052fb2efe
+      internalID: 165338054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_22
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 528
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf8491c88a92094bac2610e827f0464
+      internalID: 1466794024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_23
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 528
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb6e9d1a4f4112409f4ede2e7ee40a4
+      internalID: 2050921332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 408
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee8780152922f7345aeaf59045f00fae
+      internalID: 513139721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_25
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 408
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2576e6dd066c0d64eb976e96036c1fd6
+      internalID: 290725244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_26
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 408
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f32aebebfa739e4c91bbf01106bd606
+      internalID: -172924488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_27
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 408
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb349479b0ac35478e0b77e48564372
+      internalID: -36416350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_28
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 408
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec3df28f77d5d8046a2893e2c2a22d19
+      internalID: -200219005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_29
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 408
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36a919b568e3314a833f2148b5ffa82
+      internalID: 1911169713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e5a3ab0fc0b84468c5cef9e20b7540
+      internalID: 1112331796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_31
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 288
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00baaa05b19956542bcbc6dc452f288b
+      internalID: 346208861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_32
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 288
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7236f241c86ab04eac6b34dd596e53b
+      internalID: 1929333641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_33
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 288
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 151fe9d54f9a7604ab1cd2a401dd52a1
+      internalID: 1455094067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_34
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 288
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09ca71efb88629542b77bfddf88b51dd
+      internalID: 1532282438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_35
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 288
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 324ca4b0d0ec25041a276e49ab154b04
+      internalID: -159634371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 168
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd19aa82b7514f549947b0b803219219
+      internalID: -951241734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_37
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 168
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8146b1f9924c77f4ba60a045660a8bce
+      internalID: -586330600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_38
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 168
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8bf7548b6b7fc4b81d796af15ba4b2
+      internalID: -67757761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_39
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 168
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb43f173bce6be64a95d9d48ac32790a
+      internalID: 1558300733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_40
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 168
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93fdc311c153cba459b54a94c15c9c27
+      internalID: -2088740500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_41
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 168
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2179be2260bb8554fa47e116c9a2ba94
+      internalID: -1328046037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71146f31d4a974a439a55bd36b69f596
+      internalID: -967386065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_43
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 48
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa9016813ebb9c49a45da4bc9db608a
+      internalID: 585777728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_44
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 48
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71baa3738a0b1db46913b74b7075aa45
+      internalID: -720135686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_45
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 48
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92486c1fd2feee442ba594e42358f387
+      internalID: -1733155632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_46
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 48
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a31ce43ebe212346a4fe62b7adfb00b
+      internalID: 1165650457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Farm Frenzy - Miscellaneous - Shop_47
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 48
+        width: 129
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd8794f17cfa4f4889ff31862faa751
+      internalID: -2146884463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8037a979dc5be6342af08ad9834c5abd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":129.0,"y":120.0},"gridSpriteOffset":{"x":0.0,"y":603.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      - key: SpriteEditor.SliceOnImport
+        value: False
+    nameFileIdTable:
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_0: 906078225
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_1: -1084971774
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_10: 2031254503
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_11: -703124
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_12: 1213277986
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_13: 676478459
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_14: 1857457430
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_15: -591581079
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_16: 509294184
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_17: -306545003
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_18: 1614370271
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_19: 710440786
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_2: 209970370
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_20: -1340390548
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_21: 165338054
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_22: 1466794024
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_23: 2050921332
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_24: 513139721
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_25: 290725244
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_26: -172924488
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_27: -36416350
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_28: -200219005
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_29: 1911169713
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_3: 627688643
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_30: 1112331796
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_31: 346208861
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_32: 1929333641
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_33: 1455094067
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_34: 1532282438
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_35: -159634371
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_36: -951241734
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_37: -586330600
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_38: -67757761
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_39: 1558300733
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_4: 1407100671
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_40: -2088740500
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_41: -1328046037
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_42: -967386065
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_43: 585777728
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_44: -720135686
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_45: -1733155632
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_46: 1165650457
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_47: -2146884463
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_5: -1339753774
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_6: -1221469680
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_7: 1666617780
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_8: 1850263738
+      PC _ Computer - Farm Frenzy - Miscellaneous - Shop_9: -1494032006
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

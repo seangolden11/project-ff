@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using FGUIStarter;
-using Mono.Cecil.Cil;
 using PublicDataType;
 using TMPro;
 using UnityEngine;
@@ -40,7 +39,7 @@ public class EmployeeManager : MonoBehaviour
             for (int i = 0; i < rollnum; i++)
             {
 
-                int tempspirte = UnityEngine.Random.Range(0, sprites.Count);
+                int tempspirte = UnityEngine.Random.Range(1, sprites.Count);
                 int tempname = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(NameType)).Length);
                 int tempjob = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(DescType)).Length);
                 int temprank = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(RankType)).Length);

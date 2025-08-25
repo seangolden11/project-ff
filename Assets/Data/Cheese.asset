@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cheese
   m_EditorClassIdentifier: 
   itemName: CheeseItem
+  sprite: {fileID: 21300000, guid: 95600fcbd86494146a73b404687ab394, type: 3}
   Name: Cheese
   inventoryNum: 8
   prefab: {fileID: 7644772062377520864, guid: 5ccb43949607b894cab819d9e111ed76, type: 3}

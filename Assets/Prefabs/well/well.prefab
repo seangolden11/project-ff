@@ -360,7 +360,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 20650065655a55342810cb3ce72ec192, type: 2}
+  - {fileID: 2100000, guid: 742d4e9745613054aa2c53fc08779118, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -504,7 +504,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 20650065655a55342810cb3ce72ec192, type: 2}
+  - {fileID: 2100000, guid: 742d4e9745613054aa2c53fc08779118, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

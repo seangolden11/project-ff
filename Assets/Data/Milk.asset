@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Milk
   m_EditorClassIdentifier: 
   itemName: MilkItem
+  sprite: {fileID: 21300000, guid: 6c1728700e118d54ebab0fc5c17bc750, type: 3}
   Name: Milk
   inventoryNum: 6
   prefab: {fileID: 7644772062377520864, guid: 53b591f90ec695a4d825dba8f3f74ecc, type: 3}

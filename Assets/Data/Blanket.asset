@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Blanket
   m_EditorClassIdentifier: 
   itemName: BlanketItem
+  sprite: {fileID: 21300000, guid: 9fd2828d5c447c2439f379c605443a0c, type: 3}
   Name: Blanket
   inventoryNum: 5
   prefab: {fileID: 7644772062377520864, guid: 0af9bf5fda95423429845ea556d1f6fe, type: 3}

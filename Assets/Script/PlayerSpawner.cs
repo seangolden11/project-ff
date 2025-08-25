@@ -41,7 +41,7 @@ public class PlayerSpawner : MonoBehaviour
 
         for (int i = 0; i < stageData.animalSpawnInfo.ChickenNum; i++)
         {
-            PrefabManager.Instance.Get("Chicken", animalSpot.position, animalSpot.rotation);
+            PrefabManager.Instance.Get("Chicken", animalSpot.position + new Vector3(0,0.5f,0), animalSpot.rotation);
         }
         for (int i = 0; i < stageData.animalSpawnInfo.SheepNum; i++)
         {

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Butter
   m_EditorClassIdentifier: 
   itemName: ButterItem
+  sprite: {fileID: 21300000, guid: 27b12f31a4fbf3f4fa465c77fc575225, type: 3}
   Name: Butter
   inventoryNum: 7
   prefab: {fileID: 7644772062377520864, guid: 5ccb43949607b894cab819d9e111ed76, type: 3}

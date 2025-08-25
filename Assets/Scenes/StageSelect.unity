@@ -291,6 +291,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3411770766124693983, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
   m_PrefabInstance: {fileID: 2062822654}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &741026462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7672067929403653693, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+  m_PrefabInstance: {fileID: 2062822654}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &741026466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741026462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &775242236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,6 +2923,14 @@ PrefabInstance:
     - target: {fileID: 686698009408389678, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
       propertyPath: m_AnchorMin.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 686698009408389678, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1337.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 686698009408389678, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 678
       objectReference: {fileID: 0}
     - target: {fileID: 686698009408389678, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -7807,6 +7840,26 @@ PrefabInstance:
       propertyPath: hiredVeiw
       value: 
       objectReference: {fileID: 630813468}
+    - target: {fileID: 5982149562371700696, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: 'sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 9fd91ce55000ad24aafbabb06303626f, type: 3}
+    - target: {fileID: 5982149562371700696, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 7da732b7a47d31f41ab11327b21b97cd, type: 3}
+    - target: {fileID: 5982149562371700696, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: 'sprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 21300000, guid: aacdcf39d0a40c64e9957d25ba87a4f5, type: 3}
+    - target: {fileID: 5982149562371700696, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: 'sprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 21300000, guid: fa36d26b489815d4f87a641a62acc848, type: 3}
+    - target: {fileID: 5982149562371700696, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: 'sprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 5eacf53f632ce694b9530dc9db5c4a8d, type: 3}
     - target: {fileID: 5988578231715265680, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8128,9 +8181,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 530671204}
     - target: {fileID: 6223158483272604125, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: sprites.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223158483272604125, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
       propertyPath: nameList.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6223158483272604125, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: 'sprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 7da732b7a47d31f41ab11327b21b97cd, type: 3}
+    - target: {fileID: 6223158483272604125, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: 'sprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: aacdcf39d0a40c64e9957d25ba87a4f5, type: 3}
+    - target: {fileID: 6223158483272604125, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: 'sprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 21300000, guid: d0a0e50ff5764754c87a2edbdc16b50f, type: 3}
+    - target: {fileID: 6223158483272604125, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: 'sprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 21300000, guid: fa36d26b489815d4f87a641a62acc848, type: 3}
+    - target: {fileID: 6223158483272604125, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      propertyPath: 'sprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 5eacf53f632ce694b9530dc9db5c4a8d, type: 3}
     - target: {fileID: 6223158483272604125, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
       propertyPath: 'nameList.Array.data[0]'
       value: sean
@@ -11349,6 +11426,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6788734465986619897, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1504227893}
+    - targetCorrespondingSourceObject: {fileID: 7672067929403653693, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 741026466}
   m_SourcePrefab: {fileID: 100100000, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
 --- !u!1 &2062899497
 GameObject:

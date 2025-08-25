@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Egg
   m_EditorClassIdentifier: 
   itemName: EggItem
+  sprite: {fileID: 21300000, guid: 7d0e45623d8511641989103e5518445d, type: 3}
   Name: Egg
   inventoryNum: 0
   prefab: {fileID: 8978846153405838608, guid: 7eba9e2f8226a4042bdeb240ff23641b, type: 3}

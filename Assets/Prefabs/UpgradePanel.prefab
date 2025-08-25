@@ -2997,10 +2997,12 @@ MonoBehaviour:
   buttonPrefab: {fileID: 1864369747621667417, guid: 691204fde3e2ce64e8361f3c5407e2c5, type: 3}
   rollnum: 5
   sprites:
-  - {fileID: 21300000, guid: fc11d24cb5e3b73498132767825862af, type: 3}
-  - {fileID: 21300000, guid: 03a02ee4bc73da2429228a3c28637851, type: 3}
-  - {fileID: 21300000, guid: 3139d7e8fcc3e4449a56fdfd31c12e7e, type: 3}
-  - {fileID: 21300000, guid: fc5716e49cd5e7b46b6fd6772052c2f3, type: 3}
+  - {fileID: 21300000, guid: 7da732b7a47d31f41ab11327b21b97cd, type: 3}
+  - {fileID: 21300000, guid: 7da732b7a47d31f41ab11327b21b97cd, type: 3}
+  - {fileID: 21300000, guid: aacdcf39d0a40c64e9957d25ba87a4f5, type: 3}
+  - {fileID: 21300000, guid: d0a0e50ff5764754c87a2edbdc16b50f, type: 3}
+  - {fileID: 21300000, guid: fa36d26b489815d4f87a641a62acc848, type: 3}
+  - {fileID: 21300000, guid: 5eacf53f632ce694b9530dc9db5c4a8d, type: 3}
   HireContents: []
   HiredContents: []
   ed: []
@@ -4412,14 +4414,11 @@ MonoBehaviour:
   buttonPrefab: {fileID: 1864369747621667417, guid: 691204fde3e2ce64e8361f3c5407e2c5, type: 3}
   sprites:
   - {fileID: 21300000, guid: 9fd91ce55000ad24aafbabb06303626f, type: 3}
-  - {fileID: 21300000, guid: 0883c5875873cd94ca995e1fa4a6687d, type: 3}
-  - {fileID: 21300000, guid: 2d43c24dc0f08804996ee9fd1a43a3d2, type: 3}
-  - {fileID: 21300000, guid: 3bbde98424c90834cb0d97ffae539a8f, type: 3}
-  - {fileID: 21300000, guid: 9f28b5ff2e4c35b478809f6c29faf2cd, type: 3}
-  - {fileID: 21300000, guid: a18243c5d1204634aa8c2b11bd52162e, type: 3}
-  - {fileID: 21300000, guid: fc11d24cb5e3b73498132767825862af, type: 3}
-  - {fileID: 21300000, guid: 03a02ee4bc73da2429228a3c28637851, type: 3}
-  - {fileID: 21300000, guid: 3139d7e8fcc3e4449a56fdfd31c12e7e, type: 3}
+  - {fileID: 21300000, guid: 7da732b7a47d31f41ab11327b21b97cd, type: 3}
+  - {fileID: 21300000, guid: aacdcf39d0a40c64e9957d25ba87a4f5, type: 3}
+  - {fileID: 21300000, guid: d0a0e50ff5764754c87a2edbdc16b50f, type: 3}
+  - {fileID: 21300000, guid: fa36d26b489815d4f87a641a62acc848, type: 3}
+  - {fileID: 21300000, guid: 5eacf53f632ce694b9530dc9db5c4a8d, type: 3}
   JobContents: []
   HiredContents: []
   jd: []

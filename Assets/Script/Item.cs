@@ -6,6 +6,8 @@ using System.Collections.Generic;
 public class Item : ScriptableObject
 {
     public string itemName;
+
+    public Sprite sprite;
     public string Name;
     public int inventoryNum;
     public GameObject prefab; // 3D 인벤토리에 표시될 아이템 프리팹

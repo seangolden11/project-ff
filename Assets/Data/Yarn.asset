@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Yarn
   m_EditorClassIdentifier: 
   itemName: YarnItem
+  sprite: {fileID: 21300000, guid: e112e6ee7a755df478f41e05c4fb2042, type: 3}
   Name: Yarn
   inventoryNum: 4
   prefab: {fileID: 7644772062377520864, guid: 5ccb43949607b894cab819d9e111ed76, type: 3}

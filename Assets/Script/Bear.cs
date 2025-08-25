@@ -5,7 +5,7 @@ public class Bear : Animals
 {
 
     public Inventory inventory;
-    bool isNearPlayer = false;
+    int isNearPlayer = 0;
 
     float nearTimer = 0;
     public float nearLimit = 10f;
@@ -125,7 +125,7 @@ public class Bear : Animals
 
 
         }
-        if (isNearPlayer)
+        if (isNearPlayer > 0)
         {
             moveSpeed = 0.5f;
             nearTimer += Time.deltaTime;
@@ -133,7 +133,7 @@ public class Bear : Animals
             if (nearTimer >= nearLimit)
             {
                 nearTimer = 0;
-                isNearPlayer = false;
+                isNearPlayer = 0;
                 trans.localScale = Vector3.zero;
 
                 PrefabManager.Instance.Get("EnemyItem",transform.position,transform.rotation);
@@ -152,7 +152,7 @@ public class Bear : Animals
     {
         if (other.CompareTag("Inventory"))
         {
-            isNearPlayer = true;
+            isNearPlayer++;
         }
     }
 
@@ -160,7 +160,7 @@ public class Bear : Animals
     {
         if (other.CompareTag("Inventory"))
         {
-            isNearPlayer = false;
+            isNearPlayer--;
         }
     }
 }

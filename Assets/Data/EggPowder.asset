@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: EggPowder
   m_EditorClassIdentifier: 
   itemName: EggPowderItem
+  sprite: {fileID: 21300000, guid: b748f480c57b8ba449ea8e7a710c565f, type: 3}
   Name: EggPowder
   inventoryNum: 1
   prefab: {fileID: 7644772062377520864, guid: 16628309c326f9a45be4a8ae87dff66b, type: 3}
