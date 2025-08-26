@@ -20,7 +20,7 @@ public class Bear : Animals
         feedTimer = 0f; // 풀 찾기 타이머 초기화
         SetNewTargetPosition(); // 초기 목표 위치 설정
         grassTag = "Animal";
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()

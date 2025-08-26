@@ -15,6 +15,7 @@ namespace FGUIStarter
         public int id;
 
         public int mode;
+        public bool isCustom = false;
 
         bool isHeld;
         protected override void Awake()
@@ -22,25 +23,33 @@ namespace FGUIStarter
             base.Awake();
             textRect = GetComponentInChildren<TextMeshProUGUI>().rectTransform;
             originalTextPos = textRect.anchoredPosition;
+            if (GetComponentsInChildren<TextMeshProUGUI>().Length >= 2)
+            {
+                isCustom = true;
+            }
         }
 
         public override void OnPointerDown(PointerEventData eventData)
         {
-            base.OnPointerDown(eventData);
-            isHeld = true;
-            ApplyPressedVisual();
+            
+                base.OnPointerDown(eventData);
+                isHeld = true;
+                ApplyPressedVisual();
+            
         }
 
         public override void OnPointerUp(PointerEventData eventData)
         {
-            base.OnPointerUp(eventData);
-            isHeld = false;
-            ApplyNormalVisual();
+            
+                base.OnPointerUp(eventData);
+                isHeld = false;
+                ApplyNormalVisual();
+            
         }
 
         private void ApplyPressedVisual()
         {
-            if (textRect != null)
+            if (textRect != null && isCustom == false)
             {
                 float height = ((RectTransform)transform).rect.height;
                 float offset = height - (height * 0.86718f);//calculation for 128x128 sprite
@@ -53,7 +62,7 @@ namespace FGUIStarter
 
         private void ApplyNormalVisual()
         {
-            if (textRect != null)
+            if (textRect != null&& isCustom == false)
             {
                 textRect.anchoredPosition = originalTextPos;
             }

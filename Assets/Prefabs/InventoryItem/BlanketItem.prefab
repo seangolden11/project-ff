@@ -95,6 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6914983336849936780}
+  - component: {fileID: -8430350586781201642}
   m_Layer: 0
   m_Name: BlanketItem
   m_TagString: Untagged
@@ -119,6 +120,20 @@ Transform:
   - {fileID: 6000428327992213301}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8430350586781201642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644772062377520864}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c591c44fa6879e488e01daffce873ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {x: 0, y: 0, z: 0}
+  speed: 5
 --- !u!1 &9075865683013346988
 GameObject:
   m_ObjectHideFlags: 0

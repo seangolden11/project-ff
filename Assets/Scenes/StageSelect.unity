@@ -1362,6 +1362,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contants: []
+  sp:
+  - {fileID: 21300000, guid: 44e7783cc1c90af44b9339ca3f08d049, type: 3}
+  - {fileID: 21300000, guid: f05c534f5efb0154891f2251e7e73b2f, type: 3}
+  - {fileID: 21300000, guid: d0111dbf09800c14d9dd4ce2e9cc17de, type: 3}
+  - {fileID: 21300000, guid: 2d459966b0c66ad4f91d32e316c61636, type: 3}
+  - {fileID: 21300000, guid: 33472ac887e35c94994ff67e8260b2c1, type: 3}
+  - {fileID: 21300000, guid: f30fd0d6d22236249b0b21fba0b30f34, type: 3}
   buttonPrefab: {fileID: 2941612284712914028, guid: 1f580af1462af80458d78abb14056760, type: 3}
   contantTransform: {fileID: 1396299451}
   upgradeDataList: {fileID: 11400000, guid: da287c287deac8d46bf8c503e68f5bde, type: 2}
@@ -7843,7 +7850,7 @@ PrefabInstance:
     - target: {fileID: 5982149562371700696, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
       propertyPath: 'sprites.Array.data[0]'
       value: 
-      objectReference: {fileID: 21300000, guid: 9fd91ce55000ad24aafbabb06303626f, type: 3}
+      objectReference: {fileID: 21300106, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
     - target: {fileID: 5982149562371700696, guid: a8d33391b46df1b43b5b41647654b721, type: 3}
       propertyPath: 'sprites.Array.data[1]'
       value: 

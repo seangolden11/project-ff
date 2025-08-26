@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.UI;
 
 public class Building : MonoBehaviour
 {
@@ -45,8 +46,10 @@ public class Building : MonoBehaviour
         itemToTake = buildinginfo.itemTakes;
         itemToGive = buildinginfo.itemGives;
         GetComponentsInChildren<SpriteRenderer>()[4].sprite = buildinginfo.itemTakes.sprite;
+        GetComponentsInChildren<SpriteRenderer>()[6].sprite = buildinginfo.itemGives.sprite;
         multiple = DataManager.Instance.GetJobData()[buildinginfo.id + 3].rank;
         transformationTime /= (multiple * 0.25f) + 1;
+        transform.localEulerAngles = new Vector3(0,transform.parent.eulerAngles.y,0);
         
         // << 추가: 시작할 때 테두리 스케일 초기화
         // ResetOutline();
@@ -94,7 +97,7 @@ public class Building : MonoBehaviour
         Inventory playerInventory = player.GetComponentInChildren<Inventory>();
         if (playerInventory != null && playerInventory.HasItem(itemToTake))
         {
-            int count = playerInventory.DeleteItem(itemToTake, level);
+            int count = playerInventory.DeleteItem(itemToTake, level,transform);
             playerInsideTrigger = true;
             isWorking = true; // << 추가: isWorking 상태 반영
             anim.SetBool("isWorking", true);

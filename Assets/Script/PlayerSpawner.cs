@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using PublicDataType;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -61,7 +62,11 @@ public class PlayerSpawner : MonoBehaviour
                 
                 allBuildings.Add(PrefabManager.Instance.Get(stageData.buildingInfo.spawnBuilding[i].type.ToString(), spot[i].position, spot[i].rotation).GetComponentInChildren<Building>());
                 if (jd[(int)stageData.buildingInfo.spawnBuilding[i].type + 2].job != 0)
-                    PrefabManager.Instance.Get("StandWorker", allBuildings[allBuildings.Count - 1].transform.position, spot[i].rotation);
+                {
+                    GameObject tempobj = PrefabManager.Instance.Get("StandWorker", allBuildings[allBuildings.Count - 1].transform.position, spot[i].rotation);
+                    tempobj.GetComponent<CharacterModelChanger>().ChangeCharacterModel(jd[(int)stageData.buildingInfo.spawnBuilding[i].type + 2].sprite);
+                    tempobj.GetComponentInChildren<TextMeshPro>().text = ((NameType)jd[(int)stageData.buildingInfo.spawnBuilding[i].type + 2].name).ToString();
+                }
 
             }
 
@@ -74,6 +79,8 @@ public class PlayerSpawner : MonoBehaviour
                 Worker worker = PrefabManager.Instance.Get("Worker", Vector3.up, quaternion.identity).GetComponent<Worker>();
                 worker.rank = jd[i].rank;
                 worker.itemType = items[i - 9];
+                worker.GetComponentInChildren<TextMeshPro>().text = ((NameType)jd[i].name).ToString();
+                worker.gameObject.GetComponent<CharacterModelChanger>().ChangeCharacterModel(jd[i].sprite);
             }
 
 

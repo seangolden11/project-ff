@@ -15,3 +15,4 @@ public class Item : ScriptableObject
     public int sellPrice;
     // 기타 아이템 관련 데이터 (예: 효과, 설명 등)
 }
+

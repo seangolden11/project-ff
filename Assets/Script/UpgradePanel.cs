@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UpgradePanel : MonoBehaviour
 {
     public List<GameObject> contants;
+    public List<Sprite> sp;
 
     public GameObject buttonPrefab;
     public Transform contantTransform;
@@ -18,8 +19,10 @@ public class UpgradePanel : MonoBehaviour
     {
 
         contants[mode].GetComponentsInChildren<TextMeshProUGUI>()[0].text = $"{upgradeDataList.upgradeList[mode].name}";
-        contants[mode].GetComponentsInChildren<TextMeshProUGUI>()[1].text = $"* : {upgradeDataList.upgradeList[DataManager.Instance.GetUpgradeData(mode).upgradeId].cost[DataManager.Instance.GetUpgradeData(mode).level-1]}";
+        contants[mode].GetComponentsInChildren<TextMeshProUGUI>()[1].text = $"* : {upgradeDataList.upgradeList[DataManager.Instance.GetUpgradeData(mode).upgradeId].cost[DataManager.Instance.GetUpgradeData(mode).level - 1]}";
         contants[mode].GetComponentsInChildren<Image>()[2].sprite = upgradeDataList.upgradeList[DataManager.Instance.GetUpgradeData(mode).upgradeId].sprite;
+        contants[mode].GetComponentsInChildren<Image>()[1].sprite = sp[DataManager.Instance.GetUpgradeData(mode).level];
+
 
     }
 

@@ -1,7 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using Unity.VisualScripting; // List 사용을 위해 추가
+using Unity.VisualScripting;
+using UnityEditor;
+using TMPro;
+using PublicDataType; // List 사용을 위해 추가
 public class Guard : MonoBehaviour
 {
     // NPC의 상태를 명확하게 정의합니다.
@@ -24,8 +27,17 @@ public class Guard : MonoBehaviour
     private Transform currentTarget;
     private float nextAttackTime = 0f;
 
+    Animator anim;
+
+    public CharacterModelChanger cmc;
+
     void Start()
     {
+        cmc = GetComponent<CharacterModelChanger>();
+        cmc.ChangeCharacterModel(DataManager.Instance.GetJobData()[1].sprite);
+        anim = GetComponentInChildren<Animator>();
+        anim.SetFloat("Speed", 1);
+        GetComponentInChildren<TextMeshPro>().text = ((NameType)DataManager.Instance.GetJobData()[1].name).ToString();
         // 첫 번째 순찰 지점으로 이동 시작
         if (patrolPoints.Count > 0)
         {

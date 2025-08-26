@@ -66,7 +66,7 @@ public class Sell : MonoBehaviour
                 // DeleteItem 메서드 내부에서 Size를 고려하여 제거되도록 합니다.
                 // Inventory.cs의 DeleteItem 로직이 amount * item.Size <= removedCount 를 체크하므로,
                 // amount를 1로 넘기면 해당 아이템 하나의 Size만큼 슬롯이 비워지게 됩니다.
-                removedCount = inventory.DeleteItem(itemInSlot, sellLimit + level * sellLimit - itemsSuccessfullyTaken);
+                removedCount = inventory.DeleteItem(itemInSlot, sellLimit + level * sellLimit - itemsSuccessfullyTaken,transform);
                 MoneyManager.Instance.AddMoney(itemInSlot.sellPrice * removedCount);
 
 
@@ -143,7 +143,7 @@ public class Sell : MonoBehaviour
             Debug.Log("모든 목표 달성! 게임 승리!");
             for (int i = 0; i < inventory.inventoryCount; i++)
             {
-                inventory.DeleteItem(inventory.inventorySlots[i].item, 999);
+                inventory.DeleteItem(inventory.inventorySlots[i].item, 999,transform);
             }
             // 승리 시 처리할 로직 호출
             GameManager.Instance.StageClear();

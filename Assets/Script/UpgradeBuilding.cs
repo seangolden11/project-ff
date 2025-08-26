@@ -33,6 +33,7 @@ public class UpgradeBuilding : MonoBehaviour
                 textMeshPro.text = $"${buildingInfo.nextLeveCost[market.level]}";
                 break;
             default:
+                building = transform.parent.GetComponentInChildren<Building>();
                 textMeshPro.text = $"${buildingInfo.nextLeveCost[building.level]}";
                 texTrans.localEulerAngles = new Vector3(0,0,transform.parent.eulerAngles.y);
                 break;
