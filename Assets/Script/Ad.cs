@@ -1,20 +1,40 @@
+using System.Collections.Generic;
+using PublicDataType;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Well : MonoBehaviour
+public class Ad : MonoBehaviour
 {
-    public TextMeshProUGUI gui;
     StageData sd;
+
+    public GameObject prefab;
+
+    List<GameObject> objects = new List<GameObject>();
+
+    public List<Sprite> itemSprite;
     void Start()
     {
-        gui = GetComponent<TextMeshProUGUI>();
         sd = GameManager.Instance.stageData;
-        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
         for (int i = 0; i < sd.goal.goalItems.Count; i++)
         {
-            sb.Append($"{sd.goal.goalItems[i].type.ToString()} X {sd.goal.goalItems[i].count}");
+            objects.Add(Instantiate(prefab, transform));
+            objects[i].GetComponentInChildren<TextMeshProUGUI>().text = $"0 / {sd.goal.goalItems[i].count}";
+            objects[i].GetComponentsInChildren<Image>()[1].sprite = itemSprite[(int)sd.goal.goalItems[i].type];
         }
 
-        gui.text = sb.ToString();
+        
+    }
+
+    public void Init(ItemType it,int cur)
+    {
+        for (int i = 0; i < sd.goal.goalItems.Count; i++)
+        {
+            if (sd.goal.goalItems[i].type == it)
+            {
+                objects[i].GetComponentInChildren<TextMeshProUGUI>().text = $"{cur} / {sd.goal.goalItems[i].count}";
+            }
+        }
     }
 }

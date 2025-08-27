@@ -136,7 +136,7 @@ public class Bear : Animals
                 isNearPlayer = 0;
                 trans.localScale = Vector3.zero;
 
-                PrefabManager.Instance.Get("EnemyItem",transform.position,transform.rotation);
+                PrefabManager.Instance.Get("Enemy",transform.position,transform.rotation);
                 PrefabManager.Instance.Release(gameObject);
                 
             }

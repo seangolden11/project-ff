@@ -17,6 +17,8 @@ public class StagePanel : MonoBehaviour
     public TextMeshProUGUI rewardgui;
     public TextMeshProUGUI goalgui;
 
+    public GameObject lockPanel;
+
     float clearTime;
 
     public Slider slider;
@@ -41,7 +43,7 @@ public class StagePanel : MonoBehaviour
 
 
         Timeinit();
-        
+
 
         if (stageList.allStages[stageNum].stageReward != null)
             rewardgui.text = $"{stageList.allStages[stageNum].stageReward}";
@@ -55,7 +57,21 @@ public class StagePanel : MonoBehaviour
 
         goalgui.text = sb.ToString();
 
-
+        if (lockPanel)
+        {
+            if (stageNum == 0)
+            {
+                lockPanel.SetActive(false);
+            }
+            else if (DataManager.Instance.GetStageData(stageNum - 1).clearTime == 0)
+            {
+                lockPanel.SetActive(true);
+            }
+            else
+            {
+                lockPanel.SetActive(false);
+            }
+        }
 
 
     }

@@ -53,7 +53,7 @@ public class MoveAndDisappear : MonoBehaviour
         transform.position = GetQuadraticBezierPoint(startPoint, controlPoint, endPoint, t);
 
         // 이동이 완료되었는지 확인
-        if (t >= 1.0f)
+        if (t >= 0.8f)
         {
            
             // (이 부분은 이전과 동일)
@@ -62,6 +62,7 @@ public class MoveAndDisappear : MonoBehaviour
             
             // 임시 테스트용: 도착하면 1초 뒤 사라지게 처리
             Debug.Log("도착!");
+            enabled = false;
             PrefabManager.Instance.Release(gameObject); 
         }
     }

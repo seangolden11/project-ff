@@ -14,6 +14,8 @@ public class GrassSpawner : MonoBehaviour
 
     public int level = 1;
 
+    Animator anim;
+
     void Update()
     {
         if (_isPlayerInside)
@@ -27,6 +29,11 @@ public class GrassSpawner : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
     // 플레이어가 트리거에 진입했을 때 호출
     void OnTriggerEnter(Collider other)
     {
@@ -34,6 +41,7 @@ public class GrassSpawner : MonoBehaviour
         if (other.CompareTag("Player")) // 또는 other.gameObject.layer == LayerMask.NameToLayer("Player")
         {
             _isPlayerInside = true;
+            anim.SetBool("isWorking", true);
             Debug.Log("Player entered spawn zone. Grass spawning activated.");
         }
     }
@@ -44,6 +52,7 @@ public class GrassSpawner : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _isPlayerInside = false;
+            anim.SetBool("isWorking", false);
             Debug.Log("Player exited spawn zone. Grass spawning deactivated.");
             // 플레이어가 나가면 풀을 바로 파괴하거나 점진적으로 파괴할 수 있음
             // ClearAllGrasses(); 

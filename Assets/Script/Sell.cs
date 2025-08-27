@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class Sell : MonoBehaviour
 {
     private Inventory inventory;
     public int sellLimit;
+
+    public bool isWorking = false;
 
     public int level;
 
@@ -15,14 +18,21 @@ public class Sell : MonoBehaviour
 
     public Animator anim;
 
+    public Ad ad;
+
+    [Header("Progress Settings")]
+    public Transform movingObject; // 작업 중 (0,0,0)으로 이동할 오브젝트의 Transform
+    public GameObject progressBarObject; // 진행도 관련 오브젝트들을 감싸는 부모 (보이기/숨기기용)
+    private Vector3 initialObjectPosition; // 오브젝트의 초기 위치 저장
+
     private Dictionary<PublicDataType.ItemType, int> soldItemCounts = new Dictionary<PublicDataType.ItemType, int>();
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isWorking)
         {
             inventory = other.GetComponentInChildren<Inventory>();
             TryTakeItemsFromPlayerInventory();
-            
+
 
         }
 
@@ -31,8 +41,11 @@ public class Sell : MonoBehaviour
     private IEnumerator ProcessItemTransformation()
     {
         anim.SetBool("isWorking", true);
+        isWorking = true;
+        yield return StartCoroutine(DrawOutlineRoutine(transformationTime));
 
-        yield return new WaitForSeconds(transformationTime);
+        // yield return new WaitForSeconds(transformationTime);
+        isWorking = false;
         anim.SetBool("isWorking", false);
 
     }
@@ -40,6 +53,12 @@ public class Sell : MonoBehaviour
     void Start()
     {
         stageData = GameManager.Instance.stageData;
+        // 이동할 오브젝트의 초기 위치 저장 및 숨기기
+        if (movingObject != null)
+        {
+            initialObjectPosition = movingObject.localPosition;
+        }
+        ResetOutline();
 
     }
 
@@ -66,7 +85,7 @@ public class Sell : MonoBehaviour
                 // DeleteItem 메서드 내부에서 Size를 고려하여 제거되도록 합니다.
                 // Inventory.cs의 DeleteItem 로직이 amount * item.Size <= removedCount 를 체크하므로,
                 // amount를 1로 넘기면 해당 아이템 하나의 Size만큼 슬롯이 비워지게 됩니다.
-                removedCount = inventory.DeleteItem(itemInSlot, sellLimit + level * sellLimit - itemsSuccessfullyTaken,transform);
+                removedCount = inventory.DeleteItem(itemInSlot, sellLimit + level * sellLimit - itemsSuccessfullyTaken, transform);
                 MoneyManager.Instance.AddMoney(itemInSlot.sellPrice * removedCount);
 
 
@@ -130,6 +149,11 @@ public class Sell : MonoBehaviour
             }
 
             Debug.Log($"Checking Goal for {goalItem.type}: Sold {currentSoldCount} / Needed {goalItem.count}");
+            if (!ad)
+            {
+                ad = FindFirstObjectByType<Ad>();
+            }
+            ad.Init(goalItem.type, currentSoldCount);
 
             if (currentSoldCount < goalItem.count)
             {
@@ -143,10 +167,54 @@ public class Sell : MonoBehaviour
             Debug.Log("모든 목표 달성! 게임 승리!");
             for (int i = 0; i < inventory.inventoryCount; i++)
             {
-                inventory.DeleteItem(inventory.inventorySlots[i].item, 999,transform);
+                inventory.DeleteItem(inventory.inventorySlots[i].item, 999, transform);
             }
             // 승리 시 처리할 로직 호출
             GameManager.Instance.StageClear();
+        }
+    }
+    
+     // ## 수정된 함수: 오브젝트를 (0,0,0)으로 이동 ##
+    private IEnumerator DrawOutlineRoutine(float duration)
+    {
+        if (movingObject == null || progressBarObject == null)
+        {
+            yield break; // 필요한 컴포넌트가 없으면 코루틴 종료
+        }
+        
+        ResetOutline();
+        progressBarObject.SetActive(true);
+
+        float elapsedTime = 0f;
+        Vector3 startPosition = movingObject.localPosition; // 현재 위치를 시작점으로 설정
+        Vector3 targetPosition = Vector3.zero; // 목표 위치는 로컬 (0,0,0)
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = Mathf.Clamp01(elapsedTime / duration);
+
+            // Lerp를 사용하여 시작 위치에서 목표 위치로 부드럽게 이동
+            movingObject.localPosition = Vector3.Lerp(startPosition, targetPosition, progress);
+            
+            yield return null;
+        }
+
+        // 작업 완료 후 초기화
+        ResetOutline();
+    }
+
+    // ## 수정된 함수: 오브젝트 위치 초기화 ##
+    private void ResetOutline()
+    {
+        if (progressBarObject != null)
+        {
+            progressBarObject.SetActive(false);
+        }
+        if (movingObject != null)
+        {
+            // 오브젝트 위치를 원래 저장했던 초기 위치로 복원
+            movingObject.localPosition = initialObjectPosition;
         }
     }
 }

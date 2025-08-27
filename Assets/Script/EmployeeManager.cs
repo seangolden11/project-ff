@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using FGUIStarter;
 using PublicDataType;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,10 +23,33 @@ public class EmployeeManager : MonoBehaviour
 
     public List<EmpolyeeDatas> ed;
     public List<EmpolyeeDatas> hd;
+    public bool isFirst = true;
+
+    public int empLimit = 20;
+
+    public TextMeshProUGUI gui;
     void Start()
+    {
+        InitAll();
+        isFirst = false;   
+    }
+
+    void OnEnable()
+    {
+        if (!isFirst)
+            InitAll();
+    }
+
+    void InitAll()
     {
         ed = DataManager.Instance.GetEmployeeData();
         hd = DataManager.Instance.GetHiredData();
+
+        foreach (GameObject go in HireContents)
+        {
+            Destroy(go);
+        }
+        HireContents.Clear();
 
         if (ed.Count > 0)
         {
@@ -38,15 +62,24 @@ public class EmployeeManager : MonoBehaviour
         {
             for (int i = 0; i < rollnum; i++)
             {
-
-                int tempspirte = UnityEngine.Random.Range(1, sprites.Count);
-                int tempname = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(NameType)).Length);
-                int tempjob = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(DescType)).Length);
-                int temprank = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(RankType)).Length);
-                ed.Add(new EmpolyeeDatas(tempname, temprank, tempjob, tempspirte));
-                InitHire(ed[i]);
-                
-
+                if (UnityEngine.Random.Range(1, sprites.Count) < 3)
+                {
+                    int tempspirte = UnityEngine.Random.Range(4, sprites.Count);
+                    int tempname = UnityEngine.Random.Range(7, System.Enum.GetNames(typeof(NameType)).Length);
+                    int tempjob = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(DescType)).Length);
+                    int temprank = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(RankType)).Length);
+                    ed.Add(new EmpolyeeDatas(tempname, temprank, tempjob, tempspirte));
+                    InitHire(ed[i]);
+                }
+                else
+                {
+                    int tempspirte = UnityEngine.Random.Range(1, 4);
+                    int tempname = UnityEngine.Random.Range(1, 7);
+                    int tempjob = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(DescType)).Length);
+                    int temprank = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(RankType)).Length);
+                    ed.Add(new EmpolyeeDatas(tempname, temprank, tempjob, tempspirte));
+                    InitHire(ed[i]);
+                }
 
             }
         }
@@ -57,6 +90,8 @@ public class EmployeeManager : MonoBehaviour
                 InitHired(temp);
             }
         }
+        gui.text = $"{hd.Count}/{empLimit}";
+        DataManager.Instance.SetEmployee(ed, hd);
     }
 
     void InitHire(EmpolyeeDatas temp)
@@ -110,7 +145,7 @@ public class EmployeeManager : MonoBehaviour
             HireContents.Remove(HireContents[id]);
             ed.Remove(ed[id]);
             InitID();
-
+            gui.text = $"{hd.Count}/{empLimit}";
             DataManager.Instance.SetEmployee(ed, hd);
 
         }
@@ -140,7 +175,7 @@ public class EmployeeManager : MonoBehaviour
         HiredContents.Remove(HiredContents[id]);
         hd.Remove(hd[id]);
         InitID();
-        
+        gui.text = $"{hd.Count}/{empLimit}";
         DataManager.Instance.SetEmployee(ed, hd);
 
     }
@@ -158,12 +193,24 @@ public class EmployeeManager : MonoBehaviour
             for (int i = 0; i < rollnum; i++)
             {
 
-                int tempspirte = UnityEngine.Random.Range(1, sprites.Count);
-                int tempname = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(NameType)).Length);
-                int tempjob = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(DescType)).Length);
-                int temprank = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(RankType)).Length);
-                ed.Add(new EmpolyeeDatas(tempname, temprank, tempjob, tempspirte));
-                InitHire(ed[i]);
+                if (UnityEngine.Random.Range(1, sprites.Count) < 3)
+                {
+                    int tempspirte = UnityEngine.Random.Range(4, sprites.Count);
+                    int tempname = UnityEngine.Random.Range(7, System.Enum.GetNames(typeof(NameType)).Length);
+                    int tempjob = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(DescType)).Length);
+                    int temprank = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(RankType)).Length);
+                    ed.Add(new EmpolyeeDatas(tempname, temprank, tempjob, tempspirte));
+                    InitHire(ed[i]);
+                }
+                else
+                {
+                    int tempspirte = UnityEngine.Random.Range(1, 5);
+                    int tempname = UnityEngine.Random.Range(1, 7);
+                    int tempjob = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(DescType)).Length);
+                    int temprank = UnityEngine.Random.Range(1, System.Enum.GetNames(typeof(RankType)).Length);
+                    ed.Add(new EmpolyeeDatas(tempname, temprank, tempjob, tempspirte));
+                    InitHire(ed[i]);
+                }
 
 
             }

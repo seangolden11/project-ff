@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO; // 파일 입출력을 위해 필요
-using System.Collections.Generic; // List를 위해 필요
+using System.Collections.Generic;
+using System; // List를 위해 필요
 
 public class DataManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class DataManager : MonoBehaviour
 
     private GameData gameData;
     private string saveFilePath; // 저장될 파일 경로
+
+     public static event Action OnStarDataChanged;
 
     private void Awake()
     {
@@ -182,6 +185,7 @@ public class DataManager : MonoBehaviour
             gameData.stars -= num;
             Debug.Log($"업그레이드 {Id} 정보 업데이트: 레벨={upgrade.level}");
             SaveGameProgress(); // 변경사항 저장
+            OnStarDataChanged?.Invoke();
         }
         else
         {
@@ -195,6 +199,7 @@ public class DataManager : MonoBehaviour
         {
             gameData.stars -= amount;
             SaveGameProgress();
+            OnStarDataChanged?.Invoke();
             return true;
         }
         else
@@ -205,9 +210,10 @@ public class DataManager : MonoBehaviour
 
     public void PlusStar(int amount)
     {
-        
-            gameData.stars += amount;
-            SaveGameProgress();
+
+        gameData.stars += amount;
+        SaveGameProgress();
+            OnStarDataChanged?.Invoke();
             
     }
 

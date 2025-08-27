@@ -88,15 +88,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 81b871cd337c29f439aa5d503ec18d29, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.49913
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81b871cd337c29f439aa5d503ec18d29, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.49913
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81b871cd337c29f439aa5d503ec18d29, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.49913
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81b871cd337c29f439aa5d503ec18d29, type: 3}
       propertyPath: m_LocalPosition.x
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 8a59164adb272294294b50ded77c591d, type: 2}
+  lifeTime: 10
 --- !u!135 &6030765373259796965
 SphereCollider:
   m_ObjectHideFlags: 0
