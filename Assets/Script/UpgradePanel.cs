@@ -19,9 +19,15 @@ public class UpgradePanel : MonoBehaviour
     {
 
         contants[mode].GetComponentsInChildren<TextMeshProUGUI>()[0].text = $"{upgradeDataList.upgradeList[mode].name}";
-        contants[mode].GetComponentsInChildren<TextMeshProUGUI>()[1].text = $"* : {upgradeDataList.upgradeList[DataManager.Instance.GetUpgradeData(mode).upgradeId].cost[DataManager.Instance.GetUpgradeData(mode).level - 1]}";
+        contants[mode].GetComponentsInChildren<TextMeshProUGUI>()[1].text = $"{upgradeDataList.upgradeList[DataManager.Instance.GetUpgradeData(mode).upgradeId].cost[DataManager.Instance.GetUpgradeData(mode).level - 1]}";
         contants[mode].GetComponentsInChildren<Image>()[2].sprite = upgradeDataList.upgradeList[DataManager.Instance.GetUpgradeData(mode).upgradeId].sprite;
         contants[mode].GetComponentsInChildren<Image>()[1].sprite = sp[DataManager.Instance.GetUpgradeData(mode).level];
+        if (mode < 6 && DataManager.Instance.GetStageData(mode * 4).clearTime == 0) {
+            contants[mode].GetComponent<CustomButton>().Lock();
+        }
+        else {
+            contants[mode].GetComponent<CustomButton>().UnLock();
+        }
 
 
     }
@@ -32,6 +38,7 @@ public class UpgradePanel : MonoBehaviour
         {
             GameObject temp = Instantiate(buttonPrefab, contantTransform);
             temp.GetComponent<CustomButton>().id = i;
+            temp.GetComponent<CustomButton>().LockPanel = temp.GetComponentInChildren<Mask>().gameObject;
             contants.Add(temp);
         }
 

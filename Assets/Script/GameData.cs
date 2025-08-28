@@ -48,7 +48,7 @@ public class UpgradeData
     }
 
     // 초기화 생성자
-    public UpgradeData(int id, int level = 1)
+    public UpgradeData(int id, int level = 5)
     {
         upgradeId = id;
         this.level = level;
@@ -68,6 +68,8 @@ public class GameData
 
     public int hearts;
 
+    public int lastStage;
+
     public string recoverTime;
 
 
@@ -81,6 +83,7 @@ public class GameData
         Jobdata = new List<EmpolyeeDatas>();
         stars = 0;
         hearts = 5;
+        lastStage = 0;
     }
 }
 

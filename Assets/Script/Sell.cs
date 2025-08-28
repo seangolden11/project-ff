@@ -58,6 +58,10 @@ public class Sell : MonoBehaviour
         {
             initialObjectPosition = movingObject.localPosition;
         }
+        if (!ad)
+            {
+                ad = FindFirstObjectByType<Ad>();
+            }
         ResetOutline();
 
     }
@@ -149,16 +153,13 @@ public class Sell : MonoBehaviour
             }
 
             Debug.Log($"Checking Goal for {goalItem.type}: Sold {currentSoldCount} / Needed {goalItem.count}");
-            if (!ad)
-            {
-                ad = FindFirstObjectByType<Ad>();
-            }
+            
             ad.Init(goalItem.type, currentSoldCount);
 
             if (currentSoldCount < goalItem.count)
             {
                 allGoalsMet = false; // 하나라도 목표 수량에 미달하면 false
-                break; // 더 이상 확인할 필요 없음
+                // break; // 더 이상 확인할 필요 없음
             }
         }
 

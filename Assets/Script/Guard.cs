@@ -15,7 +15,7 @@ public class Guard : MonoBehaviour
 
     [Header("순찰 설정")]
     public List<Transform> patrolPoints; // 순찰 지점들
-    public float patrolSpeed = 4f;   // 순찰 속도
+    public float patrolSpeed = 2f;   // 순찰 속도
     private int currentPatrolIndex = 0;
 
     [Header("추격 및 공격 설정")]
@@ -36,6 +36,7 @@ public class Guard : MonoBehaviour
         cmc = GetComponent<CharacterModelChanger>();
         cmc.ChangeCharacterModel(DataManager.Instance.GetJobData()[1].sprite);
         anim = GetComponentInChildren<Animator>();
+        patrolSpeed += patrolSpeed * DataManager.Instance.GetJobData()[1].rank;
         anim.SetFloat("Speed", 1);
         GetComponentInChildren<TextMeshPro>().text = ((NameType)DataManager.Instance.GetJobData()[1].name).ToString();
         // 첫 번째 순찰 지점으로 이동 시작

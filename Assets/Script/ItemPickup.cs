@@ -7,7 +7,7 @@ public class ItemPickup : MonoBehaviour
 {
     public Item item; // 이 오브젝트가 나타내는 아이템
 
-    public float lifeTime = 10f;
+    public float lifeTime = 20f;
 
     void OnEnable() // 아이템이 활성화될 때 (생성될 때)
     {

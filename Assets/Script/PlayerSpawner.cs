@@ -11,7 +11,7 @@ public class PlayerSpawner : MonoBehaviour
 
     public Transform wellspot;
     public Transform sellspot;
-    public Transform animalSpot;
+    public Transform[] animalSpot;
     public Transform[] spot;
 
     public StageData stageData;
@@ -27,6 +27,7 @@ public class PlayerSpawner : MonoBehaviour
 
     void Start()
     {
+        stageData = GameManager.Instance.stageData;
         List<EmpolyeeDatas> jd = DataManager.Instance.GetJobData();
         if (jd[1].job != 0)
         {
@@ -42,15 +43,15 @@ public class PlayerSpawner : MonoBehaviour
 
         for (int i = 0; i < stageData.animalSpawnInfo.ChickenNum; i++)
         {
-            PrefabManager.Instance.Get("Chicken", animalSpot.position + new Vector3(0,0.5f,0), animalSpot.rotation);
+            PrefabManager.Instance.Get("Chicken", animalSpot[0].position + new Vector3(0,0.5f,0), animalSpot[0].rotation);
         }
         for (int i = 0; i < stageData.animalSpawnInfo.SheepNum; i++)
         {
-            PrefabManager.Instance.Get("Sheep", animalSpot.position, animalSpot.rotation);
+            PrefabManager.Instance.Get("Sheep", animalSpot[1].position, animalSpot[1].rotation);
         }
         for (int i = 0; i < stageData.animalSpawnInfo.CowNum; i++)
         {
-            PrefabManager.Instance.Get("Cow", animalSpot.position, animalSpot.rotation);
+            PrefabManager.Instance.Get("Cow", animalSpot[2].position, animalSpot[2].rotation);
         }
 
 

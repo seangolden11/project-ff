@@ -25,6 +25,7 @@ public class StagePanel : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        stageNum = DataManager.Instance.GetLastStage();
         Init(0);
     }
 
@@ -52,7 +53,7 @@ public class StagePanel : MonoBehaviour
         System.Text.StringBuilder sb = new System.Text.StringBuilder();
         for (int i = 0; i < stageList.allStages[stageNum].goal.goalItems.Count; i++)
         {
-            sb.Append($"{stageList.allStages[stageNum].goal.goalItems[i].type.ToString()} X {stageList.allStages[stageNum].goal.goalItems[i].count}");
+            sb.Append($"{stageList.allStages[stageNum].goal.goalItems[i].type.ToString()} X {stageList.allStages[stageNum].goal.goalItems[i].count}\n");
         }
 
         goalgui.text = sb.ToString();

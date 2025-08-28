@@ -11,10 +11,13 @@ namespace FGUIStarter
     {
         RectTransform textRect;
         Vector2 originalTextPos;
+        public GameObject LockPanel;
 
         public int id;
 
         public int mode;
+
+        bool isLocked = false;
         public bool isCustom = false;
 
         bool isHeld;
@@ -31,20 +34,20 @@ namespace FGUIStarter
 
         public override void OnPointerDown(PointerEventData eventData)
         {
-            
-                base.OnPointerDown(eventData);
-                isHeld = true;
-                ApplyPressedVisual();
-            
+
+            base.OnPointerDown(eventData);
+            isHeld = true;
+            ApplyPressedVisual();
+
         }
 
         public override void OnPointerUp(PointerEventData eventData)
         {
-            
-                base.OnPointerUp(eventData);
-                isHeld = false;
-                ApplyNormalVisual();
-            
+
+            base.OnPointerUp(eventData);
+            isHeld = false;
+            ApplyNormalVisual();
+
         }
 
         private void ApplyPressedVisual()
@@ -62,7 +65,7 @@ namespace FGUIStarter
 
         private void ApplyNormalVisual()
         {
-            if (textRect != null&& isCustom == false)
+            if (textRect != null && isCustom == false)
             {
                 textRect.anchoredPosition = originalTextPos;
             }
@@ -86,12 +89,31 @@ namespace FGUIStarter
 
         public void OnClick()
         {
+            if (isLocked)
+                return;
             if (GetComponentInParent<EmployeeManager>())
-                GetComponentInParent<EmployeeManager>().ButtonPress(id, mode);
-            else if (GetComponentInParent<UpgradePanel>())
-                GetComponentInParent<UpgradePanel>().Upgrade(id);
-            else if (GetComponentInParent<JobManager>())
-                GetComponentInParent<JobManager>().ButtonPress(id, mode);
+                    GetComponentInParent<EmployeeManager>().ButtonPress(id, mode);
+                else if (GetComponentInParent<UpgradePanel>())
+                    GetComponentInParent<UpgradePanel>().Upgrade(id);
+                else if (GetComponentInParent<JobManager>())
+                    GetComponentInParent<JobManager>().ButtonPress(id, mode);
+        }
+
+        public void Lock()
+        {
+            if (LockPanel)
+            {
+                LockPanel.SetActive(true);
+                isLocked = true;
+            }
+        }
+        public void UnLock()
+        {
+            if (LockPanel)
+            {
+                LockPanel.SetActive(false);
+                isLocked = false;
+            }
         }
 
     }

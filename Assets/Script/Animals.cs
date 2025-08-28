@@ -81,8 +81,8 @@ public class Animals : MonoBehaviour
                 // 만약 목표 풀이 없거나 비활성화되었다면, 다시 배회 상태로 돌아갑니다.
                 if (currentGrassTarget == null || !currentGrassTarget.activeInHierarchy)
                 {
-                    Debug.Log("풀 오브젝트가 사라지거나 비활성화되었습니다. 다시 배회합니다.");
-                    if(hungryTimer == 0)
+                    
+                    if (hungryTimer == 0)
                         currentState = AnimalState.Wandering;
                     else
                         currentState = AnimalState.hungry;
@@ -98,7 +98,7 @@ public class Animals : MonoBehaviour
                 // 풀에 충분히 도달했다면 (먹이 활동)
                 if (Vector3.Distance(transform.position, currentGrassTarget.transform.position) < 0.2f) // 약간 더 작은 거리로 "먹이"를 먹었다고 판단
                 {
-                    Debug.Log("풀에 도달하여 비활성화합니다: " + currentGrassTarget.name);
+                    
                     PrefabManager.Instance.Release(currentGrassTarget); // 풀 오브젝트 비활성화
                     this.GetComponent<AnimalGive>().SpawnGoods();
                     currentGrassTarget = null; // 타겟 초기화
@@ -182,12 +182,12 @@ public class Animals : MonoBehaviour
             {
                 currentGrassTarget = nearestActiveGrass;
                 currentState = AnimalState.SeekingGrass; // 풀을 찾아 이동하는 상태로 변경
-                Debug.Log("풀을 목표로 설정했습니다: " + currentGrassTarget.name);
+                
             }
             else
             {
                 // 주변에 먹을 수 있는 활성화된 풀이 없다면 계속 배회 상태 유지
-                Debug.Log("탐색 반경 내에 활성화된 풀이 없습니다. 배회 상태를 유지합니다.");
+                
                 currentState = AnimalState.hungry;
                 feedTimer = feedInterval * 0.6f; // 풀을 찾지 못했으므로 타이머를 초기화하여 다음 주기에 다시 시도
                 
@@ -197,7 +197,7 @@ public class Animals : MonoBehaviour
         {
             // 씬에 "Grass" 태그를 가진 오브젝트가 전혀 없다면
             
-            Debug.Log("씬에 '" + grassTag + "' 태그를 가진 풀 오브젝트가 없습니다.");
+            
             currentState = AnimalState.hungry;
             feedTimer = feedInterval * 0.6f; // 타이머를 초기화하여 다음 주기에 다시 시도
         }

@@ -73,6 +73,8 @@ public class UIManager : MonoBehaviour
         if (stagePanel != null)
         {
             stagePanel.SetActive(!stagePanel.activeSelf);
+            
+            
             Debug.Log("Stage Panel 활성화 상태: " + stagePanel.activeSelf);
         }
     }

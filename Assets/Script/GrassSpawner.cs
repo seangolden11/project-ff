@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 
 public class GrassSpawner : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class GrassSpawner : MonoBehaviour
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        GetComponentInChildren<TextMeshPro>().text = $"$ {6 - level}";
     }
 
     // 플레이어가 트리거에 진입했을 때 호출

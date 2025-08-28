@@ -2,90 +2,100 @@ using UnityEngine;
 
 public class MoveAndDisappear : MonoBehaviour
 {
-    // 인스펙터 창에서 목표 위치를 지정하거나, 다른 스크립트에서 이 변수에 접근하여 설정할 수 있습니다.
-    public Vector3 targetPosition;
-
-    // 초당 이동할 속도를 정합니다.
-    public float speed = 5f;
-
- // 포물선 경로 계산에 필요한 세 점
+    // --- 기존 변수들 ---
     private Vector3 startPoint;
-    private Vector3 endPoint;
-    private Vector3 controlPoint; // 랜덤하게 정해질 중간 제어점
-
-    // 이동에 걸리는 시간 관련 변수
-    private float journeyTime = 0.5f; // 아이템이 날아가는 데 걸리는 시간 (이 값을 조절해 속도 제어)
+    private Transform endPoint;
+    private Vector3 controlPoint;
+    private float journeyTime = 0.6f; // 이동 시간을 살짝 늘려 효과를 더 잘보이게 조정
     private float startTime;
 
-    // 인벤토리가 이 함수를 호출해 이동을 시작시킴
-    public void StartMove(Transform tf)
-    {
-        
+    Vector3 origon = new Vector3(0.5f, 0.5f, 0.5f);
+    private Vector3 initialScale; // 초기 크기를 저장할 변수
 
+    // --- ✨ 새로 추가된 변수들 (인스펙터에서 조절 가능) ---
+
+    [Tooltip("이동 속도 변화를 제어하는 커브. (예: Ease Out 커브 추천)")]
+    public AnimationCurve moveCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+
+    [Tooltip("초당 회전 속도")]
+    public float rotationSpeed = 360f;
+
+    [Tooltip("목표 지점 도착 시 작아지는 효과를 사용할지 여부")]
+    public bool shrinkOnApproach = true;
+
+    [Tooltip("작아지기 시작하는 시점 (0.0 ~ 1.0)")]
+    [Range(0f, 1f)]
+    public float shrinkStartTime = 0.5f;
+
+    /// <summary>
+    /// 인벤토리 등에서 이 함수를 호출하여 이동을 시작시킵니다.
+    /// </summary>
+    public void StartMove(Transform targetTransform)
+    {
         // 1. 경로 설정
         this.startPoint = transform.position;
-        this.endPoint = tf.position;
-        
-        // 2. 랜덤한 제어점 계산 (포물선의 모양 결정)
-        // 시작과 끝점의 중간 지점을 기준으로 랜덤한 높이와 수평 오프셋을 추가합니다.
-        Vector3 centerPoint = (startPoint + endPoint) / 2;
-        float randomHeight = Random.Range(3.0f, 6.0f);   // 포물선의 최대 높이를 랜덤하게
-        float randomSideOffset = Random.Range(-2.0f, 2.0f); // 좌우로 얼마나 휠지 랜덤하게
-        
+        this.endPoint = targetTransform;
+
+        // 2. 랜덤한 제어점 계산 (더 역동적인 포물선을 위해 높이와 범위를 조금 더 늘림)
+        Vector3 centerPoint = (startPoint + endPoint.position) / 2;
+        float randomHeight = Random.Range(4.0f, 7.0f);
+        float randomSideOffset = Random.Range(-3.0f, 3.0f);
         this.controlPoint = centerPoint + (Vector3.up * randomHeight) + (transform.right * randomSideOffset);
 
-        // 3. 이동 시작 시간 기록 및 상태 변경
+        // 3. 이동 시작 시간 기록 및 초기 상태 저장
         this.startTime = Time.time;
-        
+        this.initialScale = transform.localScale; // ✨ 이동 시작 시의 크기 저장
 
-       
+        // 오브젝트 풀에서 재사용될 경우를 대비해 활성화
+        enabled = true; 
     }
 
     void Update()
     {
-        
+        // 1. 시간 경과율 계산 (0에서 1 사이의 값)
+        float timeRatio = (Time.time - startTime) / journeyTime;
 
-        // 현재 시간 기준으로 이동이 얼마나 진행됐는지 계산 (0에서 1 사이의 값)
-        float t = (Time.time - startTime) / journeyTime;
-        t = Mathf.Clamp01(t); // t가 1을 넘지 않도록 보정
+        // 2. ✨ 애니메이션 커브를 이용해 실제 이동률 계산
+        // timeRatio가 선형적으로 증가할 때, curveT는 커브 모양에 따라 비선형적으로 증가합니다.
+        float curveT = moveCurve.Evaluate(timeRatio);
 
-        // 베지어 곡선 공식을 이용해 현재 프레임의 위치 계산
-        transform.position = GetQuadraticBezierPoint(startPoint, controlPoint, endPoint, t);
+        // 3. 베지어 곡선 공식을 이용해 현재 위치 계산
+        transform.position = GetQuadraticBezierPoint(startPoint, controlPoint, endPoint.position, curveT);
 
-        // 이동이 완료되었는지 확인
-        if (t >= 0.8f)
+        // 4. ✨ 회전 효과 추가
+        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+
+        // 5. ✨ 목표에 가까워지면 크기 줄이는 효과
+        if (shrinkOnApproach && timeRatio > shrinkStartTime)
         {
-           
-            // (이 부분은 이전과 동일)
-            // targetInventory.FinalizeAddItem(item);
-            // PrefabManager.Instance.Release(gameObject);
-            
-            // 임시 테스트용: 도착하면 1초 뒤 사라지게 처리
+            // shrinkStartTime 시점부터 끝까지(1.0)를 기준으로 다시 0~1 사이의 값을 계산
+            float shrinkRatio = Mathf.InverseLerp(shrinkStartTime, 1.0f, timeRatio);
+            transform.localScale = Vector3.Lerp(initialScale, Vector3.zero, shrinkRatio);
+        }
+
+        // 6. 이동 완료 확인
+        if (timeRatio >= 1.0f)
+        {
             Debug.Log("도착!");
-            enabled = false;
-            PrefabManager.Instance.Release(gameObject); 
+            enabled = false; // Update 중지
+            transform.localScale = origon;
+            // 실제 프로젝트에서는 아래 코드를 사용하게 됩니다.
+            // targetInventory.FinalizeAddItem(item);
+            PrefabManager.Instance.Release(gameObject);
         }
     }
 
     /// <summary>
-    /// 이차 베지어 곡선 위의 한 점을 계산하는 함수
+    /// 이차 베지어 곡선 위의 한 점을 계산하는 함수 (기존과 동일)
     /// </summary>
-    /// <param name="p0">시작점</param>
-    /// <param name="p1">제어점 (중간점)</param>
-    /// <param name="p2">끝점</param>
-    /// <param name="t">시간 (0~1)</param>
-    /// <returns></returns>
     private Vector3 GetQuadraticBezierPoint(Vector3 p0, Vector3 p1, Vector3 p2, float t)
     {
-        // 공식: (1-t)^2 * P0 + 2 * (1-t) * t * P1 + t^2 * P2
         float u = 1 - t;
         float tt = t * t;
         float uu = u * u;
-
         Vector3 p = uu * p0;
         p += 2 * u * t * p1;
         p += tt * p2;
-
         return p;
     }
 }

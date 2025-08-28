@@ -26,5 +26,5 @@ MonoBehaviour:
   goal:
     goalItems:
     - type: 1
-      count: 10
+      count: 5
   startMoney: 200

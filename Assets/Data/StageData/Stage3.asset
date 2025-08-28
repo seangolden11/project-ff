@@ -15,9 +15,7 @@ MonoBehaviour:
   stageID: 2
   timeLimit: 300
   buildingInfo:
-    spawnBuilding:
-    - type: 1
-      level: 1
+    spawnBuilding: []
   animalSpawnInfo:
     ChickenNum: 1
     SheepNum: 0
@@ -27,6 +25,6 @@ MonoBehaviour:
     experience: 0
   goal:
     goalItems:
-    - type: 2
-      count: 5
-  startMoney: 200
+    - type: 1
+      count: 10
+  startMoney: 400

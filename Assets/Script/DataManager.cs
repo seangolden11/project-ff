@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.IO; // 파일 입출력을 위해 필요
 using System.Collections.Generic;
-using System; // List를 위해 필요
+using System;
+using UnityEditor.SceneManagement; // List를 위해 필요
 
 public class DataManager : MonoBehaviour
 {
@@ -82,7 +83,7 @@ public class DataManager : MonoBehaviour
         }
         for (int i = 0; i < 10; i++)
         {
-            gameData.upgrades.Add(new UpgradeData(i, 1)); // 초기에는 클리어 안 됨, 시간 없음
+            gameData.upgrades.Add(new UpgradeData(i, 5)); // 초기에는 클리어 안 됨, 시간 없음
         }
         for (int i = 0; i < 12; i++)
         {
@@ -142,6 +143,11 @@ public class DataManager : MonoBehaviour
         gameData.hearts = heartsnum;
     }
 
+    public int GetLastStage()
+    {
+        return gameData.lastStage;
+    }
+
     // 특정 스테이지의 클리어 상태 업데이트
     public void SetStageCleared(int stageId, float clearTime, int num)
     {
@@ -164,6 +170,7 @@ public class DataManager : MonoBehaviour
                 stage.star = num;
                 gameData.stars += num;
             }
+            gameData.lastStage = stageId;
 
             Debug.Log($"스테이지 {stageId} 클리어 정보 업데이트: 클리어됨={stage.cleared}, 시간={stage.clearTime}");
             SaveGameProgress(); // 변경사항 저장

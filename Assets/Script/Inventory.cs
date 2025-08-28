@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 
 public class Inventory : MonoBehaviour
@@ -141,17 +142,20 @@ public class Inventory : MonoBehaviour
     public int DeleteItem(Item item, int amount, Transform target)
 {
     InventorySlot slot = inventorySlots[item.inventoryNum];
+    // 제거할 아이템이 있는지 확인은 유지
     if (slot.quantity <= 0) return 0;
 
-    // 1. 데이터는 즉시 변경
     int removedCount = Mathf.Min(amount, slot.quantity);
-    slot.quantity -= removedCount;
-    inventoryCount -= item.Size * removedCount;
 
-    // 2. 시각적 처리는 큐에 작업으로 추가
+    // 데이터 변경 로직 삭제!
+    //  slot.quantity -= removedCount;
+     inventoryCount -= item.Size * removedCount;
+    
+    // 시각적 처리는 큐에 작업으로 추가 (기존과 동일)
     actionQueue.Enqueue(new InventoryAction(ActionType.Remove, item, removedCount, target));
-
-    Debug.Log($"'{item.itemName}' {removedCount}개가 인벤토리에서 제거되었습니다. 현재 사용 중인 슬롯: {inventoryCount}/{inventorySlotLimit}");
+    
+    
+    // Debug.Log는 실제 처리 후로 옮기는 것이 더 정확함
     return removedCount;
 }
 
@@ -159,16 +163,29 @@ public class Inventory : MonoBehaviour
     {
         try
         {
-            // 1. 날아가는 애니메이션 재생
-            for (int i = 0; i < action.Amount * action.Item.Size; i++)
+
+            InventorySlot slot1 = inventorySlots[action.Item.inventoryNum];
+            if (action.Type == ActionType.Add)
+            {
+                // inventoryCount += action.Item.Size * action.Amount;
+                slot1.quantity += action.Amount;
+                for (int i = 0; i < action.Amount * action.Item.Size; i++)
             {
                 Transform from = (action.Type == ActionType.Add) ? action.Target : this.transform;
                 Transform to = (action.Type == ActionType.Add) ? this.transform : action.Target;
 
                 GameObject newobject1 = PrefabManager.Instance.Get(action.Item.itemName, from.position, Quaternion.identity);
                 newobject1.GetComponent<MoveAndDisappear>().StartMove(to);
-                newobject1.GetComponent<MoveAndDisappear>().enabled = true;
+                
             }
+            }
+            else // ActionType.Remove
+            {
+                // inventoryCount -= action.Item.Size * action.Amount;
+                slot1.quantity -= action.Amount;
+                Debug.Log($"'{action.Item.itemName}' {action.Amount}개가 인벤토리에서 제거되었습니다.");
+            }
+           
 
             // 2. 애니메이션 시간만큼 대기
             if (action.Type == ActionType.Add)
@@ -200,6 +217,7 @@ public class Inventory : MonoBehaviour
                     GameObject newobject = PrefabManager.Instance.Get(action.Item.itemName, Vector3.zero, Quaternion.identity);
                     newobject.transform.parent = this.transform;
                     newobject.transform.localRotation = quaternion.identity;
+                    Debug.Log(index);
                     visualItem.Insert(index, newobject);
                 }
             }
@@ -210,7 +228,7 @@ public class Inventory : MonoBehaviour
                 {
                     // index 위치에서 계속 제거 (리스트가 줄어드므로 항상 같은 index)
                     GameObject objectToRemove = visualItem[index];
-                    PrefabManager.Instance.Release(objectToRemove); // 삭제 대신 Pool에 반환
+                    objectToRemove.GetComponent<MoveAndDisappear>().StartMove(action.Target);
                     visualItem.RemoveAt(index);
                 }
             }
@@ -242,18 +260,20 @@ public class Inventory : MonoBehaviour
 
     }
 
-    public bool AddItem(Item itemToAdd, Transform target)
+public bool AddItem(Item itemToAdd, Transform target)
 {
+    // 예상 공간 확인은 유지할 수 있으나, 실제 데이터 변경은 하지 않음
     if (inventorySlotLimit < itemToAdd.Size + inventoryCount)
         return false;
 
-    // 1. 데이터는 즉시 변경
-    InventorySlot slot = inventorySlots[itemToAdd.inventoryNum];
-    inventoryCount += itemToAdd.Size;
-    slot.quantity++;
+    // 데이터 변경 로직 삭제!
+     InventorySlot slot = inventorySlots[itemToAdd.inventoryNum];
+     inventoryCount += itemToAdd.Size;
+    // slot.quantity++;
 
-    // 2. 시각적 처리는 큐에 작업으로 추가
+    // 시각적 처리는 큐에 작업으로 추가 (기존과 동일)
     actionQueue.Enqueue(new InventoryAction(ActionType.Add, itemToAdd, 1, target));
+    
 
     return true;
 }
