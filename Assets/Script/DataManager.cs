@@ -2,7 +2,6 @@ using UnityEngine;
 using System.IO; // 파일 입출력을 위해 필요
 using System.Collections.Generic;
 using System;
-using UnityEditor.SceneManagement; // List를 위해 필요
 
 public class DataManager : MonoBehaviour
 {
@@ -83,7 +82,7 @@ public class DataManager : MonoBehaviour
         }
         for (int i = 0; i < 10; i++)
         {
-            gameData.upgrades.Add(new UpgradeData(i, 5)); // 초기에는 클리어 안 됨, 시간 없음
+            gameData.upgrades.Add(new UpgradeData(i, 1)); // 초기에는 클리어 안 됨, 시간 없음
         }
         for (int i = 0; i < 12; i++)
         {
