@@ -14,12 +14,18 @@ public class Worker : MonoBehaviour
     [Header("상태 확인")]
     public NPCState currentState;
 
-    public Building primaryBuildingTarget;
+    public Transform primaryBuildingTarget;
     public Building secondaryBuildingTarget;
     public Item carriedItem;
     public Item itemType;
 
     public int itemCount;
+
+    Animator anim;
+
+    public Transform startTrans;
+
+   
 
     public int rank;
 
@@ -30,8 +36,11 @@ public class Worker : MonoBehaviour
     void Start()
     {
         itemCount = 0;
+
         currentState = NPCState.MOVING_TO_PRIMARY;
         ResetToIdle();
+        anim = GetComponentInChildren<Animator>();
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -47,7 +56,6 @@ public class Worker : MonoBehaviour
             {
                 currentState = NPCState.MOVING_TO_SECONDARY;
             }
-
         }
     }
 
@@ -57,12 +65,14 @@ public class Worker : MonoBehaviour
         switch (currentState)
         {
             case NPCState.IDLE:
+                anim.SetFloat("Speed", 0);
                 ResetToIdle();
                 break;
 
             case NPCState.MOVING_TO_PRIMARY:
-                MoveToTarget(primaryBuildingTarget.transform);
-                if (Vector3.Distance(transform.position, primaryBuildingTarget.transform.position) < stopDistance)
+                anim.SetFloat("Speed", 1);
+                MoveToTarget(primaryBuildingTarget);
+                if (Vector3.Distance(transform.position, primaryBuildingTarget.position) < stopDistance)
                 {
                     currentState = NPCState.PICKING_UP;
                 }
@@ -79,7 +89,7 @@ public class Worker : MonoBehaviour
                     // 예외가 발생했다면(true 반환), 현재 프레임의 나머지 로직은 중단
                     return;
                 }
-
+                anim.SetFloat("Speed", 1);
                 MoveToTarget(secondaryBuildingTarget.transform);
                 if (Vector3.Distance(transform.position, secondaryBuildingTarget.transform.position) < stopDistance)
                 {
@@ -98,7 +108,7 @@ public class Worker : MonoBehaviour
     private void FindWork()
     {
         // 생산이 끝난 1차 건물을 찾습니다.
-        Building availablePrimary = FindAvailablePrimaryBuilding();
+        Transform availablePrimary = FindAvailablePrimaryBuilding();
         if (availablePrimary != null)
         {
             primaryBuildingTarget = availablePrimary;
@@ -109,14 +119,16 @@ public class Worker : MonoBehaviour
             {
                 secondaryBuildingTarget = availableSecondary;
                 currentState = NPCState.MOVING_TO_PRIMARY;
-                Debug.Log(primaryBuildingTarget.name + "에서 아이템을 가져와 " + secondaryBuildingTarget.name + "으로 운반 시작!");
+                // Debug.Log(primaryBuildingTarget.name + "에서 아이템을 가져와 " + secondaryBuildingTarget.name + "으로 운반 시작!");
             }
             else
             {
                 // 당장 일할 수 있는 2차 건물이 없으면 대기
-                primaryBuildingTarget = null;
+                
             }
         }
+        
+        
 
     }
 
@@ -129,8 +141,15 @@ public class Worker : MonoBehaviour
         else
         {
             // 다른 NPC가 아이템을 먼저 가져간 경우
-            Debug.Log(primaryBuildingTarget.name + "에 아이템이 없어 대기 상태로 돌아갑니다.");
-            ResetToIdle();
+            
+            anim.SetFloat("Speed",1);
+            MoveToTarget(startTrans);
+            if (Vector3.Distance(transform.position, startTrans.position) < stopDistance)
+            {
+                ResetToIdle();
+            }
+
+            
         }
     }
 
@@ -162,6 +181,25 @@ public class Worker : MonoBehaviour
         // 앞으로 이동
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
+
+    private void MoveToTargetPos(Vector3 target)
+    {
+        if (target == null) return;
+
+        // 목표 방향으로 회전
+        Vector3 direction = (target - transform.position).normalized;
+        direction.y = 0; // y축으로는 회전하지 않도록
+        if (direction != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        }
+
+        // 앞으로 이동
+        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+    }
+
+    
 
     private bool HandleTransportExceptions()
     {
@@ -199,15 +237,16 @@ public class Worker : MonoBehaviour
 
     // --- 탐색 헬퍼 함수 ---
 
-    private Building FindAvailablePrimaryBuilding()
+    private Transform FindAvailablePrimaryBuilding()
     {
+
         foreach (var building in PlayerSpawner.allBuildings)
         {
             // 1차 건물이고, 아이템을 가지고 있는 건물을 찾음
             if (building.isPrimary && building.gameObject.GetComponentInChildren<ItemPickup>() != null)
             {
                 if (building.itemToGive == itemType)
-                    return building;
+                    return building.gameObject.GetComponentInChildren<ItemPickup>().transform;
             }
         }
         return null;

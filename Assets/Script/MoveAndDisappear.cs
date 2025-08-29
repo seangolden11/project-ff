@@ -76,7 +76,7 @@ public class MoveAndDisappear : MonoBehaviour
         // 6. 이동 완료 확인
         if (timeRatio >= 1.0f)
         {
-            Debug.Log("도착!");
+            
             enabled = false; // Update 중지
             transform.localScale = origon;
             // 실제 프로젝트에서는 아래 코드를 사용하게 됩니다.

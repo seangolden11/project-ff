@@ -9,11 +9,15 @@ public class GrassSpawner : MonoBehaviour
     public float spawnRadius = 10f;      // 풀이 생성될 반경 (이 스포너의 중심에서)
     public int maxGrassCount = 50;      // 최대로 유지할 풀의 개수
     public float spawnInterval = 2f;    // 풀을 생성할 주기
+    public float spawnInterval1 = 10f; 
     
     private bool _isPlayerInside = false; // 플레이어가 범위 내에 있는지 여부
+    private bool _isWorker = false; // 플레이어가 범위 내에 있는지 여부
     private float _spawnTimer;
+    private float _spawnTimer1;
 
     public int level = 1;
+    int workerLevel = 0;
 
     Animator anim;
 
@@ -28,12 +32,33 @@ public class GrassSpawner : MonoBehaviour
                 TrySpawnGrass();
             }
         }
+        if (_isWorker)
+        {
+            _spawnTimer1 += Time.deltaTime;
+            if (_spawnTimer1 >= spawnInterval1)
+            {
+                _spawnTimer1 = 0f;
+
+                for (int i = 0; i < workerLevel; i++)
+                {
+                    TrySpawnGrass();
+                }
+            }
+        }
     }
 
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
         GetComponentInChildren<TextMeshPro>().text = $"$ {6 - level}";
+        if (DataManager.Instance.GetJobData()[2].rank != 0)
+        {
+            _isWorker = true;
+            /// GetComponent<Collider>().enabled = false;
+            // GetComponentInChildren<LineRenderer>().enabled = false;
+            workerLevel = DataManager.Instance.GetJobData()[2].rank;
+
+        }
     }
 
     // 플레이어가 트리거에 진입했을 때 호출

@@ -21,6 +21,7 @@ public class Bear : Animals
         SetNewTargetPosition(); // 초기 목표 위치 설정
         grassTag = "Animal";
         animator = GetComponentInChildren<Animator>();
+        nearLimit -= DataManager.Instance.GetUpgradeData(8).level;
     }
 
     void Update()

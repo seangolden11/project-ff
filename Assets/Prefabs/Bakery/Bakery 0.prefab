@@ -478,6 +478,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5567032401507412756, guid: 0df65e22a39aa2244ad288568284e83c, type: 3}
+      propertyPath: isPrimary
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567032401507412756, guid: 0df65e22a39aa2244ad288568284e83c, type: 3}
       propertyPath: buildinginfo
       value: 
       objectReference: {fileID: 11400000, guid: 98fab1965ecda6a45b94b00d2fcd1272, type: 2}

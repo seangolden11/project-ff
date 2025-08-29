@@ -314,6 +314,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5567032401507412756, guid: 0df65e22a39aa2244ad288568284e83c, type: 3}
+      propertyPath: isPrimary
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567032401507412756, guid: 0df65e22a39aa2244ad288568284e83c, type: 3}
       propertyPath: buildinginfo
       value: 
       objectReference: {fileID: 11400000, guid: 9b700fad7401124458884b27607b7e24, type: 2}

@@ -31,7 +31,7 @@ public class EmployeeManager : MonoBehaviour
     void Start()
     {
         InitAll();
-        isFirst = false;   
+        isFirst = false;
     }
 
     void OnEnable()
@@ -104,12 +104,12 @@ public class EmployeeManager : MonoBehaviour
 
     void InitHire(EmpolyeeDatas temp)
     {
-        
+
         GameObject tempbtn = Instantiate(buttonPrefab, hireVeiw.transform);
         tempbtn.GetComponentsInChildren<Image>()[1].sprite = sprites[temp.sprite];
         tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[0].text = ((RankType)temp.rank).ToString();
         tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[1].text = ((NameType)temp.name).ToString();
-        tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[2].text = $"job {((DescType)temp.job).ToString()} has {(temp.rank) * 25}% more effcient";
+        MakeText(tempbtn,temp);
         tempbtn.GetComponent<CustomButton>().id = HireContents.Count;
         tempbtn.GetComponent<CustomButton>().mode = 1;
 
@@ -122,7 +122,7 @@ public class EmployeeManager : MonoBehaviour
         tempbtn.GetComponentsInChildren<Image>()[1].sprite = sprites[temp.sprite];
         tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[0].text = ((RankType)temp.rank).ToString();
         tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[1].text = ((NameType)temp.name).ToString();
-        tempbtn.GetComponentsInChildren<TextMeshProUGUI>()[2].text = $"job {((DescType)temp.job).ToString()} has {(temp.rank) * 25}% more effcient";
+        MakeText(tempbtn,temp);
         tempbtn.GetComponent<CustomButton>().id = HiredContents.Count;
         tempbtn.GetComponent<CustomButton>().mode = 0;
 
@@ -143,7 +143,7 @@ public class EmployeeManager : MonoBehaviour
 
     public void HireEmployee(int id)
     {
-        if (DataManager.Instance.TryUseStar(ed[id].rank+1))
+        if (DataManager.Instance.TryUseStar(ed[id].rank + 1))
         {
             HireContents[id].GetComponent<CustomButton>().mode = 0;
 
@@ -174,7 +174,7 @@ public class EmployeeManager : MonoBehaviour
             hd[id].isAssigned = false;
             DataManager.Instance.SetJob(jd, hd);
         }
-        DataManager.Instance.PlusStar(hd[id].rank+1);
+        DataManager.Instance.PlusStar(hd[id].rank + 1);
         HiredContents[id].GetComponent<CustomButton>().mode = 1;
         HiredContents[id].GetComponent<CustomButton>().id = HireContents.Count;
         HiredContents[id].transform.SetParent(hireVeiw.transform, false);
@@ -239,6 +239,33 @@ public class EmployeeManager : MonoBehaviour
         {
             FireEmployee(id);
         }
+    }
+
+    void MakeText(GameObject gobj, EmpolyeeDatas temp)
+    {
+        switch (temp.job)
+        {
+            case 1:
+                gobj.GetComponentsInChildren<TextMeshProUGUI>()[2].text = $"job {((DescType)temp.job).ToString()} has {(temp.rank) * 25}% more movenment speed";
+                break;
+            case 2:
+                gobj.GetComponentsInChildren<TextMeshProUGUI>()[2].text = $"job {((DescType)temp.job).ToString()} will work {(temp.rank)}times in 10 sec";
+                break;
+            case 8:
+                gobj.GetComponentsInChildren<TextMeshProUGUI>()[2].text = $"job {((DescType)temp.job).ToString()} takes {(temp.rank)} more item";
+                break;
+            case 9:
+                gobj.GetComponentsInChildren<TextMeshProUGUI>()[2].text = $"job {((DescType)temp.job).ToString()} takes {(temp.rank)} more item";
+                break;
+            case 10:
+                gobj.GetComponentsInChildren<TextMeshProUGUI>()[2].text = $"job {((DescType)temp.job).ToString()} takes {(temp.rank)} more item";
+                break;
+            default:
+                gobj.GetComponentsInChildren<TextMeshProUGUI>()[2].text = $"job {((DescType)temp.job).ToString()} has {(temp.rank) * 25}% more effcient";
+                break;
+
+        }
+        
     }
 
     

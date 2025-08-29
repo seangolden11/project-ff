@@ -28,6 +28,8 @@ public class Building : MonoBehaviour
     public SpriteRenderer givesp;
     public SpriteRenderer takesp;
 
+    Vector3 offset = new Vector3(0, 0, -2);
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(playerTag) && !isWorking)
@@ -106,7 +108,7 @@ public class Building : MonoBehaviour
 
             for (int i = 0; i < count; i++)
             {
-                PrefabManager.Instance.Get(itemToGive.Name, transform.position, transform.rotation).transform.SetParent(transform);
+                PrefabManager.Instance.Get(itemToGive.Name, transform.position + offset, transform.rotation).transform.SetParent(transform);
             }
             playerInsideTrigger = false;
             isWorking = false;

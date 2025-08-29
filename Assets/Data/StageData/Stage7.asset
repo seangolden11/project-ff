@@ -30,7 +30,5 @@ MonoBehaviour:
   goal:
     goalItems:
     - type: 2
-      count: 10
-    - type: 0
-      count: 1000
+      count: 20
   startMoney: 300

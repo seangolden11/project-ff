@@ -58,17 +58,17 @@ public class PrefabManager : MonoBehaviour
             GameObject obj = pool.Get();
             obj.transform.position = position;
             obj.transform.rotation = rotation;
-            
-            
+
+
             obj.transform.SetParent(this.transform);
-            
+
             return obj;
         }
         Debug.LogError($"Pool for prefab {name} not found!");
         return null;
     }
-    
-     public void Release(GameObject obj)
+
+    public void Release(GameObject obj)
     {
         if (pools.TryGetValue(obj.name, out var pool))
         {
@@ -80,6 +80,8 @@ public class PrefabManager : MonoBehaviour
             Destroy(obj); // 풀이 없으면 그냥 파괴
         }
     }
+
+   
 
     
 }
